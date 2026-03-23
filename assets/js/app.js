@@ -145,3 +145,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const mins  = Math.ceil(words / 200);
   el.textContent = `${mins} min read`;
 });
+
+// ---- LIGHTBOX ----
+document.addEventListener('DOMContentLoaded', () => {
+  // Create overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'lb-overlay';
+  overlay.innerHTML = '<button class="lb-close" aria-label="Close">✕</button><img src="" alt="">';
+  document.body.appendChild(overlay);
+
+  const lbImg   = overlay.querySelector('img');
+  const lbClose = overlay.querySelector('.lb-close');
+
+  function openLightbox(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  // Add zoom cursor and click to all case study images (exclude avatar, nav, icons)
+  document.querySelectorAll('.img-row img, .case-img img, .hero-images img, .showcase-img, .work-card-preview img').forEach(img => {
+    img.classList.add('img-zoomable');
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  });
+
+  // Close on overlay click (not on image itself)
+  overlay.addEventListener('click', (e) => {
+    if (e.target !== lbImg) closeLightbox();
+  });
+  lbClose.addEventListener('click', closeLightbox);
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+});
