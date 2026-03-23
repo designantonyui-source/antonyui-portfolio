@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#141412"/>
+  <!-- Corner brackets -->
+  <polyline points="3,8 3,3 8,3" fill="none" stroke="#FB6B23" stroke-width="1.5" stroke-linecap="square"/>
+  <polyline points="24,3 29,3 29,8" fill="none" stroke="#FB6B23" stroke-width="1.5" stroke-linecap="square"/>
+  <polyline points="3,24 3,29 8,29" fill="none" stroke="#FB6B23" stroke-width="1.5" stroke-linecap="square"/>
+  <polyline points="24,29 29,29 29,24" fill="none" stroke="#FB6B23" stroke-width="1.5" stroke-linecap="square"/>
+  <!-- Monogram -->
+  <text x="16" y="21" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="-0.5">AB</text>
+</svg>

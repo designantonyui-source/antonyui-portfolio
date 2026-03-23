@@ -170,8 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
     lbImg.src = '';
   }
 
-  // Add zoom cursor and click to all case study images (exclude avatar, nav, icons)
-  document.querySelectorAll('.img-row img, .case-img img, .hero-images img, .showcase-img, .work-card-preview img').forEach(img => {
+  // Add zoom to case study images — skip anything inside a link (work cards) or nav
+  document.querySelectorAll('img.case-img, .img-row img, .hero-images img').forEach(img => {
+    if (img.closest('a.work-card') || img.closest('.nav-logo') || img.classList.contains('nav-avatar')) return;
     img.classList.add('img-zoomable');
     img.addEventListener('click', () => openLightbox(img.src, img.alt));
   });
