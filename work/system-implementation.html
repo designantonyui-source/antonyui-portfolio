@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Implementation — priWatt · Antony Bozhatarnyk</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Apply theme before paint -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Same variables as main site ── */
+    :root {
+      --bg:      #2d2d2b;
+      --bg2:     #2d2d2b;
+      --bg3:     #333331;
+      --border:  rgba(255,255,255,0.08);
+      --border2: rgba(255,255,255,0.16);
+      --text:    #f0ede8;
+      --muted:   rgba(240,237,232,0.55);
+      --faint:   rgba(240,237,232,0.49);
+      --lime:    #CAF476;
+      --mono:    'Geist Mono', 'Courier New', monospace;
+      --sans:    'Inter', sans-serif;
+    }
+    [data-theme="light"] {
+      --bg:      #ffffff;
+      --bg2:     #ffffff;
+      --bg3:     #ede9e3;
+      --border:  rgba(0,0,0,0.08);
+      --border2: rgba(0,0,0,0.14);
+      --text:    #1a1814;
+      --muted:   rgba(26,24,20,0.65);
+      --faint:   rgba(26,24,20,0.59);
+    }
+
+    * { transition: background-color 0.25s, border-color 0.25s, color 0.2s; }
+
+    html, body { height: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 64px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Page wrapper ─── */
+    .diagram { width: 100%; max-width: 1100px; }
+
+    /* ─── Header ─── */
+    .diagram__eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--faint);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .diagram__title {
+      font-family: var(--sans);
+      font-size: 40px;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .diagram__subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 44px;
+    }
+    .diagram__rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin-bottom: 60px;
+    }
+
+    /* ─── Diagram layout ─── */
+    .sys-layout {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* ─── Pills column ─── */
+    .sys-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .sys-pill {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 10px 20px 10px 10px;
+      white-space: nowrap;
+      transition: background 0.2s, border-color 0.25s;
+    }
+    .sys-pill:hover { background: var(--bg2); }
+
+    /* Badge: square tile in the pill */
+    .sys-badge {
+      width: 26px; height: 26px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 700;
+      color: #141410;
+      transition: background 0.25s;
+    }
+
+    .sys-label {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    /* ─── Spacer — connector zone ─── */
+    .sys-gap {
+      flex: 1;
+      min-width: 72px;
+    }
+
+    /* ─── Button ─── */
+    .sys-btn-col {
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .sys-btn {
+      background: var(--lime);
+      color: #141410;
+      border: none;
+      border-radius: 4px;
+      padding: 17px 28px;
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.01em;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    .sys-btn:hover { opacity: 0.88; }
+
+    .sys-btn .chevron {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    /* ─── SVG connector overlay ─── */
+    .sys-connector-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    /* ─── Footer ─── */
+    .diagram__footer {
+      margin-top: 64px;
+      font-size: 13px;
+      color: var(--faint);
+      letter-spacing: 0.01em;
+    }
+
+    /* ═══════════════════════════════════════
+       CARD / IFRAME MODE  (≤ 580px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 580px) {
+      body {
+        padding: 22px 20px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        min-height: auto;
+      }
+      .diagram { max-width: 100%; }
+      .diagram__eyebrow  { font-size: 10px; margin-bottom: 8px; }
+      .diagram__title    { font-size: 18px; margin-bottom: 4px; }
+      .diagram__subtitle { font-size: 10px; margin-bottom: 14px; }
+      .diagram__rule     { margin-bottom: 18px; }
+
+      /* Stack vertically */
+      .sys-layout {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      /* Hide SVG connectors — doesn't work stacked */
+      .sys-connector-svg { display: none; }
+
+      .sys-gap { display: none; }
+
+      .sys-pills { gap: 10px; }
+
+      .sys-pill { padding: 7px 14px 7px 7px; gap: 8px; }
+      .sys-badge { width: 20px; height: 20px; font-size: 10px; border-radius: 4px; }
+      .sys-label { font-size: 11px; }
+
+      .sys-btn {
+        padding: 12px 20px;
+        font-size: 13px;
+      }
+
+      .diagram__footer { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram">
+
+    <p class="diagram__eyebrow">COMPONENT TOKENS · 04</p>
+    <h1 class="diagram__title">System Implementation</h1>
+    <p class="diagram__subtitle">How component tokens map to a live UI element</p>
+    <hr class="diagram__rule">
+
+    <div class="sys-layout" id="sysLayout">
+
+      <!-- Token pills -->
+      <div class="sys-pills" id="sysPills">
+
+        <div class="sys-pill">
+          <div class="sys-badge" style="background:var(--lime);">Ag</div>
+          <span class="sys-label">button/font-size/md</span>
+        </div>
+
+        <div class="sys-pill">
+          <div class="sys-badge" style="background:var(--lime);"></div>
+          <span class="sys-label">button/primary/text</span>
+        </div>
+
+        <div class="sys-pill">
+          <div class="sys-badge" style="background:var(--lime);"></div>
+          <span class="sys-label">button/primary/radius</span>
+        </div>
+
+        <div class="sys-pill">
+          <div class="sys-badge" style="background:var(--lime);"></div>
+          <span class="sys-label">button/primary/bg-default</span>
+        </div>
+
+        <div class="sys-pill">
+          <div class="sys-badge" style="background:var(--lime);"></div>
+          <span class="sys-label">button/primary/icon/bg-default</span>
+        </div>
+
+      </div>
+
+      <!-- Connector zone spacer -->
+      <div class="sys-gap"></div>
+
+      <!-- Live button -->
+      <div class="sys-btn-col" id="sysBtnCol">
+        <button class="sys-btn" id="sysBtn">
+          Jetzt Angebot sichern
+          <span class="chevron">›</span>
+        </button>
+      </div>
+
+      <!-- SVG connector overlay (drawn by JS) -->
+      <svg class="sys-connector-svg" id="sysConnectorSvg" aria-hidden="true"></svg>
+
+    </div>
+
+    <p class="diagram__footer">// Each token controls exactly one visual property of the component.</p>
+
+  </div>
+
+  <script>
+    /* ── Theme sync ── */
+    window.addEventListener('storage', function (e) {
+      if (e.key === 'theme') {
+        document.documentElement.setAttribute('data-theme', e.newValue || 'dark');
+        requestAnimationFrame(drawConnectors); // stroke colour is CSS var, redraw to refresh
+      }
+    });
+    window.addEventListener('message', function (e) {
+      if (e.data && e.data.type === 'theme') {
+        document.documentElement.setAttribute('data-theme', e.data.value || 'dark');
+        requestAnimationFrame(drawConnectors);
+      }
+    });
+
+    /* ── Connector drawing ── */
+    function drawConnectors() {
+      var svg    = document.getElementById('sysConnectorSvg');
+      var layout = document.getElementById('sysLayout');
+      var pills  = document.querySelectorAll('#sysPills .sys-pill');
+      var btn    = document.getElementById('sysBtn');
+
+      if (!svg || !layout || !pills.length || !btn) return;
+
+      // Skip in stacked (compact) mode
+      if (getComputedStyle(svg).display === 'none') return;
+
+      var lr = layout.getBoundingClientRect();
+      var br = btn.getBoundingClientRect();
+
+      var btnLeft    = br.left - lr.left;
+      var btnCenterY = br.top  - lr.top + br.height / 2;
+
+      // Gather pill right-edge x and centre y
+      var pillData = [];
+      var maxRight = 0;
+      pills.forEach(function (pill) {
+        var pr = pill.getBoundingClientRect();
+        var cy = pr.top - lr.top + pr.height / 2;
+        var rx = pr.right - lr.left;
+        pillData.push({ cy: cy, rx: rx });
+        if (rx > maxRight) maxRight = rx;
+      });
+
+      // Spine x = midpoint between pills' right edge and button's left edge
+      var spineX = maxRight + (btnLeft - maxRight) * 0.5;
+
+      var lines = '';
+
+      // Horizontal from each pill right → spine
+      pillData.forEach(function (p) {
+        lines += '<line x1="' + p.rx + '" y1="' + p.cy + '" x2="' + spineX + '" y2="' + p.cy + '"/>';
+      });
+
+      // Vertical spine — first pill to last pill
+      var topY    = pillData[0].cy;
+      var bottomY = pillData[pillData.length - 1].cy;
+      lines += '<line x1="' + spineX + '" y1="' + topY + '" x2="' + spineX + '" y2="' + bottomY + '"/>';
+
+      // Horizontal spine → button (at button vertical centre)
+      lines += '<line x1="' + spineX + '" y1="' + btnCenterY + '" x2="' + btnLeft + '" y2="' + btnCenterY + '"/>';
+
+      svg.innerHTML =
+        '<g stroke="var(--border2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">' +
+        lines + '</g>';
+    }
+
+    window.addEventListener('load', drawConnectors);
+    window.addEventListener('resize', drawConnectors);
+    // Also try after fonts load (layout may shift)
+    if (document.fonts) {
+      document.fonts.ready.then(drawConnectors);
+    }
+  </script>
+</body>
+</html>

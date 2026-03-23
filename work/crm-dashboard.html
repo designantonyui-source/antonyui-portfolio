@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus CRM — Sales & Operations Dashboard · Antony Bozhatarnyk</title>
+<meta name="description" content="Redesigned a fragmented B2B CRM used by 200+ sales reps — unifying pipeline, account health, and activity data into one modular dashboard. Case study by Antony Bozhatarnyk.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://antonyui.com/work/crm-dashboard.html">
+<!-- OG -->
+<meta property="og:title" content="Nexus CRM — Sales & Operations Dashboard">
+<meta property="og:description" content="Redesigned a fragmented B2B CRM used by 200+ sales reps — unifying pipeline, account health, and activity data into one modular dashboard.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://antonyui.com/work/crm-dashboard.html">
+<meta property="og:image" content="https://antonyui.com/assets/images/og-nexus.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Antony Bozhatarnyk">
+<meta property="og:locale" content="en_US">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nexus CRM — Sales & Operations Dashboard">
+<meta name="twitter:description" content="B2B SaaS dashboard redesign — unifying pipeline, account health, and activity data into one modular CRM.">
+<meta name="twitter:image" content="https://antonyui.com/assets/images/og-nexus.jpg">
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Nexus CRM — Sales & Operations Dashboard",
+  "description": "Redesigned a fragmented B2B CRM used by 200+ sales reps — unifying pipeline, account health, and activity data into one modular dashboard.",
+  "author": {
+    "@type": "Person",
+    "name": "Antony Bozhatarnyk",
+    "url": "https://antonyui.com"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Antony Bozhatarnyk",
+    "url": "https://antonyui.com"
+  },
+  "datePublished": "2022-01-01",
+  "dateModified": "2026-03-23",
+  "url": "https://antonyui.com/work/crm-dashboard.html"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<script src="../assets/js/app.js"></script>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="Antony Bozhatarnyk"> Antony Bozhatarnyk</a>
+    <div class="nav-links">
+      <a href="../index.html#work">Work</a>
+      <a href="priwatt.html">Cases</a>
+      <a href="../index.html#expertise">Expertise</a>
+      <a href="../index.html#about">About</a>
+    </div>
+    <div class="nav-right">
+      <div class="theme-toggle">
+        <button class="theme-btn active" id="btn-dark"  onclick="setTheme('dark')"  aria-label="Dark mode"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9.17A5.5 5.5 0 0 1 4.83 2 5.5 5.5 0 1 0 12 9.17z" fill="currentColor"/></svg></button>
+        <button class="theme-btn"        id="btn-light" onclick="setTheme('light')" aria-label="Light mode"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="2.5" fill="currentColor"/><line x1="7" y1="1" x2="7" y2="2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11.5" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="2.5" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.5" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="10" x2="11.07" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.07" y1="2.93" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="10" x2="2.93" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div>
+      <a href="mailto:designantonyui@gmail.com" class="nav-cta">Get in touch →</a>
+      <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <div class="nav-mobile-inner">
+      <a href="../index.html#work">Work</a>
+      <a href="priwatt.html">Cases</a>
+      <a href="../index.html#expertise">Expertise</a>
+      <a href="../index.html#about">About</a>
+      <a href="mailto:designantonyui@gmail.com" class="nav-mobile-cta">Get in touch →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- CASE HERO -->
+<div class="case-hero">
+  <div class="dot-bg"></div>
+  <div class="site">
+    <a href="../index.html" class="back-link">← Back to work</a>
+    <div class="read-time">⏱ <span id="read-time">5 min read</span></div>
+    <div class="case-tag">B2B SAAS · CASE STUDY · 2023</div>
+    <h1 class="case-title"><strong>Nexus CRM</strong> — Sales &<br>Operations Dashboard</h1>
+    <p class="case-subtitle">A 200-person sales team operating across five disconnected tools, no single view of pipeline health, and an onboarding process that took three weeks. I redesigned the core CRM dashboard — consolidating data, establishing a component system, and cutting the time to act on critical account signals.</p>
+
+    <!-- META -->
+    <div class="meta-strip" style="position:relative;">
+      <span class="meta-strip-b" style="position:absolute;inset:0;pointer-events:none;"></span>
+      <div class="meta-item">
+        <div class="meta-label">Project type</div>
+        <div class="meta-val">B2B SaaS · Internal Tool</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Role</div>
+        <div class="meta-val">Lead Product Designer</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Duration</div>
+        <div class="meta-val">4 months · 2023</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Scope</div>
+        <div class="meta-val pills">
+          <span class="meta-pill">UX Research</span>
+          <span class="meta-pill">UI Design</span>
+          <span class="meta-pill">Design System</span>
+          <span class="meta-pill">Prototyping</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="site" style="padding-top:40px;">
+  <div class="img-placeholder hero-img"><span class="img-bl"></span>[ Nexus CRM — main dashboard overview ]</div>
+</div>
+
+<!-- 01 CONTEXT -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">01 · Context</div>
+    <p class="prose"><strong>Nexus serves mid-market B2B companies</strong> with sales teams managing complex, multi-stakeholder deals. Sales reps were context-switching between a legacy CRM, a separate analytics platform, a task manager, email, and spreadsheets — stitching together a picture of each account manually, multiple times per day.</p>
+    <p class="prose" style="margin-top:16px;">The platform had grown through feature additions rather than coherent design — each module built by a different team at a different time. The result was a fragmented experience that slowed reps down and made onboarding new hires unnecessarily painful.</p>
+    <p class="prose" style="margin-top:16px;">My mandate was to redesign the core dashboard surface — establishing a unified information architecture, a reusable component system, and a set of interaction patterns that would carry forward into future modules.</p>
+  </div>
+</div>
+
+<!-- 02 RESEARCH -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">02 · Research & Discovery</div>
+    <p class="prose">Before touching any interface, I spent two weeks in discovery: shadowing sessions with 8 sales reps, 4 team leads, and 2 ops managers. The pattern was clear — the tool wasn't the problem, the data fragmentation was.</p>
+
+    <div class="challenge-grid" style="position:relative;">
+      <span class="challenge-grid-b" style="position:absolute;inset:0;pointer-events:none;"></span>
+      <div class="challenge-item">
+        <div class="challenge-num">FINDING 01</div>
+        <div class="challenge-title">5 tools, 1 workflow</div>
+        <div class="challenge-desc">Reps averaged 47 tab switches per day. Pipeline data lived in the CRM, but context — emails, notes, tasks — lived everywhere else.</div>
+      </div>
+      <div class="challenge-item">
+        <div class="challenge-num">FINDING 02</div>
+        <div class="challenge-title">No prioritisation signal</div>
+        <div class="challenge-desc">The dashboard showed everything equally. Reps had no way to see which accounts needed attention today without manually reviewing each record.</div>
+      </div>
+      <div class="challenge-item">
+        <div class="challenge-num">FINDING 03</div>
+        <div class="challenge-title">Activity data was invisible</div>
+        <div class="challenge-desc">Email opens, call logs, and meeting history were stored but buried in sub-pages. Reps routinely missed signals that a deal had gone cold.</div>
+      </div>
+      <div class="challenge-item">
+        <div class="challenge-num">FINDING 04</div>
+        <div class="challenge-title">3-week onboarding</div>
+        <div class="challenge-desc">New hires needed three weeks to become independently productive. Navigation logic was inconsistent; there was no clear mental model to latch onto.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 03 OUTCOMES -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">03 · Outcomes</div>
+    <p class="prose" style="margin-bottom:32px;">Validated through usability testing with 12 participants and a 6-week beta with a pilot cohort of 40 reps.</p>
+    <div class="outcomes" style="position:relative;">
+      <span class="outcomes-b" style="position:absolute;inset:0;pointer-events:none;"></span>
+      <div class="outcome-item">
+        <div class="outcome-val">40%</div>
+        <div class="outcome-desc">Reduction in time to locate and act on at-risk account signals</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-val">60%</div>
+        <div class="outcome-desc">Reduction in context-switching (tab switches per session) in usability testing</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-val">1wk</div>
+        <div class="outcome-desc">Onboarding time cut from 3 weeks to 1 week for new sales hires</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 WHAT I BUILT -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">04 · What I Built</div>
+
+    <!-- DELIVERABLE 1 -->
+    <div class="deliverable">
+      <div class="deliverable-header">
+        <div class="deliverable-num">01 / 04</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">Unified Dashboard with Priority Feed</div>
+          <div class="deliverable-desc">The core insight from research: reps didn't need more data, they needed the right data surfaced at the right moment. I designed a priority-first home view — an intelligent activity feed that surfaces accounts with recent signals (email opens, deal stage changes, overdue tasks) at the top, pushing inactive records down. Reps arrive knowing exactly where to start.</div>
+        </div>
+      </div>
+      <div class="img-row cols-2">
+        <div class="img-placeholder med-img"><span class="img-bl"></span>[ Dashboard — priority feed view ]</div>
+        <div class="img-placeholder med-img"><span class="img-bl"></span>[ Account health scoring system ]</div>
+      </div>
+      <div class="img-row cols-3" style="margin-top:12px;">
+        <div class="img-placeholder sm-img"><span class="img-bl"></span>[ Signal indicators ]</div>
+        <div class="img-placeholder sm-img"><span class="img-bl"></span>[ Filter / sort panel ]</div>
+        <div class="img-placeholder sm-img"><span class="img-bl"></span>[ Empty state ]</div>
+      </div>
+    </div>
+
+    <!-- DELIVERABLE 2 -->
+    <div class="deliverable">
+      <div class="deliverable-header">
+        <div class="deliverable-num">02 / 04</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">Account 360° View</div>
+          <div class="deliverable-desc">The scattered-tools problem was solved by collapsing external context into the account record itself. The 360° view pulls timeline data (emails, calls, meetings, notes), deal stage, open tasks, and stakeholder map into a single scannable layout. One page replaces five tools. The information hierarchy was designed around the rep's mental model — "What's happened, what's next, who's involved."</div>
+        </div>
+      </div>
+      <div class="img-row cols-2">
+        <div class="img-placeholder med-img"><span class="img-bl"></span>[ Account 360 — activity timeline ]</div>
+        <div class="img-placeholder med-img"><span class="img-bl"></span>[ Stakeholder map ]</div>
+      </div>
+      <div class="img-row cols-2" style="margin-top:12px;">
+        <div class="img-placeholder sm-img"><span class="img-bl"></span>[ Deal stage tracker ]</div>
+        <div class="img-placeholder sm-img"><span class="img-bl"></span>[ Open tasks panel ]</div>
+      </div>
+    </div>
+
+    <!-- DELIVERABLE 3 -->
+    <div class="deliverable">
+      <div class="deliverable-header">
+        <div class="deliverable-num">03 / 04</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">Pipeline Kanban & Forecasting</div>
+          <div class="deliverable-desc">Team leads needed a fast way to review pipeline health across their whole team without opening individual records. I designed a compact pipeline kanban — colour-coded by deal health, with inline forecast data and drag-to-stage functionality. A sidebar panel lets managers drill into any deal without losing their pipeline view context.</div>
+        </div>
+      </div>
+      <div class="img-row cols-3">
+        <div class="img-placeholder med-img"><span class="img-bl"></span>[ Pipeline kanban — team view ]</div>
+        <div class="img-placeholder med-img"><span class="img-bl"></span>[ Deal health indicators ]</div>
+        <div class="img-placeholder med-img"><span class="img-bl"></span>[ Forecast sidebar ]</div>
+      </div>
+    </div>
+
+    <!-- DELIVERABLE 4 -->
+    <div class="deliverable">
+      <div class="deliverable-header">
+        <div class="deliverable-num">04 / 04</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">CRM Component System</div>
+          <div class="deliverable-desc">Every pattern designed for this dashboard was codified into a shared component library — data tables, status chips, activity cards, inline editing states, empty states, and loading skeletons. This system became the foundation for the platform's next two modules (Reporting and Settings), making future design work significantly faster and keeping the product visually consistent as it scaled.</div>
+        </div>
+      </div>
+      <div class="img-row cols-2">
+        <div class="img-placeholder med-img"><span class="img-bl"></span>[ Component library — data table variants ]</div>
+        <div class="img-placeholder med-img"><span class="img-bl"></span>[ Status chips & activity cards ]</div>
+      </div>
+      <div class="img-row cols-3" style="margin-top:12px;">
+        <div class="img-placeholder sm-img"><span class="img-bl"></span>[ Inline edit states ]</div>
+        <div class="img-placeholder sm-img"><span class="img-bl"></span>[ Empty states ]</div>
+        <div class="img-placeholder sm-img"><span class="img-bl"></span>[ Loading skeletons ]</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- NEXT CASE -->
+<div class="section" style="padding-bottom:64px; border-bottom:none;">
+  <div class="site">
+    <div class="section-label">Next Case</div>
+    <a href="priwatt.html" class="next-case" style="position:relative;">
+      <span class="nc-b"></span>
+      <div>
+        <div class="nc-label">Featured · Case Study</div>
+        <div class="nc-title">priWatt — E-Commerce Redesign & Design System</div>
+      </div>
+      <div class="nc-arrow">↗</div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 · Antony Bozhatarnyk</div>
+    <div class="footer-status"><span class="footer-status-pill"><span class="footer-status-dot"></span>Available · Poland / Remote EU</span></div>
+    <div class="footer-links">
+      <a href="mailto:designantonyui@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/antony-bozhatarnyk-b6068441/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

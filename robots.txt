@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /work/atomic-system.html
+Disallow: /work/multi-collection.html
+Disallow: /work/system-implementation.html
+Disallow: /work/semantic-tokens.html
+
+Sitemap: https://antonyui.com/sitemap.xml

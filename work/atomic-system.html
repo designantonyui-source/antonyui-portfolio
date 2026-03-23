@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atomic System — priWatt Design System · Antony Bozhatarnyk</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Same variables as main site ── */
+    :root {
+      --bg:           #2d2d2b;
+      --bg2:          #2d2d2b;
+      --bg3:          #333331;
+      --border:       rgba(255,255,255,0.08);
+      --border2:      rgba(255,255,255,0.16);
+      --text:         #f0ede8;
+      --muted:        rgba(240,237,232,0.55);
+      --faint:        rgba(240,237,232,0.49);
+      --lime:         #CAF476;
+      --mono:         'Geist Mono', 'Courier New', monospace;
+      --sans:         'Inter', sans-serif;
+      /* SVG ring colours — stack to create depth illusion */
+      --ring-fill:    rgba(255,255,255,0.026);
+      --ring-stroke:  rgba(255,255,255,0.09);
+    }
+    [data-theme="light"] {
+      --bg:           #ffffff;
+      --bg2:          #ffffff;
+      --bg3:          #ede9e3;
+      --border:       rgba(0,0,0,0.08);
+      --border2:      rgba(0,0,0,0.14);
+      --text:         #1a1814;
+      --muted:        rgba(26,24,20,0.65);
+      --faint:        rgba(26,24,20,0.59);
+      --ring-fill:    rgba(0,0,0,0.028);
+      --ring-stroke:  rgba(0,0,0,0.09);
+    }
+
+    * { transition: background-color 0.25s, border-color 0.25s, color 0.2s; }
+
+    html, body { height: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 64px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .diagram { width: 100%; max-width: 1100px; }
+
+    /* ── Header ── */
+    .diagram__eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--faint);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .diagram__title {
+      font-family: var(--sans);
+      font-size: 40px;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .diagram__subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 44px;
+    }
+    .diagram__rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin-bottom: 60px;
+    }
+
+    /* ── Body ── */
+    .diagram__body {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    /* ── Concentric circles ── */
+    .circles-wrap { width: 100%; aspect-ratio: 1; }
+    .circles-wrap svg { width: 100%; height: 100%; display: block; }
+
+    /* ── Level list ── */
+    .level-list { display: flex; flex-direction: column; }
+
+    .level-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+    }
+    .level-row:first-child { border-top: none; padding-top: 0; }
+    .level-row:last-child  { padding-bottom: 0; }
+
+    .level-num {
+      font-size: 11px;
+      color: var(--faint);
+      width: 20px;
+      text-align: right;
+      flex-shrink: 0;
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+    .level-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--faint);
+      flex-shrink: 0;
+      transition: background 0.25s;
+    }
+    .level-dot--active { background: var(--lime); }
+
+    .level-name {
+      flex: 1;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .level-desc {
+      font-size: 12px;
+      color: var(--faint);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ── Footer ── */
+    .diagram__footer {
+      margin-top: 64px;
+      font-size: 13px;
+      color: var(--faint);
+      letter-spacing: 0.01em;
+    }
+
+    /* ═══════════════════════════════════
+       COMPACT / IFRAME MODE (≤ 580px)
+    ═══════════════════════════════════ */
+    @media (max-width: 580px) {
+      body {
+        padding: 22px 20px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        min-height: auto;
+      }
+      .diagram { max-width: 100%; }
+      .diagram__eyebrow  { font-size: 10px; margin-bottom: 8px; }
+      .diagram__title    { font-size: 18px; margin-bottom: 4px; }
+      .diagram__subtitle { font-size: 10px; margin-bottom: 12px; }
+      .diagram__rule     { margin-bottom: 14px; }
+
+      /* Vertical — circle + list fills card height */
+      .diagram__body {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .circles-wrap { max-width: 160px; margin: 0 auto; }
+
+      .level-list { justify-content: space-between; }
+      .level-row { padding: 7px 0; gap: 9px; }
+      .level-row:first-child { border-top: none; padding-top: 0; }
+      .level-num  { font-size: 9px; width: 14px; }
+      .level-dot  { width: 6px; height: 6px; }
+      .level-name { font-size: 11px; }
+      .level-desc { display: none; }
+
+      .diagram__footer { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram">
+
+    <p class="diagram__eyebrow">DESIGN TOKENS · 01</p>
+    <h1 class="diagram__title">Atomic System</h1>
+    <p class="diagram__subtitle">Design complexity grows from the inside out</p>
+    <hr class="diagram__rule">
+
+    <div class="diagram__body">
+
+      <!-- Concentric circles SVG -->
+      <div class="circles-wrap">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!--
+            6 rings painted outermost → innermost.
+            Each ring adds --ring-fill opacity so the centre
+            appears visually deeper/denser (stacked transparency).
+          -->
+
+          <!-- Species (outermost) -->
+          <circle cx="200" cy="200" r="178"
+            fill="var(--ring-fill)" stroke="var(--ring-stroke)" stroke-width="1"/>
+          <!-- Complex Organisms -->
+          <circle cx="200" cy="200" r="148"
+            fill="var(--ring-fill)" stroke="var(--ring-stroke)" stroke-width="1"/>
+          <!-- Organisms -->
+          <circle cx="200" cy="200" r="118"
+            fill="var(--ring-fill)" stroke="var(--ring-stroke)" stroke-width="1"/>
+          <!-- Molecules -->
+          <circle cx="200" cy="200" r="88"
+            fill="var(--ring-fill)" stroke="var(--ring-stroke)" stroke-width="1"/>
+          <!-- Atoms -->
+          <circle cx="200" cy="200" r="58"
+            fill="var(--ring-fill)" stroke="var(--ring-stroke)" stroke-width="1"/>
+          <!-- Ions (innermost ring) -->
+          <circle cx="200" cy="200" r="28"
+            fill="var(--ring-fill)" stroke="var(--ring-stroke)" stroke-width="1"/>
+
+          <!-- TOKEN badge -->
+          <circle cx="200" cy="200" r="19" fill="#CAF476"/>
+          <text
+            x="200" y="200"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            font-family="'Geist Mono', monospace"
+            font-size="8.5"
+            font-weight="600"
+            letter-spacing="0.04em"
+            fill="#141410">TOKEN</text>
+        </svg>
+      </div>
+
+      <!-- Hierarchy list -->
+      <div class="level-list">
+
+        <div class="level-row">
+          <span class="level-num">01</span>
+          <span class="level-dot level-dot--active"></span>
+          <span class="level-name">Ions</span>
+          <span class="level-desc">Tokens, variables</span>
+        </div>
+
+        <div class="level-row">
+          <span class="level-num">02</span>
+          <span class="level-dot"></span>
+          <span class="level-name">Atoms</span>
+          <span class="level-desc">Buttons, icons, badges</span>
+        </div>
+
+        <div class="level-row">
+          <span class="level-num">03</span>
+          <span class="level-dot"></span>
+          <span class="level-name">Molecules</span>
+          <span class="level-desc">Input fields, dropdowns</span>
+        </div>
+
+        <div class="level-row">
+          <span class="level-num">04</span>
+          <span class="level-dot"></span>
+          <span class="level-name">Organisms</span>
+          <span class="level-desc">Cards, forms, navbars</span>
+        </div>
+
+        <div class="level-row">
+          <span class="level-num">05</span>
+          <span class="level-dot"></span>
+          <span class="level-name">Complex Organisms</span>
+          <span class="level-desc">Sections &amp; layouts</span>
+        </div>
+
+        <div class="level-row">
+          <span class="level-num">06</span>
+          <span class="level-dot"></span>
+          <span class="level-name">Species</span>
+          <span class="level-desc">Pages &amp; flows</span>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="diagram__footer">// Atomic design by Brad Frost — each layer composes from the one within it.</p>
+
+  </div>
+
+  <script>
+    window.addEventListener('storage', function (e) {
+      if (e.key === 'theme') {
+        document.documentElement.setAttribute('data-theme', e.newValue || 'dark');
+      }
+    });
+    window.addEventListener('message', function (e) {
+      if (e.data && e.data.type === 'theme') {
+        document.documentElement.setAttribute('data-theme', e.data.value || 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

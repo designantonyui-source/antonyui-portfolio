@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>priWatt — Design System from Brand Book to Production · Antony Bozhatarnyk</title>
+<meta name="description" content="How I built a production-ready design system from an agency brand book — three-tier token architecture, typography scale, responsive grid, and component library. 75% faster delivery.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://antonyui.com/work/priwatt.html">
+<!-- OG -->
+<meta property="og:title" content="priWatt — Design System from Brand Book to Production">
+<meta property="og:description" content="How I built a production-ready design system from an agency brand book — three-tier token architecture, typography scale, responsive grid, and component library.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://antonyui.com/work/priwatt.html">
+<meta property="og:image" content="https://antonyui.com/assets/images/og-priwatt.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Antony Bozhatarnyk">
+<meta property="og:locale" content="en_US">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="priWatt — Design System from Brand Book to Production">
+<meta name="twitter:description" content="How I built a production-ready design system from an agency brand book — 75% faster design-to-dev delivery.">
+<meta name="twitter:image" content="https://antonyui.com/assets/images/og-priwatt.jpg">
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "priWatt — Design System from Brand Book to Production",
+  "description": "How I built a production-ready design system from an agency brand book — three-tier token architecture, typography scale, responsive grid, and component library.",
+  "author": {
+    "@type": "Person",
+    "name": "Antony Bozhatarnyk",
+    "url": "https://antonyui.com"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Antony Bozhatarnyk",
+    "url": "https://antonyui.com"
+  },
+  "datePublished": "2024-05-01",
+  "dateModified": "2026-03-23",
+  "url": "https://antonyui.com/work/priwatt.html"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<script src="../assets/js/app.js"></script>
+<style>
+/* ── DS variable aliases ─────────────────────────────────────── */
+:root {
+  --bg-2: var(--bg2); --bg-3: var(--bg3);
+  --surface: var(--bg3);
+  --border-s: var(--border2);
+  --text-2: var(--muted); --text-3: var(--faint);
+  --accent: var(--orange);
+  --accent-dim: var(--orange-dim);
+  --accent-dim2: rgba(251,107,35,0.08);
+  --green: #6DBE8C;
+  --sans: var(--font);
+  --radius-lg: 12px;
+}
+[data-theme="light"] { --accent-dim2: rgba(180,75,20,0.06); }
+
+/* ── Process Steps ────────────────────────────────────────────── */
+.process-steps {
+  display: flex; flex-direction: column; gap: 1px;
+  background: var(--border); border: 1px solid var(--border2);
+  overflow: hidden; margin-top: 28px;
+}
+.process-step { display: grid; grid-template-columns: 48px 1fr; background: var(--bg); }
+.step-num { font-size: 11px; font-family: var(--mono); color: var(--accent); padding: 20px 0 20px 20px; }
+.step-body { padding: 20px 20px 20px 0; }
+.step-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+.step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ── Token Architecture ───────────────────────────────────────── */
+.token-flow {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border2);   overflow: hidden; margin-top: 28px;
+}
+.token-tier { background: var(--bg); padding: 24px 20px; }
+.tier-label { font-size: 10px; font-family: var(--mono); color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+.tier-name { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 10px; }
+.tier-desc { font-size: 12px; color: var(--faint); line-height: 1.5; margin-bottom: 16px; }
+.tier-examples { display: flex; flex-direction: column; gap: 6px; }
+.token-chip { font-size: 11px; font-family: var(--mono); background: var(--bg2); color: var(--muted); border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px; width: fit-content; }
+
+/* ── Colour Swatches ─────────────────────────────────────────── */
+.swatch-section { margin-top: 28px; }
+.swatch-group { margin-bottom: 24px; }
+.swatch-group-label { font-size: 11px; font-family: var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+.swatch-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.swatch { display: flex; flex-direction: column; gap: 6px; }
+.swatch-color { width: 64px; height: 40px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.06); }
+[data-theme="light"] .swatch-color { border-color: rgba(0,0,0,0.08); }
+.swatch-name { font-size: 10px; font-family: var(--mono); color: var(--faint); }
+.swatch-hex { font-size: 10px; font-family: var(--mono); color: var(--faint); opacity: 0.6; }
+
+/* ── Token Table ─────────────────────────────────────────────── */
+.token-table { width: 100%; border-collapse: collapse; border: 1px solid var(--border2); overflow: hidden; margin-top: 28px; font-size: 12px; }
+.token-table th { background: var(--bg2); padding: 10px 16px; text-align: left; font-size: 10px; font-family: var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: 0.07em; border-bottom: 1px solid var(--border); }
+.token-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); color: var(--muted); }
+.token-table tr:last-child td { border-bottom: none; }
+.token-table .t-name { font-family: var(--mono); color: var(--accent); }
+.token-table .t-val { font-family: var(--mono); color: var(--faint); }
+.token-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: middle; margin-right: 6px; border: 1px solid rgba(255,255,255,0.1); }
+[data-theme="light"] .token-swatch { border-color: rgba(0,0,0,0.1); }
+
+/* ── Typography Scale ────────────────────────────────────────── */
+.type-scale { margin-top: 28px; display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border2); overflow: hidden; }
+.type-row { display: grid; grid-template-columns: 100px 80px 1fr; align-items: center; gap: 20px; background: var(--bg); padding: 14px 20px; }
+.type-token { font-size: 11px; font-family: var(--mono); color: var(--accent); }
+.type-size { font-size: 11px; font-family: var(--mono); color: var(--faint); }
+.type-sample { color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ── Component Demo ──────────────────────────────────────────── */
+.comp-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: center; margin-top: 28px; border: 1px solid var(--border2); background: var(--bg2); }
+.comp-props { display: flex; flex-direction: column; gap: 6px; padding: 40px 32px 40px 40px; border-right: 1px dashed var(--border2); }
+.comp-prop-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 9px 14px; background: var(--bg); border: 1px solid var(--border); }
+.comp-prop-left { display: flex; align-items: center; gap: 9px; }
+.cprop-icon { font-size: 9px; color: var(--muted); width: 12px; text-align: center; flex-shrink: 0; }
+.cprop-name { font-size: 13px; font-weight: 500; color: var(--text); }
+.cprop-badge { font-family: var(--mono); font-size: 11px; color: var(--muted); background: var(--bg2); border: 1px solid var(--border); padding: 2px 10px; border-radius: 20px; white-space: nowrap; }
+.cprop-badge-icon { width: 26px; height: 26px; border: 1px solid var(--border); border-radius: 5px; background: var(--bg2); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text); }
+.comp-preview-cell { display: flex; align-items: center; justify-content: center; padding: 40px 40px 40px 32px; }
+.comp-preview-btn { background: #CAF476; color: #1a1c17; font-family: var(--font); font-weight: 600; font-size: 15px; padding: 13px 22px; border-radius: 4px; border: none; cursor: pointer; }
+@media (max-width: 480px) { .comp-demo { grid-template-columns: 1fr; } .comp-props { border-right: none; border-bottom: 1px dashed var(--border2); padding: 28px 20px; } .comp-preview-cell { padding: 24px 20px; } }
+
+/* ── Spacing Scale (full-width bar chart) ────────────────────── */
+.spacing-scale-wrap { border: 1px solid var(--border2); margin-top: 28px; padding: 40px 28px 20px; }
+.spacing-scale { display: grid; grid-template-columns: repeat(13, 1fr); gap: 4px; }
+.spacing-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.spacing-bar-cell { height: 96px; display: flex; align-items: flex-end; width: 100%; justify-content: center; }
+.spacing-bar { background: var(--orange); opacity: 0.7; width: 100%; border-radius: 0; }
+.spacing-label { font-size: 10px; font-family: var(--mono); color: var(--faint); }
+
+/* ── Breakpoints ─────────────────────────────────────────────── */
+.breakpoints { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border2); overflow: hidden; margin-top: 28px; }
+.bp-item { background: var(--bg); padding: 20px; }
+.bp-val { font-size: 22px; font-weight: 300; color: var(--accent); margin-bottom: 6px; }
+.bp-name { font-size: 11px; font-family: var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+.bp-cols { font-size: 12px; color: var(--muted); }
+.bp-gutter { font-size: 11px; color: var(--faint); margin-top: 2px; }
+
+/* ── Token Delivery showcase ─────────────────────────────────── */
+.component-showcase { border: 1px solid var(--border2); overflow: hidden; margin-top: 28px; }
+.showcase-header { padding: 12px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+.showcase-dot { width: 8px; height: 8px; border-radius: 50%; }
+.showcase-label { font-size: 11px; font-family: var(--mono); color: var(--faint); margin-left: auto; }
+.showcase-body { background: var(--bg2); }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .token-flow { grid-template-columns: 1fr; }
+  .breakpoints { grid-template-columns: repeat(2, 1fr); }
+  .type-row { grid-template-columns: 80px 60px 1fr; }
+  .spacing-bar-cell { height: 56px; }
+  .spacing-scale-wrap { padding: 24px 16px 16px; }
+}
+@media (max-width: 480px) {
+  .type-row { grid-template-columns: 70px 1fr; }
+  .type-size { display: none; }
+  .spacing-bar-cell { height: 40px; }
+  .spacing-label { font-size: 9px; }
+  .spacing-scale-wrap { padding: 16px 12px 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="Antony Bozhatarnyk"> Antony Bozhatarnyk</a>
+    <div class="nav-links">
+      <a href="../index.html#work">Work</a>
+      <a href="priwatt.html">Cases</a>
+      <a href="../index.html#expertise">Expertise</a>
+      <a href="../index.html#about">About</a>
+    </div>
+    <div class="nav-right">
+      <div class="theme-toggle">
+        <button class="theme-btn active" id="btn-dark"  onclick="setTheme('dark')"  aria-label="Dark mode"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9.17A5.5 5.5 0 0 1 4.83 2 5.5 5.5 0 1 0 12 9.17z" fill="currentColor"/></svg></button>
+        <button class="theme-btn"        id="btn-light" onclick="setTheme('light')" aria-label="Light mode"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="2.5" fill="currentColor"/><line x1="7" y1="1" x2="7" y2="2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11.5" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="2.5" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.5" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="10" x2="11.07" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.07" y1="2.93" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="10" x2="2.93" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div>
+      <a href="mailto:designantonyui@gmail.com" class="nav-cta">Get in touch →</a>
+      <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <div class="nav-mobile-inner">
+      <a href="../index.html#work">Work</a>
+      <a href="priwatt.html">Cases</a>
+      <a href="../index.html#expertise">Expertise</a>
+      <a href="../index.html#about">About</a>
+      <a href="mailto:designantonyui@gmail.com" class="nav-mobile-cta">Get in touch →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- CASE HERO -->
+<div class="case-hero">
+  <div class="dot-bg"></div>
+  <div class="site">
+    <a href="../index.html" class="back-link">← Back to work</a>
+    <div class="read-time">⏱ <span id="read-time">5 min read</span></div>
+    <div class="case-tag">CASE STUDY · 2024–PRESENT</div>
+    <h1 class="case-title"><strong>priWatt</strong> — Design System<br>from Brand Book to Production</h1>
+    <p class="case-subtitle">priWatt is bringing solar energy to homeowners across Germany, and their growing product suite needed a solid foundation to scale. With only an agency-delivered brand book to start from, no design system existed — slowing delivery and creating inconsistency across touchpoints. We built a production-ready design system from the ground up: a three-tier token architecture, typography scale, responsive grid, and component library that cut design-to-dev delivery time by 75%.</p>
+
+    <!-- META -->
+    <div class="meta-strip" style="position:relative;">
+      <span class="meta-strip-b" style="position:absolute;inset:0;pointer-events:none;"></span>
+      <div class="meta-item">
+        <div class="meta-label">Client</div>
+        <div class="meta-val">priWatt GmbH</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Agency</div>
+        <div class="meta-val">TWNTY Digital GmbH</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Duration</div>
+        <div class="meta-val">May 2024 — Ongoing</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Scope</div>
+        <div class="meta-val pills">
+          <span class="meta-pill">UX/UI</span>
+          <span class="meta-pill">Design System</span>
+          <span class="meta-pill">No-Code</span>
+          <span class="meta-pill">Framer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="site" style="padding-top:40px;">
+  <div class="case-img-wrap" style="aspect-ratio:16/9;">
+    <img
+      class="case-img"
+      src="../assets/images/priwatt-framer-ecoflow-campaign-tablet.webp"
+      alt="EcoFlow WAVE 3 campaign page on iPad — Framer Marketing Hub hero with product headline, CTA and sale pricing"
+      style="aspect-ratio:16/9;"
+    >
+  </div>
+  <div class="img-row cols-2" style="margin-top:12px;">
+    <div class="case-img-wrap">
+      <img
+        class="case-img"
+        src="../assets/images/priwatt-framer-solar-homepage-mobile.webp"
+        alt="priWatt solar homepage on iPhone — 5 kWp solar system product page with consultation CTA and mounting location configurator"
+      >
+    </div>
+    <div class="case-img-wrap">
+      <img
+        class="case-img"
+        src="../assets/images/priwatt-framer-solar-listing-mobile.webp"
+        alt="priWatt solar product listing on iPhone — Solaranlage Schrägdach and Carport pages with module specs and buy CTA"
+      >
+    </div>
+  </div>
+</div>
+
+<!-- 01 CONTEXT -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">01 · Context</div>
+    <p class="prose"><strong>priWatt's brand was delivered by an external agency as Figma files</strong> — colour palettes, typography, and visual direction. No tokens, no component specs, no grid. Just a brand.</p>
+    <p class="prose" style="margin-top:16px;">I took that foundation and built the entire design system from scratch. Once it was in place, the development team had everything they needed to build from — a single source of truth from day one.</p>
+  </div>
+</div>
+
+<!-- 02 PROBLEM -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">02 · The Problem</div>
+    <p class="prose">Working without a design system created four compounding problems that slowed down both design quality and delivery speed.</p>
+    <div class="challenge-grid" style="position:relative;">
+      <span class="challenge-grid-b" style="position:absolute;inset:0;pointer-events:none;"></span>
+      <div class="challenge-item">
+        <div class="challenge-num">PROBLEM 01</div>
+        <div class="challenge-title">Brand book ≠ design system</div>
+        <div class="challenge-desc">The agency delivered colour palettes and typography in Figma — not tokens, not component specs, not anything a developer could implement directly. Everything between brand guidelines and production had to be figured out manually, every time.</div>
+      </div>
+      <div class="challenge-item">
+        <div class="challenge-num">PROBLEM 02</div>
+        <div class="challenge-title">No shared design language</div>
+        <div class="challenge-desc">Without a system, every designer interpreted the brand independently. Buttons varied. Spacing was guesswork. Colour names like "Electric Lime" carried no semantic meaning — they described a swatch, not a role.</div>
+      </div>
+      <div class="challenge-item">
+        <div class="challenge-num">PROBLEM 03</div>
+        <div class="challenge-title">Handoff had no structure</div>
+        <div class="challenge-desc">With no tokens or component documentation, every dev handoff turned into a back-and-forth. The same questions came up repeatedly — padding values, interactive states, breakpoint behaviour. Time lost every sprint.</div>
+      </div>
+      <div class="challenge-item">
+        <div class="challenge-num">PROBLEM 04</div>
+        <div class="challenge-title">Nothing could scale</div>
+        <div class="challenge-desc">Every new page or campaign started from zero. No reuse, no consistency enforcement. A single brand change meant touching every file by hand — not a process that could grow with the product.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 03 OUTCOMES -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">03 · Outcomes</div>
+    <p class="prose" style="margin-bottom:32px;">Establishing the design system created measurable improvements across speed, consistency, and design-dev collaboration.</p>
+    <div class="outcomes" style="position:relative;">
+      <span class="outcomes-b" style="position:absolute;inset:0;pointer-events:none;"></span>
+      <div class="outcome-item">
+        <div class="outcome-val">75%</div>
+        <div class="outcome-desc">Reduction in design-to-dev delivery time after the design system went live</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-val">25%</div>
+        <div class="outcome-desc">Fewer dev revision cycles — less back-and-forth after structured token handoff</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-val">100%</div>
+        <div class="outcome-desc">Visual consistency across all pages — zero ad-hoc components shipped after system launch</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OUTCOMES IMAGE -->
+<div class="site" style="padding-top:40px; padding-bottom:0;">
+  <span style="font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; display:block; margin-bottom:12px;">— Components in production</span>
+  <div class="case-img-wrap" style="aspect-ratio:16/9;">
+    <img
+      class="case-img"
+      src="../assets/images/TV%20-%202025.png"
+      alt="priWatt design system — UI components including configurator, alerts, forms, calendar, and navigation"
+      style="aspect-ratio:16/9;"
+    >
+  </div>
+</div>
+
+<!-- 04 PROCESS -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">04 · Process</div>
+    <p class="prose">Building from a brand book required a deliberate sequence — from audit to architecture to implementation.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <div class="step-title">Brand audit</div>
+          <div class="step-desc">Mapped every colour, typeface, and spacing value from the brand book. Identified what was missing: semantic roles, interactive states, responsive behaviour. Built a gap analysis against production needs.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <div class="step-title">Token architecture</div>
+          <div class="step-desc">Designed a three-tier token system: Primitive → Semantic → Component. Raw values live only at the primitive level. Everything above references tokens — never hardcoded values.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <div class="step-title">Token Studio implementation</div>
+          <div class="step-desc">Built the full token set in Token Studio — colour, typography, spacing, border-radius, shadow, motion, z-index. Exported as a structured JSON file, version-controlled and consumable by dev.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <div class="step-title">Component library</div>
+          <div class="step-desc">Built the Figma component library on top of the token system. Every component references semantic tokens — not primitives. Variants, states, and responsive behaviour all documented.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <div class="step-title">Handoff & adoption</div>
+          <div class="step-desc">Delivered structured JSON to dev, Figma library to designers. Ran onboarding sessions. Wrote usage documentation. Measured adoption through reduction in handoff questions and revision requests.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 TOKEN ARCHITECTURE -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">05 · Token Architecture</div>
+    <p class="prose">The core design decision: a strict three-tier hierarchy where values flow in one direction only — primitives define raw values, everything else references tokens. This makes global changes a single-point update.</p>
+    <div class="token-flow">
+      <div class="token-tier">
+        <div class="tier-label">Tier 01</div>
+        <div class="tier-name">Primitive</div>
+        <div class="tier-desc">Raw values. Named after what they are, not what they do. Never used directly in components.</div>
+        <div class="tier-examples">
+          <span class="token-chip">color.lime.100</span>
+          <span class="token-chip">color.forest.800</span>
+          <span class="token-chip">spacing.4 → 16px</span>
+          <span class="token-chip">radius.full</span>
+        </div>
+      </div>
+      <div class="token-tier">
+        <div class="tier-label">Tier 02</div>
+        <div class="tier-name">Semantic</div>
+        <div class="tier-desc">Context-aware names. Describes role in the UI — not the visual value. Theme-swappable.</div>
+        <div class="tier-examples">
+          <span class="token-chip">color.bg.default</span>
+          <span class="token-chip">color.text.primary</span>
+          <span class="token-chip">color.border.subtle</span>
+          <span class="token-chip">color.action.primary</span>
+        </div>
+      </div>
+      <div class="token-tier">
+        <div class="tier-label">Tier 03</div>
+        <div class="tier-name">Component</div>
+        <div class="tier-desc">Scoped to a specific component. References semantic tokens — never primitives directly.</div>
+        <div class="tier-examples">
+          <span class="token-chip">btn.bg.default</span>
+          <span class="token-chip">btn.text.default</span>
+          <span class="token-chip">input.border.focus</span>
+          <span class="token-chip">card.bg.elevated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 06 COLOUR SYSTEM -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">06 · Colour System</div>
+    <p class="prose">Translated the agency's brand palette into a structured token system with semantic roles. Every colour serves a defined purpose — no ad-hoc values in components.</p>
+
+    <div class="swatch-section">
+      <div class="swatch-group">
+        <div class="swatch-group-label">Primary — Electric Lime</div>
+        <div class="swatch-row">
+          <div class="swatch"><div class="swatch-color" style="background:#CAF476; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">Lime 100</div><div class="swatch-hex">#CAF476</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#45EA8F; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">Lime Fresh</div><div class="swatch-hex">#45EA8F</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#B5F7D2; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">Lime Mint</div><div class="swatch-hex">#B5F7D2</div></div>
+        </div>
+      </div>
+      <div class="swatch-group">
+        <div class="swatch-group-label">Foundation — Dark Forest</div>
+        <div class="swatch-row">
+          <div class="swatch"><div class="swatch-color" style="background:#132219;"></div><div class="swatch-name">Forest 100</div><div class="swatch-hex">#132219</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#5C7A68; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">Forest 60</div><div class="swatch-hex">#5C7A68</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:rgba(19,34,25,0.5); border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">Forest 50%</div><div class="swatch-hex">50% opacity</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:rgba(19,34,25,0.15); border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">Forest 15%</div><div class="swatch-hex">15% opacity</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:rgba(19,34,25,0.05); border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">Forest 5%</div><div class="swatch-hex">5% opacity</div></div>
+        </div>
+      </div>
+      <div class="swatch-group">
+        <div class="swatch-group-label">Neutral — Warm White surfaces</div>
+        <div class="swatch-row">
+          <div class="swatch"><div class="swatch-color" style="background:#FEFEFB; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">White</div><div class="swatch-hex">#FEFEFB</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#F3F1E8; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">Off White</div><div class="swatch-hex">#F3F1E8</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#FFFFFF; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">Pure White</div><div class="swatch-hex">#FFFFFF</div></div>
+        </div>
+      </div>
+      <div class="swatch-group">
+        <div class="swatch-group-label">Secondary accents</div>
+        <div class="swatch-row">
+          <div class="swatch"><div class="swatch-color" style="background:#BDACFD; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">Lavender</div><div class="swatch-hex">#BDACFD</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#E3DCB2; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">Sun Dust</div><div class="swatch-hex">#E3DCB2</div></div>
+        </div>
+      </div>
+    </div>
+
+    <table class="token-table" style="margin-top:32px;">
+      <thead>
+        <tr>
+          <th>Semantic Token</th>
+          <th>Primitive Value</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="t-name">color.action.primary</td>
+          <td><span class="token-swatch" style="background:#CAF476; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">color.lime.100 → #CAF476</span></td>
+          <td>Primary CTA buttons, icon accents, active states</td>
+        </tr>
+        <tr>
+          <td class="t-name">color.bg.default</td>
+          <td><span class="token-swatch" style="background:#FEFEFB; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">color.neutral.white → #FEFEFB</span></td>
+          <td>Page background (default)</td>
+        </tr>
+        <tr>
+          <td class="t-name">color.bg.subtle</td>
+          <td><span class="token-swatch" style="background:#F3F1E8; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">color.neutral.off-white → #F3F1E8</span></td>
+          <td>Section fills, feature cards, step cards</td>
+        </tr>
+        <tr>
+          <td class="t-name">color.text.primary</td>
+          <td><span class="token-swatch" style="background:#132219;"></span><span class="t-val">color.forest.100 → #132219</span></td>
+          <td>Headings, body — on light backgrounds</td>
+        </tr>
+        <tr>
+          <td class="t-name">color.text.secondary</td>
+          <td><span class="token-swatch" style="background:rgba(19,34,25,0.5); border-color:rgba(0,0,0,0.1);"></span><span class="t-val">color.forest.100/50 → 50% opacity</span></td>
+          <td>Secondary copy, subheadings, descriptions</td>
+        </tr>
+        <tr>
+          <td class="t-name">color.text.on-dark</td>
+          <td><span class="token-swatch" style="background:#F3F1E8; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">color.neutral.off-white → #F3F1E8</span></td>
+          <td>Text on Forest 100 dark surfaces</td>
+        </tr>
+        <tr>
+          <td class="t-name">color.surface.dark</td>
+          <td><span class="token-swatch" style="background:#132219;"></span><span class="t-val">color.forest.100 → #132219</span></td>
+          <td>Dark sections, navbars, CTA banners</td>
+        </tr>
+        <tr>
+          <td class="t-name">color.icon.muted</td>
+          <td><span class="token-swatch" style="background:#5C7A68; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">color.forest.60 → #5C7A68</span></td>
+          <td>Checkmarks, secondary icons on light bg</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 07 TYPOGRAPHY SCALE -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">07 · Typography Scale</div>
+    <p class="prose">The brand book specified Roobert as the primary typeface across all weights — Bold for headlines, Semibold for subheads, Regular for body. I formalised this into a systematic scale with defined size, line-height, and letter-spacing tokens at each step.</p>
+    <div class="type-scale">
+      <div class="type-row">
+        <span class="type-token">type.display</span>
+        <span class="type-size">48px / −2%</span>
+        <span class="type-sample" style="font-size:32px; font-weight:300; letter-spacing:-0.02em;">Display Heading</span>
+      </div>
+      <div class="type-row">
+        <span class="type-token">type.h1</span>
+        <span class="type-size">40px / −1%</span>
+        <span class="type-sample" style="font-size:28px; font-weight:400; letter-spacing:-0.01em;">Heading One</span>
+      </div>
+      <div class="type-row">
+        <span class="type-token">type.h2</span>
+        <span class="type-size">32px / −1%</span>
+        <span class="type-sample" style="font-size:24px; font-weight:400;">Heading Two</span>
+      </div>
+      <div class="type-row">
+        <span class="type-token">type.h3</span>
+        <span class="type-size">24px / 0%</span>
+        <span class="type-sample" style="font-size:20px; font-weight:500;">Heading Three</span>
+      </div>
+      <div class="type-row">
+        <span class="type-token">type.body-lg</span>
+        <span class="type-size">16px / +1%</span>
+        <span class="type-sample" style="font-size:15px; color:var(--muted);">Body large — product descriptions, lead copy</span>
+      </div>
+      <div class="type-row">
+        <span class="type-token">type.body</span>
+        <span class="type-size">14px / +1%</span>
+        <span class="type-sample" style="font-size:13px; color:var(--muted);">Body default — UI labels, interface text</span>
+      </div>
+      <div class="type-row">
+        <span class="type-token">type.caption</span>
+        <span class="type-size">12px / +1%</span>
+        <span class="type-sample" style="font-size:11px; color:var(--faint);">Caption — helper text, metadata, tags</span>
+      </div>
+      <div class="type-row">
+        <span class="type-token">type.data</span>
+        <span class="type-size">11px mono</span>
+        <span class="type-sample" style="font-size:11px; font-family:var(--mono); color:var(--faint);">data.label → token.name → 16px</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 08 SPACING & GRID -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">08 · Spacing & Grid</div>
+    <p class="prose">A base-4 spacing scale from 4px to 96px — 13 steps, all defined as tokens. Combined with a responsive 12-column grid system across four breakpoints.</p>
+
+    <div class="spacing-scale-wrap">
+      <div class="spacing-scale">
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:4px;"></div></div><div class="spacing-label">4</div></div>
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:8px;"></div></div><div class="spacing-label">8</div></div>
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:12px;"></div></div><div class="spacing-label">12</div></div>
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:16px;"></div></div><div class="spacing-label">16</div></div>
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:20px;"></div></div><div class="spacing-label">20</div></div>
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:24px;"></div></div><div class="spacing-label">24</div></div>
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:32px;"></div></div><div class="spacing-label">32</div></div>
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:40px;"></div></div><div class="spacing-label">40</div></div>
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:48px;"></div></div><div class="spacing-label">48</div></div>
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:56px;"></div></div><div class="spacing-label">56</div></div>
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:64px;"></div></div><div class="spacing-label">64</div></div>
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:80px;"></div></div><div class="spacing-label">80</div></div>
+        <div class="spacing-item"><div class="spacing-bar-cell"><div class="spacing-bar" style="height:96px;"></div></div><div class="spacing-label">96</div></div>
+      </div>
+    </div>
+
+    <div class="breakpoints">
+      <div class="bp-item">
+        <div class="bp-val">1440</div>
+        <div class="bp-name">Desktop XL</div>
+        <div class="bp-cols">12 columns</div>
+        <div class="bp-gutter">Gutter 24px · Margin 80px</div>
+      </div>
+      <div class="bp-item">
+        <div class="bp-val">1024</div>
+        <div class="bp-name">Desktop</div>
+        <div class="bp-cols">12 columns</div>
+        <div class="bp-gutter">Gutter 20px · Margin 40px</div>
+      </div>
+      <div class="bp-item">
+        <div class="bp-val">768</div>
+        <div class="bp-name">Tablet</div>
+        <div class="bp-cols">8 columns</div>
+        <div class="bp-gutter">Gutter 16px · Margin 24px</div>
+      </div>
+      <div class="bp-item">
+        <div class="bp-val">360</div>
+        <div class="bp-name">Mobile</div>
+        <div class="bp-cols">4 columns</div>
+        <div class="bp-gutter">Gutter 12px · Margin 16px</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 09 TOKEN DELIVERY -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">09 · Token Delivery</div>
+    <p class="prose">The full token system was exported from Token Studio as a structured JSON file — version-controlled, consumable directly by engineering. One source of truth for both Figma and production.</p>
+
+    <div class="component-showcase">
+      <div class="showcase-header">
+        <div class="showcase-dot" style="background:#FF5F57;"></div>
+        <div class="showcase-dot" style="background:#FEBC2E; margin-left:4px;"></div>
+        <div class="showcase-dot" style="background:#28C840; margin-left:4px;"></div>
+        <span class="showcase-label">tokens.json · Token Studio export</span>
+      </div>
+      <div class="showcase-body">
+        <pre style="font-family:var(--mono); font-size:11px; color:var(--muted); padding:24px; line-height:1.7; overflow-x:auto;"><span style="color:var(--faint)">// base › spacing</span>
+<span style="color:var(--orange)">"spacing"</span>: {
+  <span style="color:var(--green)">"4"</span>: { <span style="color:var(--orange)">"$value"</span>: <span style="color:#88c0d0">"16px"</span>, <span style="color:var(--orange)">"$type"</span>: <span style="color:#88c0d0">"spacing"</span>, <span style="color:var(--faint)">"$description"</span>: <span style="color:#88c0d0">"16px — base unit"</span> },
+  <span style="color:var(--green)">"8"</span>: { <span style="color:var(--orange)">"$value"</span>: <span style="color:#88c0d0">"32px"</span>, <span style="color:var(--orange)">"$type"</span>: <span style="color:#88c0d0">"spacing"</span>, <span style="color:var(--faint)">"$description"</span>: <span style="color:#88c0d0">"32px"</span> },
+  <span style="color:var(--green)">"32"</span>: { <span style="color:var(--orange)">"$value"</span>: <span style="color:#88c0d0">"128px"</span>, <span style="color:var(--orange)">"$type"</span>: <span style="color:#88c0d0">"spacing"</span>, <span style="color:var(--faint)">"$description"</span>: <span style="color:#88c0d0">"128px — section gap"</span> }
+},
+<span style="color:var(--faint)">// base › border-radius</span>
+<span style="color:var(--orange)">"border-radius"</span>: {
+  <span style="color:var(--green)">"none"</span>:  { <span style="color:var(--orange)">"$value"</span>: <span style="color:#88c0d0">"0px"</span> },
+  <span style="color:var(--green)">"sm"</span>:    { <span style="color:var(--orange)">"$value"</span>: <span style="color:#88c0d0">"4px"</span>, <span style="color:var(--faint)">"$description"</span>: <span style="color:#88c0d0">"buttons, inputs — primary UI"</span> },
+  <span style="color:var(--green)">"md"</span>:    { <span style="color:var(--orange)">"$value"</span>: <span style="color:#88c0d0">"8px"</span>, <span style="color:var(--faint)">"$description"</span>: <span style="color:#88c0d0">"cards, modals, chips"</span> },
+  <span style="color:var(--green)">"lg"</span>:    { <span style="color:var(--orange)">"$value"</span>: <span style="color:#88c0d0">"12px"</span>, <span style="color:var(--faint)">"$description"</span>: <span style="color:#88c0d0">"large surface areas"</span> },
+  <span style="color:var(--green)">"full"</span>:  { <span style="color:var(--orange)">"$value"</span>: <span style="color:#88c0d0">"9999px"</span>, <span style="color:var(--faint)">"$description"</span>: <span style="color:#88c0d0">"pill — tab chips only"</span> }
+},
+<span style="color:var(--faint)">// base › typography</span>
+<span style="color:var(--orange)">"font-size"</span>: {
+  <span style="color:var(--green)">"md"</span>:  { <span style="color:var(--orange)">"$value"</span>: <span style="color:#88c0d0">"14px"</span>, <span style="color:var(--faint)">"$description"</span>: <span style="color:#88c0d0">"Medium — body default"</span> },
+  <span style="color:var(--green)">"lg"</span>:  { <span style="color:var(--orange)">"$value"</span>: <span style="color:#88c0d0">"16px"</span>, <span style="color:var(--faint)">"$description"</span>: <span style="color:#88c0d0">"Large — body large"</span> },
+  <span style="color:var(--green)">"5xl"</span>: { <span style="color:var(--orange)">"$value"</span>: <span style="color:#88c0d0">"32px"</span>, <span style="color:var(--faint)">"$description"</span>: <span style="color:#88c0d0">"5XL — heading large"</span> }
+}</pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 10 WEBSITE & PRODUCT -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">10 · Website & Product</div>
+
+    <div class="deliverable">
+      <div class="deliverable-header">
+        <div class="deliverable-num">01 / 02</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">Advanced PV System Configurator</div>
+          <div class="deliverable-desc">The core UX challenge: solar system selection requires technical knowledge most consumers don't have. I designed a real-time configurator that integrates geospatial data and electrical logic — letting users design and validate their own system in minutes. The tool hides complexity behind a guided, consumer-grade interface while producing technically accurate outputs.</div>
+        </div>
+      </div>
+      <div class="img-row" style="grid-template-columns:1fr;">
+        <div class="case-img-wrap" style="aspect-ratio:16/9;">
+          <img
+            class="case-img"
+            src="../assets/images/priwatt-configurator-tablet.webp"
+            alt="priWatt PV Configurator on iPad — guided solar system builder with mounting type, module power and storage selection"
+            style="aspect-ratio:16/9;"
+          >
+        </div>
+      </div>
+      <div class="img-row cols-2" style="margin-top:12px;">
+        <div class="case-img-wrap">
+          <img
+            class="case-img"
+            src="../assets/images/priwatt-configurator-mobile.webp"
+            alt="priWatt Configurator on iPhone — module size and wattage selection with real-time pricing"
+          >
+        </div>
+        <div class="case-img-wrap">
+          <img
+            class="case-img"
+            src="../assets/images/priwatt-solar-bundle-mobile.webp"
+            alt="priWatt solar bundle page on iPhone — optional Speicher and Wallbox add-on selection"
+          >
+        </div>
+      </div>
+      <div class="img-row" style="grid-template-columns:1fr; margin-top:12px;">
+        <div class="case-img-wrap" style="aspect-ratio:16/9;">
+          <img
+            class="case-img"
+            src="../assets/images/priwatt-configurator-savings-results-desktop.jpg"
+            alt="priWatt PV Configurator — savings results screen showing 124,10 €/Jahr cost saving, 547 kWh annual yield, 874 kWh self-supply and 3.5 Tonnen CO2 savings, with priRoof Duo product recommendations"
+            style="aspect-ratio:16/9;"
+          >
+        </div>
+      </div>
+      <div class="img-row cols-2" style="margin-top:12px;">
+        <div class="case-img-wrap">
+          <img
+            class="case-img"
+            src="../assets/images/priwatt-configurator-step01-mounting-mobile.png"
+            alt="priWatt PV Configurator step 01 on mobile — mounting location selection"
+          >
+        </div>
+        <div class="case-img-wrap">
+          <img
+            class="case-img"
+            src="../assets/images/priwatt-configurator-solarbank-storage-modal-mobile.png"
+            alt="priWatt PV Configurator — Solarbank 2 AC storage capacity selection modal on mobile"
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="deliverable">
+      <div class="deliverable-header">
+        <div class="deliverable-num">02 / 02</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">Framer Marketing Hub</div>
+          <div class="deliverable-desc">Marketing campaigns — Black Friday, Christmas, new product launches — previously required full custom development per campaign. I built a centralised Framer Marketing Hub: a DS-backed suite of plug-and-play sections that the team can drag, drop, and deploy without engineering involvement.</div>
+        </div>
+      </div>
+      <div class="img-row" style="grid-template-columns:1fr;">
+        <div class="case-img-wrap" style="aspect-ratio:16/9;">
+          <img
+            class="case-img"
+            src="../assets/images/priwatt-framer-hub-overview.webp"
+            alt="priWatt Framer Marketing Hub — full-page overview of plug-and-play campaign sections"
+            style="aspect-ratio:16/9;"
+          >
+        </div>
+      </div>
+      <div class="img-row cols-2" style="margin-top:12px;">
+        <div class="case-img-wrap">
+          <img
+            class="case-img"
+            src="../assets/images/priwatt-framer-hub-product-mobile.webp"
+            alt="priWatt priWall Duo product page on iPhone — modular section layout with mounting location selector and pricing"
+          >
+        </div>
+        <div class="case-img-wrap">
+          <img
+            class="case-img"
+            src="../assets/images/priwatt-framer-hub-nav-mobile.webp"
+            alt="priWatt mobile navigation on iPhone — Balkonkraftwerke menu with configurator and product links"
+          >
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CREDITS -->
+<div class="section">
+  <div class="site">
+    <div class="section-label">Credits</div>
+    <div class="meta-strip meta-strip--credits" style="position:relative;">
+      <span class="meta-strip-b" style="position:absolute;inset:0;pointer-events:none;"></span>
+
+      <div class="meta-item">
+        <div class="meta-label">Creative Direction</div>
+        <div class="meta-val">Florian Löffler</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Brand Design</div>
+        <div class="meta-val">Vera Seibel<br>Roy Castillo (&amp;why)</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">UX Design</div>
+        <div class="meta-val">Simon Obitz</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">UI Design</div>
+        <div class="meta-val">Anton Bozhatarnyk<br>Florian Löffler<br>Asdren Beqiri</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Design Engineering</div>
+        <div class="meta-val">Anton Bozhatarnyk (twnty)</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Brand Strategy</div>
+        <div class="meta-val">Daniela Baumann (&amp;why)</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Brand Communications</div>
+        <div class="meta-val">Anne Fischer</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">CRO</div>
+        <div class="meta-val">Marie Schmuck (DRIP Agency)</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Project Management</div>
+        <div class="meta-val">Alexa Rauscher<br>Elisa Maxhuni<br>Alyona Gorbach</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Development</div>
+        <div class="meta-val">twnty</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Video Editing</div>
+        <div class="meta-val">Leke Brovina</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Scope</div>
+        <div class="meta-val pills">
+          <span class="meta-pill">Design Direction</span>
+          <span class="meta-pill">UX/UI</span>
+          <span class="meta-pill">Web Design</span>
+          <span class="meta-pill">Web Development</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- NEXT CASE -->
+<div class="section" style="padding-bottom:64px; border-bottom:none;">
+  <div class="site">
+    <div class="section-label">Next Case</div>
+    <div class="next-case" style="position:relative; opacity:0.4; cursor:default; pointer-events:none;">
+      <span class="nc-b"></span>
+      <div>
+        <div class="nc-label">B2B SaaS · Case Study</div>
+        <div class="nc-title">Pharos — Freight Exchange Platform</div>
+      </div>
+      <div class="nc-arrow" style="font-family:var(--mono); font-size:11px; letter-spacing:0.06em;">Coming soon</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 · Antony Bozhatarnyk</div>
+    <div class="footer-status"><span class="footer-status-pill"><span class="footer-status-dot"></span>Available · Poland / Remote EU</span></div>
+    <div class="footer-links">
+      <a href="mailto:designantonyui@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/antony-bozhatarnyk-b6068441/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
