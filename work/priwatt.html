@@ -102,12 +102,18 @@
 .swatch-hex { font-size: 10px; font-family: var(--mono); color: var(--faint); opacity: 0.6; }
 
 /* ── Token Table ─────────────────────────────────────────────── */
-.token-table { width: 100%; border-collapse: collapse; border: 1px solid var(--border2); overflow: hidden; margin-top: 28px; font-size: 12px; }
-.token-table th { background: var(--bg2); padding: 10px 16px; text-align: left; font-size: 10px; font-family: var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: 0.07em; border-bottom: 1px solid var(--border); }
+.token-table-wrap { overflow-x: auto; margin-top: 28px; border: 1px solid var(--border2); }
+.token-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.token-table th { background: var(--bg2); padding: 10px 16px; text-align: left; font-size: 10px; font-family: var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: 0.07em; border-bottom: 1px solid var(--border); white-space: nowrap; }
 .token-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); color: var(--muted); }
 .token-table tr:last-child td { border-bottom: none; }
-.token-table .t-name { font-family: var(--mono); color: var(--accent); }
-.token-table .t-val { font-family: var(--mono); color: var(--faint); }
+.token-table .t-name { font-family: var(--mono); color: var(--accent); white-space: nowrap; }
+.token-table .t-val { font-family: var(--mono); color: var(--faint); white-space: nowrap; }
+@media (max-width: 600px) {
+  .token-table th, .token-table td { padding: 8px 12px; font-size: 11px; }
+  .token-table .t-role { display: none; }
+  .token-table .th-role { display: none; }
+}
 .token-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: middle; margin-right: 6px; border: 1px solid rgba(255,255,255,0.1); }
 [data-theme="light"] .token-swatch { border-color: rgba(0,0,0,0.1); }
 
@@ -480,57 +486,59 @@
       </div>
     </div>
 
-    <table class="token-table" style="margin-top:32px;">
+    <div class="token-table-wrap">
+    <table class="token-table">
       <thead>
         <tr>
           <th>Semantic Token</th>
           <th>Primitive Value</th>
-          <th>Role</th>
+          <th class="th-role">Role</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="t-name">color.action.primary</td>
           <td><span class="token-swatch" style="background:#CAF476; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">color.lime.100 → #CAF476</span></td>
-          <td>Primary CTA buttons, icon accents, active states</td>
+          <td class="t-role">Primary CTA buttons, icon accents, active states</td>
         </tr>
         <tr>
           <td class="t-name">color.bg.default</td>
           <td><span class="token-swatch" style="background:#FEFEFB; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">color.neutral.white → #FEFEFB</span></td>
-          <td>Page background (default)</td>
+          <td class="t-role">Page background (default)</td>
         </tr>
         <tr>
           <td class="t-name">color.bg.subtle</td>
           <td><span class="token-swatch" style="background:#F3F1E8; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">color.neutral.off-white → #F3F1E8</span></td>
-          <td>Section fills, feature cards, step cards</td>
+          <td class="t-role">Section fills, feature cards, step cards</td>
         </tr>
         <tr>
           <td class="t-name">color.text.primary</td>
           <td><span class="token-swatch" style="background:#132219;"></span><span class="t-val">color.forest.100 → #132219</span></td>
-          <td>Headings, body — on light backgrounds</td>
+          <td class="t-role">Headings, body — on light backgrounds</td>
         </tr>
         <tr>
           <td class="t-name">color.text.secondary</td>
           <td><span class="token-swatch" style="background:rgba(19,34,25,0.5); border-color:rgba(0,0,0,0.1);"></span><span class="t-val">color.forest.100/50 → 50% opacity</span></td>
-          <td>Secondary copy, subheadings, descriptions</td>
+          <td class="t-role">Secondary copy, subheadings, descriptions</td>
         </tr>
         <tr>
           <td class="t-name">color.text.on-dark</td>
           <td><span class="token-swatch" style="background:#F3F1E8; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">color.neutral.off-white → #F3F1E8</span></td>
-          <td>Text on Forest 100 dark surfaces</td>
+          <td class="t-role">Text on Forest 100 dark surfaces</td>
         </tr>
         <tr>
           <td class="t-name">color.surface.dark</td>
           <td><span class="token-swatch" style="background:#132219;"></span><span class="t-val">color.forest.100 → #132219</span></td>
-          <td>Dark sections, navbars, CTA banners</td>
+          <td class="t-role">Dark sections, navbars, CTA banners</td>
         </tr>
         <tr>
           <td class="t-name">color.icon.muted</td>
           <td><span class="token-swatch" style="background:#5C7A68; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">color.forest.60 → #5C7A68</span></td>
-          <td>Checkmarks, secondary icons on light bg</td>
+          <td class="t-role">Checkmarks, secondary icons on light bg</td>
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </div>
 
