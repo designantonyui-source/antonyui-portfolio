@@ -92,15 +92,16 @@
 .token-chip { font-size: 11px; font-family: var(--mono); background: var(--bg2); color: var(--muted); border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px; width: fit-content; }
 
 /* ── Colour Swatches ─────────────────────────────────────────── */
-.swatch-section { margin-top: 28px; }
-.swatch-group { margin-bottom: 24px; }
-.swatch-group-label { font-size: 11px; font-family: var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
-.swatch-row { display: flex; gap: 8px; flex-wrap: wrap; }
-.swatch { display: flex; flex-direction: column; gap: 6px; }
-.swatch-color { width: 64px; height: 40px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.06); }
+.swatch-section { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid var(--border2); }
+.swatch-group { padding: 16px; background: var(--bg); }
+.swatch-group-label { font-size: 9px; font-family: var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; line-height: 1.4; }
+.swatch-row { display: flex; gap: 4px; }
+.swatch { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.swatch-color { height: 28px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.06); }
 [data-theme="light"] .swatch-color { border-color: rgba(0,0,0,0.08); }
-.swatch-name { font-size: 10px; font-family: var(--mono); color: var(--faint); }
-.swatch-hex { font-size: 10px; font-family: var(--mono); color: var(--faint); opacity: 0.6; }
+.swatch-name { display: none; }
+.swatch-hex { font-size: 9px; font-family: var(--mono); color: var(--faint); opacity: 0.7; }
+@media (max-width: 600px) { .swatch-section { grid-template-columns: 1fr; } }
 
 /* ── Token Table ─────────────────────────────────────────────── */
 .token-table-wrap { overflow-x: auto; margin-top: 28px; border: 1px solid var(--border2); }
@@ -460,7 +461,7 @@
 
     <div class="swatch-section">
       <div class="swatch-group">
-        <div class="swatch-group-label">Electric Lime — Primary brand accent</div>
+        <div class="swatch-group-label">Electric Lime</div>
         <div class="swatch-row">
           <div class="swatch"><div class="swatch-color" style="background:#BFFF00; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">electric-lime.100</div><div class="swatch-hex">#BFFF00</div></div>
           <div class="swatch"><div class="swatch-color" style="background:#D9FF66; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">electric-lime.60</div><div class="swatch-hex">#D9FF66</div></div>
@@ -468,7 +469,7 @@
         </div>
       </div>
       <div class="swatch-group">
-        <div class="swatch-group-label">Dark Forest — Primary background</div>
+        <div class="swatch-group-label">Dark Forest</div>
         <div class="swatch-row">
           <div class="swatch"><div class="swatch-color" style="background:#122B1C;"></div><div class="swatch-name">dark-forest.100</div><div class="swatch-hex">#122B1C</div></div>
           <div class="swatch"><div class="swatch-color" style="background:#1C3F2A;"></div><div class="swatch-name">dark-forest.80</div><div class="swatch-hex">#1C3F2A</div></div>
@@ -476,7 +477,7 @@
         </div>
       </div>
       <div class="swatch-group">
-        <div class="swatch-group-label">Warm White / Off White / Real White — Surfaces</div>
+        <div class="swatch-group-label">Warm White · Off White · Real White</div>
         <div class="swatch-row">
           <div class="swatch"><div class="swatch-color" style="background:#F5F2EC; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">warm-white.100</div><div class="swatch-hex">#F5F2EC</div></div>
           <div class="swatch"><div class="swatch-color" style="background:#EDE8DE; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">off-white.100</div><div class="swatch-hex">#EDE8DE</div></div>
@@ -484,7 +485,7 @@
         </div>
       </div>
       <div class="swatch-group">
-        <div class="swatch-group-label">Sun Dust — Warm neutral accent</div>
+        <div class="swatch-group-label">Sun Dust</div>
         <div class="swatch-row">
           <div class="swatch"><div class="swatch-color" style="background:#C4A96C; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">sun-dust.100</div><div class="swatch-hex">#C4A96C</div></div>
           <div class="swatch"><div class="swatch-color" style="background:#D4BE90; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">sun-dust.60</div><div class="swatch-hex">#D4BE90</div></div>
@@ -492,7 +493,7 @@
         </div>
       </div>
       <div class="swatch-group">
-        <div class="swatch-group-label">Fresh Green — Low-contrast alternative to Electric Lime</div>
+        <div class="swatch-group-label">Fresh Green</div>
         <div class="swatch-row">
           <div class="swatch"><div class="swatch-color" style="background:#3DBE7A; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">fresh-green.100</div><div class="swatch-hex">#3DBE7A</div></div>
           <div class="swatch"><div class="swatch-color" style="background:#84D4A8; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">fresh-green.60</div><div class="swatch-hex">#84D4A8</div></div>
@@ -500,7 +501,7 @@
         </div>
       </div>
       <div class="swatch-group">
-        <div class="swatch-group-label">Grounded Green — Dark Forest alternative</div>
+        <div class="swatch-group-label">Grounded Green</div>
         <div class="swatch-row">
           <div class="swatch"><div class="swatch-color" style="background:#2D6B4C;"></div><div class="swatch-name">grounded-green.100</div><div class="swatch-hex">#2D6B4C</div></div>
           <div class="swatch"><div class="swatch-color" style="background:#4A8A66; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">grounded-green.80</div><div class="swatch-hex">#4A8A66</div></div>
@@ -508,7 +509,7 @@
         </div>
       </div>
       <div class="swatch-group">
-        <div class="swatch-group-label">Cozy Lavender — Secondary accent</div>
+        <div class="swatch-group-label">Cozy Lavender</div>
         <div class="swatch-row">
           <div class="swatch"><div class="swatch-color" style="background:#9B7FC8; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">cozy-lavender.100</div><div class="swatch-hex">#9B7FC8</div></div>
           <div class="swatch"><div class="swatch-color" style="background:#BBA8DC; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">cozy-lavender.60</div><div class="swatch-hex">#BBA8DC</div></div>
@@ -516,7 +517,7 @@
         </div>
       </div>
       <div class="swatch-group">
-        <div class="swatch-group-label">Sunset Orange — Error / danger states</div>
+        <div class="swatch-group-label">Sunset Orange</div>
         <div class="swatch-row">
           <div class="swatch"><div class="swatch-color" style="background:#E85C30;"></div><div class="swatch-name">sunset-orange.100</div><div class="swatch-hex">#E85C30</div></div>
           <div class="swatch"><div class="swatch-color" style="background:#F07850; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">sunset-orange.80</div><div class="swatch-hex">#F07850</div></div>
@@ -524,7 +525,7 @@
         </div>
       </div>
       <div class="swatch-group">
-        <div class="swatch-group-label">Sky Blue — Info states</div>
+        <div class="swatch-group-label">Sky Blue</div>
         <div class="swatch-row">
           <div class="swatch"><div class="swatch-color" style="background:#5B9FD4; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">sky-blue.100</div><div class="swatch-hex">#5B9FD4</div></div>
           <div class="swatch"><div class="swatch-color" style="background:#7ABAE0; border-color:rgba(0,0,0,0.1);"></div><div class="swatch-name">sky-blue.80</div><div class="swatch-hex">#7ABAE0</div></div>
