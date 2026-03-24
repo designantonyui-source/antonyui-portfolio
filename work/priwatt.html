@@ -110,6 +110,7 @@
 .token-table tr:last-child td { border-bottom: none; }
 .token-table .t-name { font-family: var(--mono); color: var(--accent); white-space: nowrap; }
 .token-table .t-val { font-family: var(--mono); color: var(--faint); white-space: nowrap; }
+.token-table .t-group-header td { font-size: 9px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--faint); padding: 14px 16px 6px; background: var(--bg2); border-bottom: 1px solid var(--border); }
 @media (max-width: 600px) {
   .token-table th, .token-table td { padding: 8px 12px; font-size: 11px; }
   .token-table .t-role { display: none; }
@@ -497,46 +498,72 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="t-name">color.action.primary</td>
-          <td><span class="token-swatch" style="background:#CAF476; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">color.lime.100 → #CAF476</span></td>
-          <td class="t-role">Primary CTA buttons, icon accents, active states</td>
-        </tr>
-        <tr>
-          <td class="t-name">color.bg.default</td>
-          <td><span class="token-swatch" style="background:#FEFEFB; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">color.neutral.white → #FEFEFB</span></td>
-          <td class="t-role">Page background (default)</td>
-        </tr>
-        <tr>
-          <td class="t-name">color.bg.subtle</td>
-          <td><span class="token-swatch" style="background:#F3F1E8; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">color.neutral.off-white → #F3F1E8</span></td>
-          <td class="t-role">Section fills, feature cards, step cards</td>
-        </tr>
-        <tr>
-          <td class="t-name">color.text.primary</td>
-          <td><span class="token-swatch" style="background:#132219;"></span><span class="t-val">color.forest.100 → #132219</span></td>
-          <td class="t-role">Headings, body — on light backgrounds</td>
-        </tr>
-        <tr>
-          <td class="t-name">color.text.secondary</td>
-          <td><span class="token-swatch" style="background:rgba(19,34,25,0.5); border-color:rgba(0,0,0,0.1);"></span><span class="t-val">color.forest.100/50 → 50% opacity</span></td>
-          <td class="t-role">Secondary copy, subheadings, descriptions</td>
-        </tr>
-        <tr>
-          <td class="t-name">color.text.on-dark</td>
-          <td><span class="token-swatch" style="background:#F3F1E8; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">color.neutral.off-white → #F3F1E8</span></td>
-          <td class="t-role">Text on Forest 100 dark surfaces</td>
-        </tr>
-        <tr>
-          <td class="t-name">color.surface.dark</td>
-          <td><span class="token-swatch" style="background:#132219;"></span><span class="t-val">color.forest.100 → #132219</span></td>
-          <td class="t-role">Dark sections, navbars, CTA banners</td>
-        </tr>
-        <tr>
-          <td class="t-name">color.icon.muted</td>
-          <td><span class="token-swatch" style="background:#5C7A68; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">color.forest.60 → #5C7A68</span></td>
-          <td class="t-role">Checkmarks, secondary icons on light bg</td>
-        </tr>
+        <!-- BACKGROUND -->
+        <tr class="t-group-header"><td colspan="3">Background</td></tr>
+        <tr><td class="t-name">color.background.default</td><td><span class="token-swatch" style="background:#FEFEFB; border-color:rgba(0,0,0,0.15);"></span><span class="t-val">alias.brand.surface → #FEFEFB</span></td><td class="t-role">Main page background</td></tr>
+        <tr><td class="t-name">color.background.alt</td><td><span class="token-swatch" style="background:#F3F1E8; border-color:rgba(0,0,0,0.12);"></span><span class="t-val">alias.brand.surface-alt → #F3F1E8</span></td><td class="t-role">Alternate surface, cards, panels</td></tr>
+        <tr><td class="t-name">color.background.invert</td><td><span class="token-swatch" style="background:#132219;"></span><span class="t-val">alias.brand.dark → #132219</span></td><td class="t-role">Dark/inverted background</td></tr>
+        <tr><td class="t-name">color.background.invert-mid</td><td><span class="token-swatch" style="background:#1D3023;"></span><span class="t-val">alias.brand.dark-mid → #1D3023</span></td><td class="t-role">Slightly lighter inverted bg</td></tr>
+        <tr><td class="t-name">color.background.accent</td><td><span class="token-swatch" style="background:#CAF476; border-color:rgba(0,0,0,0.12);"></span><span class="t-val">alias.brand.primary → #CAF476</span></td><td class="t-role">Brand accent background — callouts, badges</td></tr>
+        <tr><td class="t-name">color.background.accent-soft</td><td><span class="token-swatch" style="background:rgba(202,244,118,0.2); border-color:rgba(0,0,0,0.1);"></span><span class="t-val">alias.brand.primary-muted → 20% lime</span></td><td class="t-role">Soft tinted background</td></tr>
+        <tr><td class="t-name">color.background.overlay</td><td><span class="token-swatch" style="background:rgba(0,0,0,0.4); border-color:rgba(0,0,0,0.2);"></span><span class="t-val">#00000066</span></td><td class="t-role">Modal / overlay scrim</td></tr>
+        <!-- SURFACE -->
+        <tr class="t-group-header"><td colspan="3">Surface</td></tr>
+        <tr><td class="t-name">color.surface.default</td><td><span class="token-swatch" style="background:#FFFFFF; border-color:rgba(0,0,0,0.12);"></span><span class="t-val">primitive.color.real-white → #FFFFFF</span></td><td class="t-role">Component surface — pure white</td></tr>
+        <tr><td class="t-name">color.surface.raised</td><td><span class="token-swatch" style="background:#FEFEFB; border-color:rgba(0,0,0,0.12);"></span><span class="t-val">alias.brand.surface → #FEFEFB</span></td><td class="t-role">Elevated cards, modals</td></tr>
+        <tr><td class="t-name">color.surface.sunken</td><td><span class="token-swatch" style="background:#F3F1E8; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">alias.brand.surface-alt → #F3F1E8</span></td><td class="t-role">Recessed areas, input backgrounds</td></tr>
+        <tr><td class="t-name">color.surface.dark</td><td><span class="token-swatch" style="background:#132219;"></span><span class="t-val">alias.brand.dark → #132219</span></td><td class="t-role">Dark sections, navbars, CTA banners</td></tr>
+        <tr><td class="t-name">color.surface.dark-raised</td><td><span class="token-swatch" style="background:#1D3023;"></span><span class="t-val">alias.brand.dark-mid → #1D3023</span></td><td class="t-role">Elevated elements on dark surfaces</td></tr>
+        <!-- TEXT -->
+        <tr class="t-group-header"><td colspan="3">Text</td></tr>
+        <tr><td class="t-name">color.text.primary</td><td><span class="token-swatch" style="background:#132219;"></span><span class="t-val">alias.brand.dark → #132219</span></td><td class="t-role">Primary text on light backgrounds</td></tr>
+        <tr><td class="t-name">color.text.secondary</td><td><span class="token-swatch" style="background:#5C7A68; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">primitive.color.dark-forest.60 → #5C7A68</span></td><td class="t-role">Secondary / muted text</td></tr>
+        <tr><td class="t-name">color.text.disabled</td><td><span class="token-swatch" style="background:rgba(227,220,178,0.6); border-color:rgba(0,0,0,0.1);"></span><span class="t-val">primitive.color.sun-dust.60 → 60% opacity</span></td><td class="t-role">Disabled state text</td></tr>
+        <tr><td class="t-name">color.text.on-dark</td><td><span class="token-swatch" style="background:#FEFEFB; border-color:rgba(0,0,0,0.12);"></span><span class="t-val">alias.brand.surface → #FEFEFB</span></td><td class="t-role">Text on dark / inverted surfaces</td></tr>
+        <tr><td class="t-name">color.text.on-dark-muted</td><td><span class="token-swatch" style="background:#F3F1E8; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">primitive.color.warm-white.100 → #F3F1E8</span></td><td class="t-role">Muted text on dark surfaces</td></tr>
+        <tr><td class="t-name">color.text.accent</td><td><span class="token-swatch" style="background:#CAF476; border-color:rgba(0,0,0,0.12);"></span><span class="t-val">alias.brand.primary → #CAF476</span></td><td class="t-role">Highlighted / brand text</td></tr>
+        <tr><td class="t-name">color.text.link</td><td><span class="token-swatch" style="background:#45EA8F; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">alias.brand.secondary → #45EA8F</span></td><td class="t-role">Hyperlink text</td></tr>
+        <tr><td class="t-name">color.text.link-hover</td><td><span class="token-swatch" style="background:#CAF476; border-color:rgba(0,0,0,0.12);"></span><span class="t-val">alias.brand.primary → #CAF476</span></td><td class="t-role">Hovered hyperlink</td></tr>
+        <tr><td class="t-name">color.text.error</td><td><span class="token-swatch" style="background:#E84013;"></span><span class="t-val">alias.brand.accent-orange → #E84013</span></td><td class="t-role">Error text</td></tr>
+        <tr><td class="t-name">color.text.success</td><td><span class="token-swatch" style="background:#45EA8F; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">alias.brand.secondary → #45EA8F</span></td><td class="t-role">Success text</td></tr>
+        <tr><td class="t-name">color.text.warning</td><td><span class="token-swatch" style="background:#E3DCB2; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">alias.brand.accent-warm → #E3DCB2</span></td><td class="t-role">Warning text</td></tr>
+        <tr><td class="t-name">color.text.info</td><td><span class="token-swatch" style="background:#4BA3E3;"></span><span class="t-val">alias.brand.accent-blue → #4BA3E3</span></td><td class="t-role">Info text</td></tr>
+        <!-- BORDER -->
+        <tr class="t-group-header"><td colspan="3">Border</td></tr>
+        <tr><td class="t-name">color.border.default</td><td><span class="token-swatch" style="background:#F3F1E8; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">primitive.color.off-white.100 → #F3F1E8</span></td><td class="t-role">Default dividers, card borders</td></tr>
+        <tr><td class="t-name">color.border.strong</td><td><span class="token-swatch" style="background:rgba(227,220,178,0.6); border-color:rgba(0,0,0,0.1);"></span><span class="t-val">primitive.color.sun-dust.60 → 60% opacity</span></td><td class="t-role">Strong / emphasis borders</td></tr>
+        <tr><td class="t-name">color.border.focus</td><td><span class="token-swatch" style="background:#CAF476; border-color:rgba(0,0,0,0.12);"></span><span class="t-val">alias.brand.primary → #CAF476</span></td><td class="t-role">Focus ring — inputs, buttons</td></tr>
+        <tr><td class="t-name">color.border.error</td><td><span class="token-swatch" style="background:#E84013;"></span><span class="t-val">alias.brand.accent-orange → #E84013</span></td><td class="t-role">Error state border</td></tr>
+        <tr><td class="t-name">color.border.success</td><td><span class="token-swatch" style="background:#45EA8F; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">alias.brand.secondary → #45EA8F</span></td><td class="t-role">Success state border</td></tr>
+        <tr><td class="t-name">color.border.on-dark</td><td><span class="token-swatch" style="background:#5C7A68; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">primitive.color.dark-forest.60 → #5C7A68</span></td><td class="t-role">Borders on dark surfaces</td></tr>
+        <!-- FEEDBACK -->
+        <tr class="t-group-header"><td colspan="3">Feedback</td></tr>
+        <tr><td class="t-name">color.feedback.success-bg</td><td><span class="token-swatch" style="background:#D4F5E0; border-color:rgba(0,0,0,0.08);"></span><span class="t-val">primitive.color.fresh-green.40 → #D4F5E0</span></td><td class="t-role">Success alert background</td></tr>
+        <tr><td class="t-name">color.feedback.success-text</td><td><span class="token-swatch" style="background:#145A32;"></span><span class="t-val">primitive.color.grounded-green.100 → #145A32</span></td><td class="t-role">Success alert text</td></tr>
+        <tr><td class="t-name">color.feedback.success-border</td><td><span class="token-swatch" style="background:#8DDBA8; border-color:rgba(0,0,0,0.08);"></span><span class="t-val">primitive.color.fresh-green.60 → #8DDBA8</span></td><td class="t-role">Success alert border</td></tr>
+        <tr><td class="t-name">color.feedback.warning-bg</td><td><span class="token-swatch" style="background:rgba(227,220,178,0.4); border-color:rgba(0,0,0,0.08);"></span><span class="t-val">primitive.color.sun-dust.40 → 40% opacity</span></td><td class="t-role">Warning alert background</td></tr>
+        <tr><td class="t-name">color.feedback.warning-text</td><td><span class="token-swatch" style="background:#132219;"></span><span class="t-val">primitive.color.dark-forest.100 → #132219</span></td><td class="t-role">Warning alert text</td></tr>
+        <tr><td class="t-name">color.feedback.warning-border</td><td><span class="token-swatch" style="background:rgba(227,220,178,0.6); border-color:rgba(0,0,0,0.08);"></span><span class="t-val">primitive.color.sun-dust.60 → 60% opacity</span></td><td class="t-role">Warning alert border</td></tr>
+        <tr><td class="t-name">color.feedback.error-bg</td><td><span class="token-swatch" style="background:rgba(232,64,19,0.12); border-color:rgba(0,0,0,0.08);"></span><span class="t-val">primitive.color.sunset-orange.40 → 12% orange</span></td><td class="t-role">Error alert background</td></tr>
+        <tr><td class="t-name">color.feedback.error-text</td><td><span class="token-swatch" style="background:#E84013;"></span><span class="t-val">primitive.color.sunset-orange.100 → #E84013</span></td><td class="t-role">Error alert text</td></tr>
+        <tr><td class="t-name">color.feedback.error-border</td><td><span class="token-swatch" style="background:rgba(232,64,19,0.5);"></span><span class="t-val">primitive.color.sunset-orange.80 → 50% orange</span></td><td class="t-role">Error alert border</td></tr>
+        <tr><td class="t-name">color.feedback.info-bg</td><td><span class="token-swatch" style="background:rgba(75,163,227,0.15); border-color:rgba(0,0,0,0.08);"></span><span class="t-val">primitive.color.sky-blue.40 → 15% blue</span></td><td class="t-role">Info alert background</td></tr>
+        <tr><td class="t-name">color.feedback.info-text</td><td><span class="token-swatch" style="background:#4BA3E3;"></span><span class="t-val">primitive.color.sky-blue.100 → #4BA3E3</span></td><td class="t-role">Info alert text</td></tr>
+        <tr><td class="t-name">color.feedback.info-border</td><td><span class="token-swatch" style="background:rgba(75,163,227,0.5);"></span><span class="t-val">primitive.color.sky-blue.80 → 50% blue</span></td><td class="t-role">Info alert border</td></tr>
+        <!-- INTERACTIVE -->
+        <tr class="t-group-header"><td colspan="3">Interactive</td></tr>
+        <tr><td class="t-name">color.interactive.primary-default</td><td><span class="token-swatch" style="background:#CAF476; border-color:rgba(0,0,0,0.12);"></span><span class="t-val">alias.brand.primary → #CAF476</span></td><td class="t-role">Primary button — default</td></tr>
+        <tr><td class="t-name">color.interactive.primary-hover</td><td><span class="token-swatch" style="background:#B8E860; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">primitive.color.electric-lime.60 → #B8E860</span></td><td class="t-role">Primary button — hover</td></tr>
+        <tr><td class="t-name">color.interactive.primary-pressed</td><td><span class="token-swatch" style="background:#D8F89A; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">primitive.color.electric-lime.40 → #D8F89A</span></td><td class="t-role">Primary button — pressed</td></tr>
+        <tr><td class="t-name">color.interactive.primary-disabled</td><td><span class="token-swatch" style="background:rgba(202,244,118,0.4); border-color:rgba(0,0,0,0.08);"></span><span class="t-val">primitive.color.electric-lime.40 → 40% opacity</span></td><td class="t-role">Primary button — disabled</td></tr>
+        <tr><td class="t-name">color.interactive.secondary-default</td><td><span class="token-swatch" style="background:#132219;"></span><span class="t-val">alias.brand.dark → #132219</span></td><td class="t-role">Secondary button — default</td></tr>
+        <tr><td class="t-name">color.interactive.secondary-hover</td><td><span class="token-swatch" style="background:#1D3023;"></span><span class="t-val">alias.brand.dark-mid → #1D3023</span></td><td class="t-role">Secondary button — hover</td></tr>
+        <tr><td class="t-name">color.interactive.secondary-pressed</td><td><span class="token-swatch" style="background:#2A3E2F;"></span><span class="t-val">alias.brand.dark-soft → #2A3E2F</span></td><td class="t-role">Secondary button — pressed</td></tr>
+        <tr><td class="t-name">color.interactive.ghost-hover</td><td><span class="token-swatch" style="background:#F3F1E8; border-color:rgba(0,0,0,0.1);"></span><span class="t-val">primitive.color.off-white.100 → #F3F1E8</span></td><td class="t-role">Ghost / text button — hover</td></tr>
+        <tr><td class="t-name">color.interactive.ghost-pressed</td><td><span class="token-swatch" style="background:rgba(227,220,178,0.4); border-color:rgba(0,0,0,0.08);"></span><span class="t-val">primitive.color.sun-dust.40 → 40% opacity</span></td><td class="t-role">Ghost button — pressed</td></tr>
+        <tr><td class="t-name">color.interactive.danger-default</td><td><span class="token-swatch" style="background:#E84013;"></span><span class="t-val">alias.brand.accent-orange → #E84013</span></td><td class="t-role">Danger / destructive button — default</td></tr>
+        <tr><td class="t-name">color.interactive.danger-hover</td><td><span class="token-swatch" style="background:rgba(232,64,19,0.8);"></span><span class="t-val">primitive.color.sunset-orange.80 → 80% orange</span></td><td class="t-role">Danger button — hover</td></tr>
+        <tr><td class="t-name">color.interactive.danger-pressed</td><td><span class="token-swatch" style="background:rgba(232,64,19,0.4); border-color:rgba(0,0,0,0.08);"></span><span class="t-val">primitive.color.sunset-orange.40 → 40% orange</span></td><td class="t-role">Danger button — pressed</td></tr>
       </tbody>
     </table>
     </div>
