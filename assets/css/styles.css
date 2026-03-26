@@ -247,10 +247,9 @@ h1 em { font-style: normal; color: var(--orange); }
 .metrics::after  { content:''; position:absolute; top:-1px; right:-1px; width:12px; height:12px; border:1px solid var(--orange); border-width:1px 1px 0 0; z-index:2; }
 .metrics-b::before { content:''; position:absolute; bottom:-1px; left:-1px; width:12px; height:12px; border:1px solid var(--orange); border-width:0 0 1px 1px; z-index:2; }
 .metrics-b::after  { content:''; position:absolute; bottom:-1px; right:-1px; width:12px; height:12px; border:1px solid var(--orange); border-width:0 1px 1px 0; z-index:2; }
-.metric { padding: 28px; border-right: 1px solid var(--border); background: var(--bg2); }
+.metric { padding: 28px; border-right: 1px solid var(--border); background: var(--bg2); display: flex; align-items: center; }
 .metric:last-child { border-right: none; }
-.metric-value { font-size: 40px; font-weight: 500; letter-spacing: -0.04em; color: var(--orange); font-family: var(--mono); margin-bottom: 10px; line-height: 1; }
-.metric-label { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.metric-label { font-size: 14px; color: var(--text); line-height: 1.55; }
 
 /* ---- EXPERTISE (home) ---- */
 .exp-grid { display: grid; grid-template-columns: repeat(2,1fr); }
@@ -458,10 +457,9 @@ footer { padding: 36px 0; }
   .work-card.featured { grid-column: span 1; }
   .work-card-preview { aspect-ratio: 16/9; height: auto; }
   .metrics { grid-template-columns: 1fr; margin-top: 32px; }
-  .metric { border-right: none; border-bottom: 1px solid var(--border); padding: 16px 20px; display: flex; align-items: center; gap: 16px; }
+  .metric { border-right: none; border-bottom: 1px solid var(--border); padding: 16px 20px; }
   .metric:last-child { border-bottom: none; }
-  .metric-value { font-size: 28px; margin-bottom: 0; flex-shrink: 0; min-width: 64px; }
-  .metric-label { font-size: 12px; line-height: 1.45; }
+  .metric-label { font-size: 13px; }
   .meta-strip:not(.meta-strip--credits) { grid-template-columns: repeat(2, 1fr); }
   .meta-strip:not(.meta-strip--credits) .meta-item:nth-child(3) { border-right: none; }
   .meta-strip:not(.meta-strip--credits) .meta-item:nth-child(4) { border-top: 1px solid var(--border); }
