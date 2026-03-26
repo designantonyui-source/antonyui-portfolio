@@ -457,9 +457,11 @@ footer { padding: 36px 0; }
   .work-grid, .exp-grid { grid-template-columns: 1fr; }
   .work-card.featured { grid-column: span 1; }
   .work-card-preview { aspect-ratio: 16/9; height: auto; }
-  .metrics { grid-template-columns: 1fr; }
-  .metric { border-right: none; border-bottom: 1px solid var(--border); }
+  .metrics { grid-template-columns: 1fr; margin-top: 32px; }
+  .metric { border-right: none; border-bottom: 1px solid var(--border); padding: 16px 20px; display: flex; align-items: center; gap: 16px; }
   .metric:last-child { border-bottom: none; }
+  .metric-value { font-size: 28px; margin-bottom: 0; flex-shrink: 0; min-width: 64px; }
+  .metric-label { font-size: 12px; line-height: 1.45; }
   .meta-strip:not(.meta-strip--credits) { grid-template-columns: repeat(2, 1fr); }
   .meta-strip:not(.meta-strip--credits) .meta-item:nth-child(3) { border-right: none; }
   .meta-strip:not(.meta-strip--credits) .meta-item:nth-child(4) { border-top: 1px solid var(--border); }
