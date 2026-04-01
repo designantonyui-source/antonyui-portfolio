@@ -300,6 +300,8 @@ h1.case-title strong { font-weight: 500; }
 .meta-item:last-child { border-right: none; }
 .meta-label { font-size: 10px; font-family: var(--mono); letter-spacing: 0.07em; color: var(--faint); text-transform: uppercase; margin-bottom: 6px; }
 .meta-val { font-size: 13px; color: var(--text); font-weight: 500; }
+.meta-link { display: inline-block; margin-top: 8px; font-size: 11px; font-family: var(--mono); color: var(--orange); text-decoration: none; letter-spacing: 0.04em; }
+.meta-link:hover { text-decoration: underline; }
 .meta-val.pills { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
 .meta-pill { font-size: 10px; padding: 2px 8px; border: 1px solid var(--border2); border-radius: 100px; color: var(--muted); font-weight: 400; }
 
