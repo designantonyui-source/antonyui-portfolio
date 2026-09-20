@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="../assets/favicon.png" type="image/png" sizes="256x256">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<meta name="theme-color" content="#262624">
 <title>priWatt — Design System from Brand Book to Production · Antony Bozhatarnyk</title>
 <meta name="description" content="How I built a production-ready design system from an agency brand book — three-tier token architecture, typography scale, responsive grid, and component library. 75% faster delivery.">
 <meta name="robots" content="index, follow">
@@ -189,26 +191,28 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <!-- SCROLL PROGRESS -->
 <div id="progress-bar"></div>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="Antony Bozhatarnyk"> Antony Bozhatarnyk</a>
+    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Antony Bozhatarnyk</a>
     <div class="nav-links">
       <a href="../index.html#work">Work</a>
-      <a href="priwatt.html">Cases</a>
       <a href="../index.html#expertise">Expertise</a>
       <a href="../index.html#about">About</a>
+      <a href="../blog/index.html">Blog</a>
     </div>
     <div class="nav-right">
       <div class="theme-toggle">
-        <button class="theme-btn active" id="btn-dark"  onclick="setTheme('dark')"  aria-label="Dark mode"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9.17A5.5 5.5 0 0 1 4.83 2 5.5 5.5 0 1 0 12 9.17z" fill="currentColor"/></svg></button>
-        <button class="theme-btn"        id="btn-light" onclick="setTheme('light')" aria-label="Light mode"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="2.5" fill="currentColor"/><line x1="7" y1="1" x2="7" y2="2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11.5" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="2.5" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.5" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="10" x2="11.07" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.07" y1="2.93" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="10" x2="2.93" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+        <button type="button" class="theme-btn active" id="btn-dark" onclick="setTheme('dark')" aria-label="Dark mode" aria-pressed="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9.17A5.5 5.5 0 0 1 4.83 2 5.5 5.5 0 1 0 12 9.17z" fill="currentColor"/></svg></button>
+        <button type="button" class="theme-btn" id="btn-light" onclick="setTheme('light')" aria-label="Light mode" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="2.5" fill="currentColor"/><line x1="7" y1="1" x2="7" y2="2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11.5" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="2.5" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.5" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="10" x2="11.07" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.07" y1="2.93" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="10" x2="2.93" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
       </div>
-      <a href="mailto:designantonyui@gmail.com" class="nav-cta">Get in touch →</a>
-      <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <a href="mailto:designantonyui@gmail.com" class="nav-cta">Let's talk →</a>
+      <button type="button" class="nav-menu-btn" id="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-mobile">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -216,19 +220,19 @@
   <div class="nav-mobile" id="nav-mobile">
     <div class="nav-mobile-inner">
       <a href="../index.html#work">Work</a>
-      <a href="priwatt.html">Cases</a>
       <a href="../index.html#expertise">Expertise</a>
       <a href="../index.html#about">About</a>
-      <a href="mailto:designantonyui@gmail.com" class="nav-mobile-cta">Get in touch →</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="mailto:designantonyui@gmail.com" class="nav-mobile-cta">Let's talk →</a>
     </div>
   </div>
 </nav>
 
 <!-- CASE HERO -->
-<div class="case-hero">
+<div class="case-hero" id="main">
   <div class="dot-bg"></div>
   <div class="site">
-    <a href="../index.html" class="back-link">← Back to work</a>
+    <a href="../index.html#work" class="back-link">← Back to work</a>
     <div class="read-time">⏱ <span id="read-time">5 min read</span></div>
     <div class="case-tag">CASE STUDY · 2024–PRESENT</div>
     <h1 class="case-title"><strong>priWatt</strong> — Design System<br>from Brand Book to Production</h1>
@@ -244,7 +248,7 @@
       </div>
       <div class="meta-item">
         <div class="meta-label">Agency</div>
-        <div class="meta-val">TWNTY Digital GmbH</div>
+        <div class="meta-val">TWNTY Ventures</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Duration</div>
@@ -266,7 +270,7 @@
 <!-- HERO IMAGE -->
 <div class="site" style="padding-top:40px;">
   <div class="case-img-wrap" style="aspect-ratio:16/9;">
-    <img
+    <img loading="eager" fetchpriority="high" decoding="async"
       class="case-img"
       src="../assets/images/priwatt-framer-ecoflow-campaign-tablet.webp"
       alt="EcoFlow WAVE 3 campaign page on iPad — Framer Marketing Hub hero with product headline, CTA and sale pricing"
@@ -275,14 +279,14 @@
   </div>
   <div class="img-row cols-2" style="margin-top:12px;">
     <div class="case-img-wrap">
-      <img
+      <img loading="lazy" decoding="async"
         class="case-img"
         src="../assets/images/priwatt-framer-solar-homepage-mobile.webp"
         alt="priWatt solar homepage on iPhone — 5 kWp solar system product page with consultation CTA and mounting location configurator"
       >
     </div>
     <div class="case-img-wrap">
-      <img
+      <img loading="lazy" decoding="async"
         class="case-img"
         src="../assets/images/priwatt-framer-solar-listing-mobile.webp"
         alt="priWatt solar product listing on iPhone — Solaranlage Schrägdach and Carport pages with module specs and buy CTA"
@@ -816,16 +820,16 @@
         </div>
       </div>
       <div class="case-img-wrap" style="aspect-ratio:16/9; margin-bottom:12px;">
-        <img
+        <img loading="lazy" decoding="async"
           class="case-img"
-          src="../assets/images/TV%20-%202025.png"
+          src="../assets/images/tv-2025.png"
           alt="priWatt design system — UI components including configurator, alerts, forms, calendar, and navigation"
           style="aspect-ratio:16/9;"
         >
       </div>
       <div class="img-row" style="grid-template-columns:1fr;">
         <div class="case-img-wrap" style="aspect-ratio:16/9;">
-          <img
+          <img loading="lazy" decoding="async"
             class="case-img"
             src="../assets/images/priwatt-configurator-tablet.webp"
             alt="priWatt PV Configurator on iPad — guided solar system builder with mounting type, module power and storage selection"
@@ -835,14 +839,14 @@
       </div>
       <div class="img-row cols-2" style="margin-top:12px;">
         <div class="case-img-wrap">
-          <img
+          <img loading="lazy" decoding="async"
             class="case-img"
             src="../assets/images/priwatt-configurator-mobile.webp"
             alt="priWatt Configurator on iPhone — module size and wattage selection with real-time pricing"
           >
         </div>
         <div class="case-img-wrap">
-          <img
+          <img loading="lazy" decoding="async"
             class="case-img"
             src="../assets/images/priwatt-solar-bundle-mobile.webp"
             alt="priWatt solar bundle page on iPhone — optional Speicher and Wallbox add-on selection"
@@ -851,7 +855,7 @@
       </div>
       <div class="img-row" style="grid-template-columns:1fr; margin-top:12px;">
         <div class="case-img-wrap" style="aspect-ratio:16/9;">
-          <img
+          <img loading="lazy" decoding="async"
             class="case-img"
             src="../assets/images/priwatt-configurator-savings-results-desktop.jpg"
             alt="priWatt PV Configurator — savings results screen showing 124,10 €/Jahr cost saving, 547 kWh annual yield, 874 kWh self-supply and 3.5 Tonnen CO2 savings, with priRoof Duo product recommendations"
@@ -861,14 +865,14 @@
       </div>
       <div class="img-row cols-2" style="margin-top:12px;">
         <div class="case-img-wrap">
-          <img
+          <img loading="lazy" decoding="async"
             class="case-img"
             src="../assets/images/priwatt-configurator-step01-mounting-mobile.png"
             alt="priWatt PV Configurator step 01 on mobile — mounting location selection"
           >
         </div>
         <div class="case-img-wrap">
-          <img
+          <img loading="lazy" decoding="async"
             class="case-img"
             src="../assets/images/priwatt-configurator-solarbank-storage-modal-mobile.png"
             alt="priWatt PV Configurator — Solarbank 2 AC storage capacity selection modal on mobile"
@@ -887,7 +891,7 @@
       </div>
       <div class="img-row" style="grid-template-columns:1fr;">
         <div class="case-img-wrap" style="aspect-ratio:16/9;">
-          <img
+          <img loading="lazy" decoding="async"
             class="case-img"
             src="../assets/images/priwatt-framer-hub-overview.webp"
             alt="priWatt Framer Marketing Hub — full-page overview of plug-and-play campaign sections"
@@ -897,14 +901,14 @@
       </div>
       <div class="img-row cols-2" style="margin-top:12px;">
         <div class="case-img-wrap">
-          <img
+          <img loading="lazy" decoding="async"
             class="case-img"
             src="../assets/images/priwatt-framer-hub-product-mobile.webp"
             alt="priWatt priWall Duo product page on iPhone — modular section layout with mounting location selector and pricing"
           >
         </div>
         <div class="case-img-wrap">
-          <img
+          <img loading="lazy" decoding="async"
             class="case-img"
             src="../assets/images/priwatt-framer-hub-nav-mobile.webp"
             alt="priWatt mobile navigation on iPhone — Balkonkraftwerke menu with configurator and product links"
