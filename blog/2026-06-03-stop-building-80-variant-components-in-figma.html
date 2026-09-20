@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<meta name="theme-color" content="#262624">
+<title>Stop building 80-variant components in Figma · Anton Bozhatarnyk</title>
+<meta name="description" content="Why exponential variant matrices bloat your library and reset text overrides, and how the slot composition pattern keeps Figma components fast and flexible.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://antonyui.com/blog/2026-06-03-stop-building-80-variant-components-in-figma">
+<!-- OG -->
+<meta property="og:title" content="Stop building 80-variant components in Figma">
+<meta property="og:description" content="Why exponential variant matrices bloat your library and reset text overrides, and how the slot composition pattern keeps Figma components fast and flexible.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://antonyui.com/blog/2026-06-03-stop-building-80-variant-components-in-figma">
+<meta property="og:image" content="https://antonyui.com/assets/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Anton Bozhatarnyk">
+<meta property="og:locale" content="en_US">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stop building 80-variant components in Figma">
+<meta name="twitter:description" content="Why exponential variant matrices bloat your library and reset text overrides, and how the slot composition pattern keeps Figma components fast and flexible.">
+<meta name="twitter:image" content="https://antonyui.com/assets/images/og-cover.jpg">
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Stop building 80-variant components in Figma",
+  "description": "Why exponential variant matrices bloat your library and reset text overrides, and how the slot composition pattern keeps Figma components fast and flexible.",
+  "author": { "@type": "Person", "name": "Anton Bozhatarnyk", "url": "https://antonyui.com" },
+  "publisher": { "@type": "Person", "name": "Anton Bozhatarnyk", "url": "https://antonyui.com" },
+  "image": "https://antonyui.com/assets/images/og-cover.jpg",
+  "datePublished": "2026-06-03",
+  "dateModified": "2026-06-03",
+  "url": "https://antonyui.com/blog/2026-06-03-stop-building-80-variant-components-in-figma"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css?v=2.4">
+<script src="../assets/js/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://antonyui.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://antonyui.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Stop building 80-variant components in Figma",
+      "item": "https://antonyui.com/blog/2026-06-03-stop-building-80-variant-components-in-figma"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Anton Bozhatarnyk</a>
+    <div class="nav-links">
+      <a href="../work/index.html">Work</a>
+      <a href="../index.html#expertise">Expertise</a>
+      <a href="../about/index.html">About</a>
+      <a href="index.html">Blog</a>
+    </div>
+    <div class="nav-right">
+      <div class="theme-toggle">
+        <button type="button" class="theme-btn active" id="btn-dark" onclick="setTheme('dark')" aria-label="Dark mode" aria-pressed="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9.17A5.5 5.5 0 0 1 4.83 2 5.5 5.5 0 1 0 12 9.17z" fill="currentColor"/></svg></button>
+        <button type="button" class="theme-btn" id="btn-light" onclick="setTheme('light')" aria-label="Light mode" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="2.5" fill="currentColor"/><line x1="7" y1="1" x2="7" y2="2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11.5" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="2.5" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.5" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="10" x2="11.07" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.07" y1="2.93" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="10" x2="2.93" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div>
+      <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)" class="nav-cta">Let's talk →</a>
+      <button type="button" class="nav-menu-btn" id="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <div class="nav-mobile-inner">
+      <a href="../work/index.html">Work</a>
+      <a href="../index.html#expertise">Expertise</a>
+      <a href="../about/index.html">About</a>
+      <a href="index.html">Blog</a>
+      <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)" class="nav-mobile-cta">Let's talk →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header" id="main">
+  <div class="site">
+    <div class="article-kicker">
+      <span class="article-tag">Figma Architecture</span>
+      <span class="article-date">Jun 3, 2026 · <span id="read-time">4 min read</span></span>
+    </div>
+    <h1>Stop building 80-variant components in Figma</h1>
+    <p class="article-lede">Why exponential variant matrices bloat your library, cause canvas lag, and destroy overrides — and the slot and composition pattern that keeps components fast and maintainable.</p>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="site">
+  <div class="article-body">
+    <p>Every design systems team reaches a tipping point where their Figma library turns into molasses. Designers click on a simple modal or button, wait three seconds for the properties panel to load, and complain that switching from "Default" to "Hover" wiped out the custom label they just typed.</p>
+
+    <p>When you inspect the master component, you discover the culprit: an eighty-variant monstrosity attempting to represent every conceivable combination of icons, sizes, states, and content configurations in a single component set.</p>
+
+    <p>The solution is not to build better variant matrices. It is to stop using variants for layout permutations and embrace <strong>composition and slots</strong>.</p>
+
+    <h2>The math of variant explosion</h2>
+    <p>Variants multiply exponentially. When you try to account for every layout option using variant properties, the combinatorial math quickly spirals out of control:</p>
+
+    <pre><code>Size (3) × Style (4) × State (4) × HasIconLeft (2) × HasIconRight (2) × IsLoading (2)
+= 384 individual component frames</code></pre>
+
+    <p>In Figma's memory model, every variant frame is an active node tree with its own autolayout calculations, vector fills, and text layers. Multiply 384 frames across twenty components, and you have over 7,000 hidden nodes loading into memory every time a designer opens a working file. This is what causes Figma canvas lag and WebGL context crashes.</p>
+
+    <h2>The golden rule: layer name matching</h2>
+    <p>Have you ever changed an instance's variant property in Figma and watched your custom text revert back to <em>"Button"</em>? That is not a random bug — it is an architecture flaw in your component set.</p>
+
+    <p>Figma preserves user overrides across variant switches using one strict rule: <strong>the layer hierarchy and the layer name must match exactly across all variant frames</strong>.</p>
+
+    <ul>
+      <li>If variant <code>State=Default</code> has a text layer named <code>Label</code>, but variant <code>State=Hover</code> has that same text layer named <code>Text</code>, Figma sees them as two unrelated objects. When the designer switches to Hover, Figma discards the typed text and renders the default value.</li>
+      <li>If you wrap an icon in an extra autolayout frame in only <em>one</em> variant, the layer depth diverges, and color overrides collapse.</li>
+    </ul>
+
+    <p><strong>The rule:</strong> Keep layer structures completely identical across all states. Never rename an inner layer in one variant without updating all sister variants.</p>
+
+    <h2>The Slot pattern: composition over configuration</h2>
+    <p>In frontend engineering (React, Vue, Web Components), developers don't build twenty modal variants. They build one modal shell with a <code>children</code> slot:</p>
+
+    <pre><code>&lt;Modal title="Export Data"&gt;
+  &lt;ExportForm /&gt; {/* Swappable Slot Content */}
+&lt;/Modal&gt;</code></pre>
+
+    <p>You can do the exact same thing in Figma using <strong>Instance Swap properties</strong> on placeholder slot components:</p>
+
+    <ol>
+      <li><strong>Create a generic Slot placeholder:</strong> A simple autolayout frame with a subtle dashed outline, labeled <code>_Slot / Placeholder</code> (prefixed with an underscore so it isn't published in the team library).</li>
+      <li><strong>Embed the slot in your container:</strong> In your Master Modal or Card component, place an instance of the <code>_Slot</code> component where dynamic content lives.</li>
+      <li><strong>Expose an Instance Swap property:</strong> Bind that slot instance to an Instance Swap property named <code>Content</code>.</li>
+      <li><strong>Swap in consumer files:</strong> In production files, designers design their local form, table, or confirmation message as a local component, and swap it into the Modal's <code>Content</code> slot with one click.</li>
+    </ol>
+
+    <p>Instead of 50 modal variants in your system library, you maintain <strong>one</strong>. Designers get infinite layout freedom, and nobody ever has to detach an instance.</p>
+
+    <h2>When to use Variants vs. Component Properties</h2>
+    <p>Before adding a new variant axis, use this checklist to choose the lightest tool for the job:</p>
+
+    <ul>
+      <li><strong>Variants:</strong> Strictly for mutually exclusive visual states that alter typography, surface fills, or core geometry (e.g. <code>State: Default | Hover | Pressed | Disabled</code>, or <code>Variant: Primary | Secondary | Danger</code>).</li>
+      <li><strong>Boolean Properties:</strong> For showing or hiding sub-elements without duplicating frames (e.g. <code>showIconLeft: true/false</code>, <code>showBadge: true/false</code>).</li>
+      <li><strong>Instance Swap Properties:</strong> For swappable content that has identical layout bounds (e.g. icons, avatars, and <code>&lt;Slot&gt;</code> placeholders).</li>
+      <li><strong>Text Properties:</strong> For exposing text fields directly in the top-level property panel without drilling through nested layers.</li>
+    </ul>
+
+    <p>Embracing slots and properties cuts your component set sizes by 70% to 80%. Your design library opens instantly, overrides stay locked in place, and your Figma structure mirrors the exact mental model your engineering team writes in code.</p>
+  </div>
+
+  <!-- ARTICLE FOOTER -->
+  <div class="article-footer">
+    <div style="margin-bottom: 40px;">
+      <h2 class="section-label">Next Article</h2>
+      <a href="2026-05-12-architecting-a-multibrand-design-system.html" class="next-case" style="position:relative;">
+        <span class="nc-b"></span>
+        <div>
+          <div class="nc-label">Architecture · Article</div>
+          <div class="nc-title">Architecting a multi-brand design system without losing your mind</div>
+        </div>
+        <div class="nc-arrow" aria-hidden="true">↗</div>
+      </a>
+    </div>
+
+    <div class="article-nav">
+      <a href="index.html">← All entries</a>
+      <a href="../about/index.html">About the author</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 · Anton Bozhatarnyk</div>
+    <div class="footer-status"><span class="footer-status-pill"><span class="footer-status-dot"></span>Available · Poland / Remote EU</span></div>
+    <div class="footer-links">
+      <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)">Email</a>
+      <a href="https://www.linkedin.com/in/antony-bozhatarnyk-b6068441/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

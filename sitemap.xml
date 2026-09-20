@@ -33,8 +33,18 @@
   </url>
 
   <url>
+    <loc>https://antonyui.com/blog/2026-06-03-stop-building-80-variant-components-in-figma</loc>
+    <lastmod>2026-06-03</lastmod>
+  </url>
+
+  <url>
     <loc>https://antonyui.com/blog/2026-05-12-architecting-a-multibrand-design-system</loc>
     <lastmod>2026-05-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://antonyui.com/blog/2026-04-18-structuring-figma-variables-for-production</loc>
+    <lastmod>2026-04-18</lastmod>
   </url>
 
 </urlset>
