@@ -44,7 +44,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=2.3">
+<link rel="stylesheet" href="../assets/css/styles.css?v=2.4">
 <script src="../assets/js/app.js"></script>
 <script type="application/ld+json">
 {
@@ -161,34 +161,7 @@
     <hr>
 
     <h2>The core pattern: Headless Anatomy vs. Token Skin</h2>
-    <p>The only sustainable way to build multi-brand systems is enforcing an unbreachable wall between <strong>Component Anatomy</strong> and <strong>Token Skin</strong>.</p>
-
-    <div class="table-wrap">
-      <table class="article-table">
-        <thead>
-          <tr>
-            <th>System Layer</th>
-            <th>What Lives Here</th>
-            <th>Codebase Location</th>
-            <th>Cross-Brand Variance</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Headless Anatomy</strong></td>
-            <td>Keyboard navigation, ARIA live regions, focus traps, slot layout, state machines</td>
-            <td>Single shared core package (React / Web Components)</td>
-            <td><span class="table-pill pill-restricted">0% · Invariant Core</span></td>
-          </tr>
-          <tr>
-            <td><strong>Token Skin</strong></td>
-            <td>Brand color palette, corner radius, typography stacks, elevation, density</td>
-            <td>Brand-specific token dictionary (CSS custom properties / JSON)</td>
-            <td><span class="table-pill pill-contract">100% · Swapped at Runtime</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <p>The only sustainable way to build multi-brand systems is enforcing an unbreachable wall between <strong>Component Anatomy</strong> (the invariant mechanical core) and <strong>Token Skin</strong> (the brand-specific styling layer).</p>
 
     <h3>1. What belongs in the Invariant Anatomy:</h3>
     <p>Take a complex component like a <strong>Date Range Picker</strong> or a <strong>Modal Dialog</strong>. Mechanically, how it works does not care whether it is sitting in a consumer solar energy shop (priWatt) or an enterprise fintech payment gateway (PGWay):</p>

@@ -44,7 +44,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=2.3">
+<link rel="stylesheet" href="../assets/css/styles.css?v=2.4">
 <script src="../assets/js/app.js"></script>
 <script type="application/ld+json">
 {
@@ -152,44 +152,7 @@
     <hr>
 
     <h2>The 3-tier hierarchy that actually works</h2>
-    <p>Through shipping and refactoring design systems across payment gateways (PGWay), energy commerce (priWatt), and enterprise SaaS, I have found that a strict <strong>three-tier model</strong> is the sweet spot between scalability and developer adoption.</p>
-
-    <div class="table-wrap">
-      <table class="article-table">
-        <thead>
-          <tr>
-            <th>Tier</th>
-            <th>Role</th>
-            <th>Governs</th>
-            <th>Engineering Contract</th>
-            <th>Production Example</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>01</code></td>
-            <td><strong>Global Primitives</strong></td>
-            <td>Raw values (hex palettes, spacing increments, base radii)</td>
-            <td><span class="table-pill pill-restricted">Never consume in UI</span></td>
-            <td><code>color.blue.500: #0066FF</code></td>
-          </tr>
-          <tr>
-            <td><code>02</code></td>
-            <td><strong>Semantic System</strong></td>
-            <td>Functional intent, surface roles, Light/Dark mode resolution</td>
-            <td><span class="table-pill pill-contract">Universal contract</span></td>
-            <td><code>color.action.primary: var(--blue-500)</code></td>
-          </tr>
-          <tr>
-            <td><code>03</code></td>
-            <td><strong>Component Overrides</strong></td>
-            <td>Isolated component knobs &amp; white-label exceptions</td>
-            <td><span class="table-pill pill-exception">Exceptions only</span></td>
-            <td><code>btn.primary.bg: var(--action-primary)</code></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <p>Through shipping and refactoring design systems across payment gateways (PGWay), energy commerce (priWatt), and enterprise SaaS, I have found that a strict <strong>three-tier model</strong> is the sweet spot between scalability and developer adoption: global primitives at the foundation, semantic intent in the middle, and strictly constrained component overrides at the top.</p>
 
     <h3>Tier 1: Global / Raw Primitives</h3>
     <p>These are your dictionary words. They describe <strong>what a value is</strong>, completely detached from where or how it is used in the interface. They should never be consumed directly in UI components.</p>
