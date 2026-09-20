@@ -3,7 +3,14 @@
    ============================================= */
 
 /* RESET & VARIABLES */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* One universal transition keeps the light/dark switch smooth. It is turned
+     off wholesale under prefers-reduced-motion — see the end of this file. */
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease;
+}
 
 :root {
   --bg: #262624; --bg2: #2d2d2b; --bg3: #333331;
@@ -23,8 +30,6 @@
   --dot-color: rgba(0,0,0,0.06);
   --nav-bg: rgba(245, 243, 239, 0.72);
 }
-
-* { transition: background-color 0.25s, border-color 0.25s, color 0.2s; }
 
 body {
   background: var(--bg);
@@ -154,9 +159,12 @@ nav { position: sticky; top: 0; z-index: 50; }
   border-bottom: 1px solid var(--border);
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* `visibility` (not just max-height) takes the collapsed links out of the tab
+     order — otherwise keyboard users focus links they cannot see. */
+  visibility: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
 }
-.nav-mobile.open { max-height: 320px; }
+.nav-mobile.open { max-height: 420px; visibility: visible; }
 .nav-mobile-inner { padding: 8px 24px 20px; }
 .nav-mobile-inner a {
   display: block; font-size: 14px; color: var(--muted);
@@ -509,4 +517,105 @@ footer { padding: 36px 0; }
 @keyframes lb-in { from { opacity: 0; } to { opacity: 1; } }
 /* Make case study images zoomable */
 .img-zoomable { cursor: zoom-in; }
+
+/* =============================================
+   BLOG
+   ============================================= */
+
+/* ---- BLOG INDEX ---- */
+.blog-hero { position: relative; overflow: hidden; padding: 64px 0 48px; border-bottom: 1px solid var(--border); }
+.blog-hero h1 { margin-bottom: 12px; }
+.blog-hero .hero-sub { margin-bottom: 0; }
+
+.blog-list { display: flex; flex-direction: column; }
+.post-card {
+  display: block; text-decoration: none; position: relative;
+  background: var(--bg2); border: 1px solid var(--border);
+  padding: 28px; margin-top: -1px; transition: background 0.15s;
+}
+.post-card:first-child { margin-top: 0; }
+.post-card:hover { background: var(--bg3); }
+.post-card::before, .post-card::after { content:''; position:absolute; width:8px; height:8px; border:1px solid transparent; transition: border-color 0.2s; }
+.post-card::before { top:0; left:0; border-width:1px 0 0 1px; }
+.post-card::after  { top:0; right:0; border-width:1px 1px 0 0; }
+.post-card:hover::before, .post-card:hover::after { border-color: var(--orange-border); }
+.post-date { font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; color: var(--faint); text-transform: uppercase; margin-bottom: 12px; }
+.post-date .post-tag-inline { color: var(--orange); }
+.post-title { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+.post-desc { font-size: 14px; color: var(--muted); line-height: 1.6; max-width: 600px; }
+.post-arrow { position: absolute; top: 16px; right: 16px; font-size: 11px; color: var(--muted); background: var(--bg); border: 1px solid var(--border); width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; transition: color 0.15s, border-color 0.15s; }
+.post-card:hover .post-arrow { color: var(--orange); border-color: var(--orange-border); }
+
+/* ---- BLOG POST (article) ---- */
+.article-header { padding: 64px 0 40px; border-bottom: 1px solid var(--border); }
+.article-kicker { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.article-tag { font-size: 10px; font-family: var(--mono); letter-spacing: 0.07em; color: var(--orange); background: var(--orange-dim); border: 1px solid var(--orange-border); border-radius: 4px; padding: 2px 8px; text-transform: uppercase; }
+.article-date { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--faint); text-transform: uppercase; }
+.article-header h1 { font-size: clamp(28px,4vw,40px); margin-bottom: 16px; }
+.article-lede { font-size: 17px; color: var(--muted); line-height: 1.65; max-width: 620px; font-weight: 300; }
+
+.article-body { max-width: 680px; margin: 0 auto; padding: 48px 0 16px; }
+.article-body p { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
+.article-body p strong, .article-body li strong { color: var(--text); font-weight: 500; }
+.article-body h2 { font-size: 22px; font-weight: 500; letter-spacing: -0.01em; color: var(--text); margin: 40px 0 16px; }
+.article-body h3 { font-size: 16px; font-weight: 500; color: var(--text); margin: 32px 0 12px; }
+.article-body ul, .article-body ol { margin: 0 0 24px 20px; }
+.article-body li { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 10px; }
+.article-body blockquote {
+  margin: 0 0 24px; padding: 16px 20px;
+  border-left: 2px solid var(--orange); background: var(--bg2);
+  font-size: 15px; color: var(--muted); line-height: 1.7; font-style: italic;
+}
+.article-body blockquote p { margin-bottom: 0; }
+.article-body hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+.article-body .pull-note { font-family: var(--mono); font-size: 12px; color: var(--faint); letter-spacing: 0.04em; border: 1px solid var(--border); padding: 14px 16px; margin-bottom: 24px; line-height: 1.7; }
+
+.article-footer { max-width: 680px; margin: 0 auto; padding: 24px 0 80px; }
+.article-nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid var(--border); padding-top: 24px; }
+.article-nav a { font-family: var(--mono); font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.15s; }
+.article-nav a:hover { color: var(--orange); }
+
+@media (max-width: 640px) {
+  .blog-hero { padding: 48px 0 40px; }
+  .post-card { padding: 22px 20px; }
+  .article-header { padding: 48px 0 32px; }
+  .article-body { padding: 36px 0 8px; }
+}
+
+/* =============================================
+   ACCESSIBILITY & MOTION
+   ============================================= */
+
+/* Keyboard-only focus ring (never shown for mouse clicks) */
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.lb-close:focus-visible { outline-color: #fff; }
+
+/* Skip link — off-screen until it receives focus */
+.skip-link {
+  position: fixed; left: 16px; top: -64px; z-index: 200;
+  background: var(--orange); color: #fff;
+  font-size: 13px; font-weight: 500;
+  padding: 10px 16px; border-radius: var(--radius);
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: 16px; }
+
+/* Current page, also inside the mobile panel */
+.nav-mobile-inner a.active { color: var(--text); }
+
+/* Body scroll lock while the lightbox is open */
+body.lb-locked { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 

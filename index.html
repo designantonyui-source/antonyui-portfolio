@@ -3,15 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="assets/favicon.png" type="image/png" sizes="256x256">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<title>Antony Bozhatarnyk — Sr. Product Designer · Design Systems & B2B UX</title>
-<meta name="description" content="Sr. Product Designer specialising in design systems, DesignOps, and complex B2B UX. 4+ years in energy and SaaS — bridging design and engineering.">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<meta name="theme-color" content="#262624">
+<title>Antony Bozhatarnyk — Senior Product Designer · Design Systems & Fintech</title>
+<meta name="description" content="Senior Product Designer specialising in design systems and complex fintech & B2B UX. 5+ years across fintech, energy, and SaaS — bridging design and engineering.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://antonyui.com/">
 <!-- OG -->
-<meta property="og:title" content="Antony Bozhatarnyk — Sr. Product Designer">
-<meta property="og:description" content="Sr. Product Designer specialising in design systems, DesignOps, and complex B2B UX. 4+ years in energy and SaaS.">
+<meta property="og:title" content="Antony Bozhatarnyk — Senior Product Designer">
+<meta property="og:description" content="Senior Product Designer specialising in design systems and complex fintech & B2B UX. 5+ years across fintech, energy, and SaaS.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://antonyui.com/">
 <meta property="og:image" content="https://antonyui.com/assets/images/og-cover.jpg">
@@ -21,8 +23,8 @@
 <meta property="og:locale" content="en_US">
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Antony Bozhatarnyk — Sr. Product Designer">
-<meta name="twitter:description" content="Sr. Product Designer specialising in design systems, DesignOps, and complex B2B UX. 4+ years in energy and SaaS.">
+<meta name="twitter:title" content="Antony Bozhatarnyk — Senior Product Designer">
+<meta name="twitter:description" content="Senior Product Designer specialising in design systems and complex fintech & B2B UX. 5+ years across fintech, energy, and SaaS.">
 <meta name="twitter:image" content="https://antonyui.com/assets/images/og-cover.jpg">
 <!-- JSON-LD -->
 <script type="application/ld+json">
@@ -34,7 +36,7 @@
   "url": "https://antonyui.com",
   "email": "designantonyui@gmail.com",
   "sameAs": ["https://www.linkedin.com/in/antony-bozhatarnyk-b6068441/"],
-  "knowsAbout": ["Design Systems", "DesignOps", "UX Design", "B2B SaaS", "Token Studio", "Figma", "Framer"]
+  "knowsAbout": ["Design Systems", "DesignOps", "Fintech UX", "UX Design", "B2B SaaS", "Token Studio", "Figma", "Framer"]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,23 +47,25 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/images/avatar.jpeg" class="nav-avatar" alt="Antony Bozhatarnyk"> Antony Bozhatarnyk</a>
+    <a href="index.html" class="nav-logo"><img src="assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Antony Bozhatarnyk</a>
     <div class="nav-links">
       <a href="#work">Work</a>
-      <a href="work/priwatt.html">Cases</a>
       <a href="#expertise">Expertise</a>
       <a href="#about">About</a>
+      <a href="blog/index.html">Blog</a>
     </div>
     <div class="nav-right">
       <div class="theme-toggle">
-        <button class="theme-btn active" id="btn-dark"  onclick="setTheme('dark')"  aria-label="Dark mode"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9.17A5.5 5.5 0 0 1 4.83 2 5.5 5.5 0 1 0 12 9.17z" fill="currentColor"/></svg></button>
-        <button class="theme-btn"        id="btn-light" onclick="setTheme('light')" aria-label="Light mode"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="2.5" fill="currentColor"/><line x1="7" y1="1" x2="7" y2="2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11.5" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="2.5" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.5" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="10" x2="11.07" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.07" y1="2.93" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="10" x2="2.93" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+        <button type="button" class="theme-btn active" id="btn-dark" onclick="setTheme('dark')" aria-label="Dark mode" aria-pressed="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9.17A5.5 5.5 0 0 1 4.83 2 5.5 5.5 0 1 0 12 9.17z" fill="currentColor"/></svg></button>
+        <button type="button" class="theme-btn" id="btn-light" onclick="setTheme('light')" aria-label="Light mode" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="2.5" fill="currentColor"/><line x1="7" y1="1" x2="7" y2="2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11.5" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="2.5" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.5" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="10" x2="11.07" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.07" y1="2.93" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="10" x2="2.93" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
       </div>
-      <a href="mailto:designantonyui@gmail.com" class="nav-cta">Get in touch →</a>
-      <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <a href="mailto:designantonyui@gmail.com" class="nav-cta">Let's talk →</a>
+      <button type="button" class="nav-menu-btn" id="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-mobile">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -69,16 +73,16 @@
   <div class="nav-mobile" id="nav-mobile">
     <div class="nav-mobile-inner">
       <a href="#work">Work</a>
-      <a href="work/priwatt.html">Cases</a>
       <a href="#expertise">Expertise</a>
       <a href="#about">About</a>
-      <a href="mailto:designantonyui@gmail.com" class="nav-mobile-cta">Get in touch →</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="mailto:designantonyui@gmail.com" class="nav-mobile-cta">Let's talk →</a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<div class="hero-wrap">
+<div class="hero-wrap" id="main">
   <div class="dot-bg"></div>
   <div class="site">
     <div class="badge"><span class="badge-dot"></span> Available · Poland / Remote EU</div>
@@ -86,9 +90,9 @@
       <strong>Simplifying the complex</strong><br>
       <span style="color:var(--muted);font-weight:300;">through scalable systems.</span>
     </h1>
-    <p class="hero-sub"><span style="color:var(--orange);font-weight:500;">Sr. Product Designer</span> specialising in <span style="color:var(--orange);font-weight:500;">scalable design systems</span>, DesignOps, and complex B2B UX. <span style="color:var(--orange);font-weight:500;">4+ years</span> in <span style="color:var(--orange);font-weight:500;">energy and SaaS</span> — bridging design and engineering.</p>
+    <p class="hero-sub"><span style="color:var(--orange);font-weight:500;">Senior Product Designer</span> specialising in <span style="color:var(--orange);font-weight:500;">design systems</span> and complex <span style="color:var(--orange);font-weight:500;">fintech & B2B UX</span>. <span style="color:var(--orange);font-weight:500;">5+ years</span> across <span style="color:var(--orange);font-weight:500;">fintech, energy, and SaaS</span> — bridging design and engineering.</p>
     <div class="hero-actions">
-      <a href="#work" class="btn-primary">View case studies ↗</a>
+      <a href="#work" class="btn-primary">View the priWatt case study ↗</a>
       <a href="assets/Anton-Bozhatarnyk-CV.pdf" class="btn-ghost" download="Anton-Bozhatarnyk-CV.pdf">Download CV</a>
       <a href="https://www.linkedin.com/in/antony-bozhatarnyk-b6068441/" class="btn-ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
@@ -97,13 +101,13 @@
     <div class="metrics" style="position:relative;">
       <span class="metrics-b" style="position:absolute;inset:0;pointer-events:none;"></span>
       <div class="metric">
-        <div class="metric-label">Faster design-to-dev delivery — because good systems remove blockers</div>
+        <div class="metric-label">75% faster design-to-dev delivery — one token architecture, zero guesswork (priWatt)</div>
       </div>
       <div class="metric">
-        <div class="metric-label">Fewer revision cycles — because structured tokens leave no room for guessing</div>
+        <div class="metric-label">60% faster component builds — one company-wide system across 3+ products (TWNTY)</div>
       </div>
       <div class="metric">
-        <div class="metric-label">4+ years building products that scale without breaking</div>
+        <div class="metric-label">5+ years shipping products in fintech, energy, and SaaS — that scale without breaking</div>
       </div>
     </div>
   </div>
@@ -123,7 +127,7 @@
             <img src="assets/images/priwatt-configurator-tablet.webp" alt="priWatt PV Configurator on iPad — guided solar system builder" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
           </div>
           <span class="work-tag">FEATURED · CASE STUDY</span>
-          <span class="work-arrow">↗</span>
+          <span class="work-arrow" aria-hidden="true">↗</span>
           <div class="work-title">priWatt — Design System from Brand Book to Production</div>
           <div class="work-desc">Turned an agency brand book into a production-ready design system — three-tier token architecture, typography scale, responsive grid, and a component library that reduced design-to-dev delivery time by 75%.</div>
           <div class="work-meta">
@@ -173,17 +177,17 @@
         <div class="exp-card"><span class="ec-b"></span>
           <div class="exp-num">02</div>
           <div class="exp-title">DesignOps & Process</div>
-          <div class="exp-desc">Backlog refinement, handoff optimisation, and workflow tooling. Reduced delivery cycles by 75% by rebuilding component architecture from scratch.</div>
+          <div class="exp-desc">Backlog refinement, handoff optimisation, and workflow tooling. Cut component build time by 60% across 3+ products by rebuilding the architecture from scratch.</div>
         </div>
         <div class="exp-card"><span class="ec-b"></span>
           <div class="exp-num">03</div>
-          <div class="exp-title">Complex B2B UX</div>
-          <div class="exp-desc">Compliance-sensitive flows, logistics dashboards, and dense back-office interfaces. Turning complex operational data into clear, usable interfaces for power users.</div>
+          <div class="exp-title">Fintech & Complex B2B UX</div>
+          <div class="exp-desc">Large-scale fintech platforms, compliance-sensitive flows, and dense back-office interfaces. Turning complex operational data into clear, usable interfaces for power users.</div>
         </div>
         <div class="exp-card"><span class="ec-b"></span>
           <div class="exp-num">04</div>
           <div class="exp-title">Product Strategy</div>
-          <div class="exp-desc">Discovery, user research, and stakeholder alignment across energy, SaaS, and logistics verticals. Working upstream of design to shape what gets built.</div>
+          <div class="exp-desc">Discovery, user research, and stakeholder alignment across fintech, energy, SaaS, and logistics. Working upstream of design to shape what gets built.</div>
         </div>
       </div>
     </div>
@@ -196,16 +200,16 @@
     <div class="section-label">About</div>
     <div class="about-grid">
       <div class="about-text">
-        <p>I'm <strong>Antony</strong>, a Senior Product Designer with 4+ years shipping digital products across B2B SaaS and energy. My focus is the infrastructure layer — design systems and DesignOps that let teams move fast without breaking consistency.</p>
-        <p>Most recently at <strong>TWNTY Digital GmbH</strong>, a German agency, where I led design across clients including priWatt, Mission Zero, and Tilray. Before that, logistics and CMS products in Barcelona. Currently based in Poland, open to remote EU roles and relocation.</p>
+        <p>I'm <strong>Antony</strong>, a Senior Product Designer with <strong>5+ years</strong> shipping digital products across <strong>fintech, energy, and B2B SaaS</strong>. My focus is the infrastructure layer — design systems and DesignOps that let teams move fast without breaking consistency.</p>
+        <p>Most recently I was Product Designer at <strong>PGWay</strong>, a global payment gateway (150+ payment methods), where I owned product design and the design system on a large, compliance-sensitive platform. Before that, three years at <strong>TWNTY Ventures</strong> (Germany) on clients including priWatt, Mission Zero, and Tilray — and earlier, dashboard and CMS products with Natanek Iberia in Barcelona. Based in Poznań, Poland — open to remote EU roles and relocation.</p>
         <a href="mailto:designantonyui@gmail.com" class="btn-primary" style="margin-top:8px;">Let's talk →</a>
       </div>
       <div>
         <div class="aside-outer" style="position:relative;">
           <span class="aside-outer-b" style="position:absolute;inset:0;pointer-events:none;"></span>
-          <div class="aside-card"><div class="aside-label">Location</div><div class="aside-val">Poland · open to EU remote & relocation</div></div>
+          <div class="aside-card"><div class="aside-label">Location</div><div class="aside-val">Poznań, Poland · open to EU remote & relocation</div></div>
           <div class="aside-card"><div class="aside-label">Tools</div><div class="aside-val">Figma · Token Studio · Framer · Jira · ClickUp · Miro</div></div>
-          <div class="aside-card"><div class="aside-label">Specialisation</div><div class="aside-val">Design Systems · DesignOps · B2B SaaS</div></div>
+          <div class="aside-card"><div class="aside-label">Specialisation</div><div class="aside-val">Design Systems · Fintech UX · B2B SaaS</div></div>
           <div class="aside-card"><div class="aside-label">Languages</div><div class="aside-val">English · Ukrainian · Polish</div></div>
         </div>
       </div>
