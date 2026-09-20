@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<meta name="theme-color" content="#262624">
+<title>Architecting a multi-brand design system without losing your mind · Anton Bozhatarnyk</title>
+<meta name="description" content="An in-depth architectural blueprint for multi-brand design systems: headless anatomy, token skinning, typography metrics, and governance at scale.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://antonyui.com/blog/2026-05-12-architecting-a-multibrand-design-system">
+<!-- OG -->
+<meta property="og:title" content="Architecting a multi-brand design system without losing your mind">
+<meta property="og:description" content="An in-depth architectural blueprint for multi-brand design systems: headless anatomy, token skinning, typography metrics, and governance at scale.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://antonyui.com/blog/2026-05-12-architecting-a-multibrand-design-system">
+<meta property="og:image" content="https://antonyui.com/assets/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Anton Bozhatarnyk">
+<meta property="og:locale" content="en_US">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Architecting a multi-brand design system without losing your mind">
+<meta name="twitter:description" content="An in-depth architectural blueprint for multi-brand design systems.">
+<meta name="twitter:image" content="https://antonyui.com/assets/images/og-cover.jpg">
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Architecting a multi-brand design system without losing your mind",
+  "description": "An in-depth architectural blueprint for multi-brand design systems: headless anatomy, token skinning, typography metrics, and governance at scale.",
+  "author": { "@type": "Person", "name": "Anton Bozhatarnyk", "url": "https://antonyui.com" },
+  "publisher": { "@type": "Person", "name": "Anton Bozhatarnyk", "url": "https://antonyui.com" },
+  "image": "https://antonyui.com/assets/images/og-cover.jpg",
+  "datePublished": "2026-05-12",
+  "dateModified": "2026-05-12",
+  "url": "https://antonyui.com/blog/2026-05-12-architecting-a-multibrand-design-system"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<script src="../assets/js/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://antonyui.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://antonyui.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Architecting a multi-brand design system without losing your mind",
+      "item": "https://antonyui.com/blog/2026-05-12-architecting-a-multibrand-design-system"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Anton Bozhatarnyk</a>
+    <div class="nav-links">
+      <a href="../work/index.html">Work</a>
+      <a href="../index.html#expertise">Expertise</a>
+      <a href="../about/index.html">About</a>
+      <a href="index.html">Blog</a>
+    </div>
+    <div class="nav-right">
+      <div class="theme-toggle">
+        <button type="button" class="theme-btn active" id="btn-dark" onclick="setTheme('dark')" aria-label="Dark mode" aria-pressed="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9.17A5.5 5.5 0 0 1 4.83 2 5.5 5.5 0 1 0 12 9.17z" fill="currentColor"/></svg></button>
+        <button type="button" class="theme-btn" id="btn-light" onclick="setTheme('light')" aria-label="Light mode" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="2.5" fill="currentColor"/><line x1="7" y1="1" x2="7" y2="2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11.5" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="2.5" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.5" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="10" x2="11.07" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.07" y1="2.93" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="10" x2="2.93" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div>
+      <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)" class="nav-cta">Let's talk →</a>
+      <button type="button" class="nav-menu-btn" id="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <div class="nav-mobile-inner">
+      <a href="../work/index.html">Work</a>
+      <a href="../index.html#expertise">Expertise</a>
+      <a href="../about/index.html">About</a>
+      <a href="index.html">Blog</a>
+      <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)" class="nav-mobile-cta">Let's talk →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header" id="main">
+  <div class="site">
+    <div class="article-kicker">
+      <span class="article-tag">Design Systems</span>
+      <span class="article-date">May 12, 2026 · <span id="read-time">10 min read</span></span>
+    </div>
+    <h1>Architecting a multi-brand design system without losing your mind</h1>
+    <p class="article-lede">How to structure shared components, token inheritance, and multi-theme matrices across different products without duplicating libraries or building 50-variant Frankenstein components.</p>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="site">
+  <div class="article-body">
+    <p>When an organisation operates more than one product or brand — through mergers and acquisitions, white-label partner platforms, or a consumer vs. enterprise product split — leadership will inevitably say:</p>
+
+    <blockquote>
+      <p>"Why don't we just build one shared design system for all our brands?"</p>
+    </blockquote>
+
+    <p>On an executive roadmap slide, it looks like pure efficiency. One shared codebase, halved frontend development costs, unified accessibility compliance, and instant cross-pollination of UX improvements. But if you have ever tried to execute this naively, you know that multi-brand systems are where good intentions go to die.</p>
+
+    <p>Without a rigorous architectural boundary, multi-brand design systems fail in one of two catastrophic ways.</p>
+
+    <h2>The two false summits</h2>
+
+    <h3>1. The Fork (Copy-Paste Architecture)</h3>
+    <p>Brand B needs a dark brutalist aesthetic with 0px corner radii and orange accents; Brand A has soft 12px rounded corners and purple primary buttons. Under pressure to ship Brand B's MVP in six weeks, the team copies the entire Figma library into a new file (<code>Brand-B-Core.fig</code>) and clones the Git repository into <code>@company/brand-b-ui</code>.</p>
+    <p>The short-term velocity feels great. Then reality hits:</p>
+    <ul>
+      <li>You no longer have a multi-brand system. You have two single-brand systems and double the maintenance overhead.</li>
+      <li>Six months later, an accessibility audit finds a severe keyboard focus-trap bug in the modal dialog on Brand A. An engineer fixes it. Nobody has time to backport the commit to Brand B's repository.</li>
+      <li>Brand B falls behind, bugs multiply, and the company ends up paying two full design-engineering squads to maintain parallel components that do the exact same mechanical job.</li>
+    </ul>
+
+    <h3>2. The Megacomponent (Variant Hell)</h3>
+    <p>Determined not to duplicate files, another team keeps everything in one shared library. But because they lack a decoupled token architecture, they bake brand differences directly into component props and Figma variants:</p>
+
+    <pre><code>&lt;Button 
+  variant="primary" 
+  isBrandB={true} 
+  cornerStyle="brutalist-sharp" 
+  elevation="none" 
+  hasAccentBorder={true}
+/&gt;</code></pre>
+
+    <p>In Figma, a single Button component now has 48 variant combinations, four boolean toggles, and three variant properties just to handle different logos, border styles, and shadows. Designers get lost selecting properties, Figma files lag and crash browser tabs, and frontend production bundles ship dead CSS for brands they aren't even running.</p>
+
+    <hr>
+
+    <h2>The core pattern: Headless Anatomy vs. Token Skin</h2>
+    <p>The only sustainable way to build multi-brand systems is enforcing an unbreachable wall between <strong>Component Anatomy</strong> and <strong>Token Skin</strong>.</p>
+
+    <div class="article-diagram">
+      <div class="diagram-badge">Architecture Blueprint</div>
+      
+      <!-- Invariant Core Box -->
+      <div class="diagram-box">
+        <div class="diagram-box-title">
+          <span>Component Anatomy <strong style="color:var(--text);font-weight:500;">(Invariant Core)</strong></span>
+          <span class="diagram-tag" style="color:var(--orange);border-color:var(--orange-border);">Single Codebase</span>
+        </div>
+        <div class="diagram-box-desc">Mechanical behavior, accessibility attributes, keyboard handlers, and layout constraints that never vary across brands.</div>
+        <div class="diagram-tag-list">
+          <span class="diagram-tag">ARIA roles &amp; live regions</span>
+          <span class="diagram-tag">Focus-visible traps</span>
+          <span class="diagram-tag">Escape &amp; arrow navigation</span>
+          <span class="diagram-tag">44×44px touch targets</span>
+          <span class="diagram-tag">Named slot architecture</span>
+        </div>
+      </div>
+
+      <!-- Connector -->
+      <div class="diagram-connector">
+        <span>↓ Injected via Token Theme Sets ↓</span>
+      </div>
+
+      <!-- Brand Variations Split -->
+      <div class="diagram-split">
+        <!-- Brand A -->
+        <div class="diagram-box" style="border-top: 2px solid #0066FF;">
+          <div class="diagram-box-title">
+            <span style="color:#0066FF;font-weight:600;">Brand A Theme</span>
+            <span class="diagram-tag">priWatt / Energy</span>
+          </div>
+          <div class="diagram-tag-list" style="margin-bottom:12px;">
+            <span class="diagram-tag">Font: Inter</span>
+            <span class="diagram-tag">Radius: 12px (Soft)</span>
+            <span class="diagram-tag">Primary: #0066FF</span>
+            <span class="diagram-tag">Density: Comfortable</span>
+          </div>
+          <div style="background:var(--bg2);padding:12px 14px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <span style="font-size:11px;color:var(--muted);font-family:Inter,sans-serif;">Live Token Preview:</span>
+            <span class="diagram-preview-btn" style="background:#0066FF;color:#fff;border-radius:12px;font-family:Inter,sans-serif;box-shadow:0 2px 8px rgba(0,102,255,0.25);">Get Started →</span>
+          </div>
+        </div>
+
+        <!-- Brand B -->
+        <div class="diagram-box" style="border-top: 2px solid var(--orange);">
+          <div class="diagram-box-title">
+            <span style="color:var(--orange);font-weight:600;">Brand B Theme</span>
+            <span class="diagram-tag">PGWay / Fintech</span>
+          </div>
+          <div class="diagram-tag-list" style="margin-bottom:12px;">
+            <span class="diagram-tag">Font: Geist Mono</span>
+            <span class="diagram-tag">Radius: 0px (Brutalist)</span>
+            <span class="diagram-tag">Primary: #FF6600</span>
+            <span class="diagram-tag">Density: Compact</span>
+          </div>
+          <div style="background:var(--bg2);padding:12px 14px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <span style="font-size:11px;color:var(--muted);font-family:var(--mono);">Live Token Preview:</span>
+            <span class="diagram-preview-btn" style="background:var(--orange);color:#000;border-radius:0px;font-family:var(--mono);text-transform:uppercase;font-size:11px;font-weight:600;letter-spacing:0.04em;">CONFIRM PAY</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>1. What belongs in the Invariant Anatomy:</h3>
+    <p>Take a complex component like a <strong>Date Range Picker</strong> or a <strong>Modal Dialog</strong>. Mechanically, how it works does not care whether it is sitting in a consumer solar energy shop (priWatt) or an enterprise fintech payment gateway (PGWay):</p>
+    <ul>
+      <li>Keyboard traversal (arrow keys, Tab, Shift+Tab, Escape to close).</li>
+      <li>ARIA roles (<code>role="dialog"</code>, <code>aria-modal="true"</code>, <code>aria-describedby</code>).</li>
+      <li>Focus management (trapping focus inside the modal, restoring focus to the trigger on dismiss).</li>
+      <li>Hit target boundaries (minimum 44×44px touch targets).</li>
+    </ul>
+    <p>In Figma, you maintain <strong>one master component</strong>. In code, engineering writes <strong>one component package</strong>.</p>
+
+    <h3>2. What belongs in the Token Skin:</h3>
+    <p>Visual styling is never hardcoded inside the component. Every visual attribute is an unresolved reference to a semantic design token:</p>
+    <ul>
+      <li>Surface background &amp; backdrop blur</li>
+      <li>Border color, width, and radius</li>
+      <li>Typography family, weight, and line-height scale</li>
+      <li>Shadow elevation coordinates</li>
+      <li>Internal padding and gutter spacing</li>
+    </ul>
+
+    <hr>
+
+    <h2>The five production battlegrounds</h2>
+    <p>Separating anatomy from skin sounds simple in theory. In production, five major friction points will test your architecture:</p>
+
+    <h3>Battleground 1: Typography geometry &amp; vertical rhythm</h3>
+    <p>This is where multi-brand systems silently break. Brand A uses a modern geometric sans (Inter) with tall x-heights; Brand B uses an editorial serif (Playfair Display) or a tabular monospace font with wide proportions.</p>
+    <p>If your button component defines fixed heights (e.g. <code>height: 40px; line-height: 20px;</code>), changing the font family causes text clipping, unaligned baseline centers, or awkward button padding because different typefaces have radically different ascender, descender, and cap-height metrics.</p>
+
+    <p><strong>The architectural solution:</strong></p>
+    <ol>
+      <li>Never set explicit fixed heights on buttons, inputs, or badges. Let components size organically using <code>padding-block</code> and <code>padding-inline</code>.</li>
+      <li>Tokenize typography as cohesive <strong>functional text styles</strong> rather than standalone font sizes. Instead of exposing <code>font-size: 16px</code>, expose <code>type.interactive.label</code>, which bundles font family, size, line-height, and letter-spacing tuned per brand.</li>
+      <li>Where modern browser support permits, leverage CSS <code>leading-trim</code> (or <code>text-box-trim</code>) to strip font-metric white space above and below glyphs, guaranteeing pixel-perfect optical centering across any typeface.</li>
+    </ol>
+
+    <h3>Battleground 2: Corner radius polarization (Brutalist vs. Pill)</h3>
+    <p>What happens when Brand A requires <code>0px</code> sharp corners, but Brand B requires <code>9999px</code> full pill buttons? If your button component uses a primitive token like <code>border-radius: var(--radius-4)</code>, setting <code>--radius-4: 9999px</code> in Brand B will fix buttons, but it will turn your table cards and modal dialogs into monstrous capsules.</p>
+
+    <p><strong>The solution: Contextual semantic radius tokens</strong></p>
+    <pre><code>/* Global Primitives */
+radius.0:    0px
+radius.4:    4px
+radius.8:    8px
+radius.full: 9999px
+
+/* Semantic Mappings per Brand */
+/* BRAND A (Enterprise Data / Clean) */
+radius.interactive.action:  {radius.4}
+radius.surface.card:        {radius.8}
+radius.surface.overlay:     {radius.8}
+
+/* BRAND B (Modern Neo-Consumer) */
+radius.interactive.action:  {radius.full}
+radius.surface.card:        {radius.16}
+radius.surface.overlay:     {radius.24}</code></pre>
+    <p>Now, changing <code>radius.interactive.action</code> to <code>radius.full</code> transforms buttons without touching container cards.</p>
+
+    <h3>Battleground 3: Information density (Compact vs. Comfortable)</h3>
+    <p>In fintech applications (like the PGWay payment terminal), operators need high data density: 40 rows per table, 32px row heights, compact font sizes. In consumer products, generous whitespace (48px-56px rows) is essential for readability and thumb-friendly touch targets.</p>
+    <p>Do not create separate "Compact" and "Regular" component variants in Figma. Introduce a <strong>Density Modifier Token</strong>:</p>
+    <pre><code>/* Spacing scales dynamically via a density multiplier */
+:root {
+  --density-multiplier: 1; /* Comfortable */
+  --space-table-cell-y: calc(16px * var(--density-multiplier));
+}
+
+[data-density="compact"] {
+  --density-multiplier: 0.625; /* 10px padding for dense data */
+}</code></pre>
+
+    <h3>Battleground 4: The 2D matrix of Brand × Color Mode</h3>
+    <p>If you support 3 brands, and each brand supports Light and Dark mode, you are managing <strong>six distinct themes</strong>. If you try to maintain six separate Figma files, you will fail.</p>
+    <p>In Figma Variables, create a two-collection architecture:</p>
+    <ul>
+      <li><strong>Collection 1: Primitives:</strong> All raw brand colors (Brand A Blues, Brand B Oranges, Neutral grays).</li>
+      <li><strong>Collection 2: Semantic System:</strong> Set up modes as a 2D matrix (Brand A Light, Brand A Dark, Brand B Light, Brand B Dark).</li>
+    </ul>
+    <p>In CSS, themes are scoped via container classes or data attributes:</p>
+    <pre><code>&lt;!-- Brand A in Dark Mode --&gt;
+&lt;body class="theme-brand-a" data-mode="dark"&gt;
+  &lt;!-- All child components automatically inherit Brand A Dark tokens --&gt;
+&lt;/body&gt;</code></pre>
+
+    <h3>Battleground 5: Iconography sets &amp; brand signatures</h3>
+    <p>Brand A uses 1.5px linear outline icons; Brand B uses 2px filled duotone icons. If an SVG icon is hardcoded inside an alert or button component, swapping the brand theme produces a jarring visual clash.</p>
+    <p>We treat icons as headless slot components:</p>
+    <ul>
+      <li>The component exposes an <code>icon</code> slot rather than a hardcoded graphic.</li>
+      <li>Icons are authored to inherit <code>currentColor</code> for strokes and fills.</li>
+      <li>Optical sizing is tokenized (<code>icon.size.sm = 16px</code>, <code>icon.size.md = 20px</code>).</li>
+    </ul>
+
+    <hr>
+
+    <h2>Governance: The "Rule of Two"</h2>
+    <p>The ultimate failure point of a multi-brand design system is rarely technical — it is organizational. Product managers under sprint deadlines will constantly pressure designers to add brand-specific one-offs to the core component library.</p>
+    <p>To defend system integrity, we established the <strong>Rule of Two</strong>:</p>
+
+    <blockquote>
+      <p>A component variant or style override is never admitted into the Core System for a single brand. It must exist in that brand's local product file until a <strong>second brand</strong> demonstrates a verified, production-backed need for the same pattern.</p>
+    </blockquote>
+
+    <p>When a pattern graduates to Core, the design systems team absorbs ownership, writes automated visual regression tests across all brand themes, and documents the handoff contract.</p>
+
+    <h2>Automated verification: protecting contrast at scale</h2>
+    <p>When someone changes a primary action token for Brand A, how do you know they didn't accidentally break WCAG contrast compliance in Brand B or Dark Mode? You cannot test 500 screens manually.</p>
+    <p>We solved this in CI/CD:</p>
+    <ul>
+      <li><strong>Automated Contrast Checkers:</strong> A Node script runs on every token PR, calculating APCA / WCAG 2.2 contrast ratios between all registered text/surface pairs across every theme mode. If <code>color.action.primary.text</code> drops below 4.5:1 on <code>color.action.primary.bg</code> in any theme, the pull request is blocked.</li>
+      <li><strong>Visual Regression Matrix:</strong> Using Playwright and Storybook, every component is screenshotted across all six brand-mode configurations on every push. Any visual drift is flagged immediately in GitHub diffs.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>Building a multi-brand design system isn't about making everything look identical. It is about building an industrial-grade engine where mechanics, accessibility, and interaction logic are solved once — leaving design teams free to express true brand distinctiveness through the token layer.</p>
+
+    <div class="pull-note">See this architecture in action: read our <a href="../work/priwatt.html" style="color:var(--orange);text-decoration:underline;">priWatt case study</a> detailing how a single token architecture cut design-to-dev handoff time by 75%.</div>
+  </div>
+
+  <!-- ARTICLE FOOTER -->
+  <div class="article-footer">
+    <div style="margin-bottom: 40px;">
+      <h2 class="section-label">Next Article</h2>
+      <a href="2026-09-20-dealing-with-the-blank-canvas.html" class="next-case" style="position:relative;">
+        <span class="nc-b"></span>
+        <div>
+          <div class="nc-label">Craft &amp; Practice · Article</div>
+          <div class="nc-title">Dealing with the blank canvas</div>
+        </div>
+        <div class="nc-arrow" aria-hidden="true">↗</div>
+      </a>
+    </div>
+
+    <div class="article-nav">
+      <a href="index.html">← All entries</a>
+      <a href="../about/index.html">About the author</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 · Anton Bozhatarnyk</div>
+    <div class="footer-status"><span class="footer-status-pill"><span class="footer-status-dot"></span>Available · Poland / Remote EU</span></div>
+    <div class="footer-links">
+      <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)">Email</a>
+      <a href="https://www.linkedin.com/in/antony-bozhatarnyk-b6068441/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

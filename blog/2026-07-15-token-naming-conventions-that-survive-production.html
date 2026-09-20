@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<meta name="theme-color" content="#262624">
+<title>The token naming conventions that actually survive production · Anton Bozhatarnyk</title>
+<meta name="description" content="A comprehensive guide to design token taxonomies: why most hierarchies fail in production, the 3-tier grammar that works, and real handoff contracts.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://antonyui.com/blog/2026-07-15-token-naming-conventions-that-survive-production">
+<!-- OG -->
+<meta property="og:title" content="The token naming conventions that actually survive production">
+<meta property="og:description" content="A comprehensive guide to design token taxonomies: why most hierarchies fail in production, the 3-tier grammar that works, and real handoff contracts.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://antonyui.com/blog/2026-07-15-token-naming-conventions-that-survive-production">
+<meta property="og:image" content="https://antonyui.com/assets/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Anton Bozhatarnyk">
+<meta property="og:locale" content="en_US">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The token naming conventions that actually survive production">
+<meta name="twitter:description" content="A comprehensive guide to design token taxonomies: why most hierarchies fail in production, the 3-tier grammar that works, and real handoff contracts.">
+<meta name="twitter:image" content="https://antonyui.com/assets/images/og-cover.jpg">
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The token naming conventions that actually survive production",
+  "description": "A comprehensive guide to design token taxonomies: why most hierarchies fail in production, the 3-tier grammar that works, and real handoff contracts.",
+  "author": { "@type": "Person", "name": "Anton Bozhatarnyk", "url": "https://antonyui.com" },
+  "publisher": { "@type": "Person", "name": "Anton Bozhatarnyk", "url": "https://antonyui.com" },
+  "image": "https://antonyui.com/assets/images/og-cover.jpg",
+  "datePublished": "2026-07-15",
+  "dateModified": "2026-07-15",
+  "url": "https://antonyui.com/blog/2026-07-15-token-naming-conventions-that-survive-production"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<script src="../assets/js/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://antonyui.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://antonyui.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "The token naming conventions that actually survive production",
+      "item": "https://antonyui.com/blog/2026-07-15-token-naming-conventions-that-survive-production"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Anton Bozhatarnyk</a>
+    <div class="nav-links">
+      <a href="../work/index.html">Work</a>
+      <a href="../index.html#expertise">Expertise</a>
+      <a href="../about/index.html">About</a>
+      <a href="index.html">Blog</a>
+    </div>
+    <div class="nav-right">
+      <div class="theme-toggle">
+        <button type="button" class="theme-btn active" id="btn-dark" onclick="setTheme('dark')" aria-label="Dark mode" aria-pressed="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9.17A5.5 5.5 0 0 1 4.83 2 5.5 5.5 0 1 0 12 9.17z" fill="currentColor"/></svg></button>
+        <button type="button" class="theme-btn" id="btn-light" onclick="setTheme('light')" aria-label="Light mode" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="2.5" fill="currentColor"/><line x1="7" y1="1" x2="7" y2="2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11.5" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="2.5" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.5" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="10" x2="11.07" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.07" y1="2.93" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="10" x2="2.93" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div>
+      <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)" class="nav-cta">Let's talk →</a>
+      <button type="button" class="nav-menu-btn" id="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <div class="nav-mobile-inner">
+      <a href="../work/index.html">Work</a>
+      <a href="../index.html#expertise">Expertise</a>
+      <a href="../about/index.html">About</a>
+      <a href="index.html">Blog</a>
+      <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)" class="nav-mobile-cta">Let's talk →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header" id="main">
+  <div class="site">
+    <div class="article-kicker">
+      <span class="article-tag">Design Systems</span>
+      <span class="article-date">Jul 15, 2026 · <span id="read-time">9 min read</span></span>
+    </div>
+    <h1>The token naming conventions that actually survive production</h1>
+    <p class="article-lede">Why most design token taxonomies collapse the moment dark mode, multi-brand themes, or deadline pressure arrive — and the 3-tier grammar that holds up across Figma, CSS, and mobile.</p>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="site">
+  <div class="article-body">
+    <p>Every designer who gets excited about design tokens goes through the exact same arc. You discover Token Studio or Figma Variables, read twenty articles on taxonomy, feel like a librarian of pure digital order, and create an eight-layer naming scheme:</p>
+
+    <pre><code>sys.color.surface.interactive.primary.hover.on-light.default</code></pre>
+
+    <p>You export the JSON, deliver a proud presentation to engineering, and hand off the first batch of screens. Three sprints later, you inspect a pull request and discover the frontend developer has hardcoded <code>#1A1A1A</code>. Why? Because when building a complex payment table under a Friday release deadline, nobody has the patience to parse eight layers of abstract adjectives to decide between <code>surface-container-high</code> and <code>surface-container-highest</code>.</p>
+
+    <p>If your token system is too clever for an engineer to guess without opening documentation, it will fail in production. That is not an engineering discipline problem — it is an architecture failure on our part.</p>
+
+    <h2>Why token systems break: three real-world post-mortems</h2>
+    <p>Before designing a naming schema, it helps to study the three exact failure modes that destroy token initiatives inside fast-moving product teams:</p>
+
+    <h3>1. The Material Design 3 copycat trap</h3>
+    <p>Google's Material 3 token architecture is brilliant for an operating system powering thousands of disparate apps on Android. But when a 15-person product team copies terms like <code>on-surface-variant</code>, <code>surface-container-low</code>, and <code>outline-variant</code> into a bespoke B2B SaaS tool, disaster strikes. Designers don't intuitively remember which layer is "low" versus "lowest", so they guess randomly. Within two months, three different designers use three different background tokens for identical card components.</p>
+
+    <h3>2. The visual description trap</h3>
+    <p>When teams start with a brand book, tokens get named after how they look: <code>color-blue-500</code>, <code>text-grey-dark</code>, or <code>border-light</code>. Everything seems fine until the company asks for Dark Mode. In dark mode, dark grey text must invert to white, and light grey borders become charcoal lines. You end up with CSS like this:</p>
+    <pre><code>[data-theme="dark"] {
+  --text-grey-dark: #F5F5F7; /* Inverted! Mental breakdown for devs */
+  --border-light: #2A2A2E;   /* A "light" border that is almost black */
+}</code></pre>
+    <p>Every engineer who joins the company will look at that code, shake their head, and start creating ad-hoc inline styles because the existing tokens make no sense.</p>
+
+    <h3>3. The context explosion trap</h3>
+    <p>When a designer tries to prevent accidental regressions, they often create hyper-specific tokens for every single HTML element: <code>sidebar-header-nav-link-hover-color</code>, <code>table-row-selected-badge-border</code>. You end up with 2,400 tokens, 95% of which point to the exact same blue hex code. When marketing asks to change the brand accent, you have to update forty different tokens because nobody grouped them by semantic role.</p>
+
+    <hr>
+
+    <h2>The 3-tier hierarchy that actually works</h2>
+    <p>Through shipping and refactoring design systems across payment gateways (PGWay), energy commerce (priWatt), and enterprise SaaS, I have found that a strict <strong>three-tier model</strong> is the sweet spot between scalability and developer adoption.</p>
+
+    <div class="article-diagram">
+      <div class="diagram-badge">Token Hierarchy Blueprint</div>
+
+      <!-- Tier 1 -->
+      <div class="diagram-box">
+        <div class="diagram-box-title">
+          <span>Tier 1 · Global Primitives</span>
+          <span class="diagram-tag" style="color:var(--faint);">Raw Dictionary</span>
+        </div>
+        <div class="diagram-box-desc">Raw palettes, modular spacing scales, and duration values. Zero awareness of intent or component context. Never imported directly into UI components.</div>
+        <div class="diagram-tag-list" style="align-items:center;">
+          <span class="diagram-tag" style="display:inline-flex;align-items:center;gap:5px;"><span style="width:8px;height:8px;border-radius:50%;background:#0066FF;display:inline-block;"></span> color.blue.500</span>
+          <span class="diagram-tag" style="display:inline-flex;align-items:center;gap:5px;"><span style="width:8px;height:8px;border-radius:50%;background:#F1F3F5;display:inline-block;"></span> color.neutral.100</span>
+          <span class="diagram-tag" style="display:inline-flex;align-items:center;gap:5px;"><span style="width:8px;height:8px;border-radius:50%;background:#212529;display:inline-block;"></span> color.neutral.900</span>
+          <span class="diagram-tag">space.16: 16px</span>
+          <span class="diagram-tag">radius.8: 8px</span>
+        </div>
+      </div>
+
+      <!-- Connector -->
+      <div class="diagram-connector">
+        <span>↓ Referenced by Semantic Mapping ↓</span>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="diagram-box" style="border-left: 2px solid var(--orange);">
+        <div class="diagram-box-title">
+          <span style="color:var(--orange);">Tier 2 · Semantic System (Intent Layer)</span>
+          <span class="diagram-tag" style="color:var(--orange);border-color:var(--orange-border);">Where Theming Lives</span>
+        </div>
+        <div class="diagram-box-desc">The core contract consumed by engineering. Encapsulates functional roles (canvas, text, actions, borders) and resolves differently in Light, Dark, or High-Contrast modes.</div>
+        <div class="diagram-tag-list">
+          <span class="diagram-tag">color.surface.canvas</span>
+          <span class="diagram-tag">color.surface.panel</span>
+          <span class="diagram-tag">color.text.default</span>
+          <span class="diagram-tag">color.action.primary.bg</span>
+          <span class="diagram-tag">color.border.subtle</span>
+        </div>
+      </div>
+
+      <!-- Connector -->
+      <div class="diagram-connector">
+        <span>↓ Referenced on Exception (Isolated Knobs) ↓</span>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="diagram-box">
+        <div class="diagram-box-title">
+          <span>Tier 3 · Component Scoped (Overrides)</span>
+          <span class="diagram-tag" style="color:var(--faint);">Use With Discipline</span>
+        </div>
+        <div class="diagram-box-desc">Strictly reserved for components with unique internal sub-elements or bespoke white-label overrides that would otherwise pollute the semantic space.</div>
+        <div class="diagram-tag-list">
+          <span class="diagram-tag">btn.primary.bg</span>
+          <span class="diagram-tag">slider.track.fill</span>
+          <span class="diagram-tag">tooltip.callout.bg</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>Tier 1: Global / Raw Primitives</h3>
+    <p>These are your dictionary words. They describe <strong>what a value is</strong>, completely detached from where or how it is used in the interface. They should never be consumed directly in UI components.</p>
+    <ul>
+      <li><strong>Color:</strong> Use numeric step scales (e.g. 50 through 950 or 100 through 900). Numeric scales provide predictable perceptual increments when tuning accessibility contrast.</li>
+      <li><strong>Spacing &amp; Radius:</strong> Use t-shirt sizing (<code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>) or 4px/8px modular scales (<code>space-4</code>, <code>space-8</code>, <code>space-12</code>, <code>space-16</code>).</li>
+    </ul>
+
+    <pre><code>/* Tier 1: Global definitions */
+color.brand.blue.500:   #0066FF
+color.neutral.50:       #F8F9FA
+color.neutral.100:      #F1F3F5
+color.neutral.800:      #343A40
+color.neutral.900:      #212529
+color.red.600:          #DC2626
+
+space.2:                2px
+space.4:                4px
+space.8:                8px
+space.12:               12px
+space.16:               16px
+space.24:               24px
+
+radius.none:            0px
+radius.sm:              4px
+radius.md:              8px
+radius.lg:              12px
+radius.full:            9999px</code></pre>
+
+    <h3>Tier 2: Semantic (System / Intent) Tokens</h3>
+    <p>This is the workhorse of your design system. Semantic tokens describe <strong>the intent or role</strong> of a style. They answer the question: <em>"What functional purpose does this color, border, or spacing serve?"</em></p>
+
+    <p>Semantic tokens are where mode switching (Light vs. Dark Mode, High Contrast, Brand Theming) occurs. The component markup never changes — only the pointer resolves to a different primitive.</p>
+
+    <pre><code>/* Tier 2: Semantic mappings for Light Theme */
+color.surface.canvas:            {color.neutral.50}
+color.surface.panel:             #FFFFFF
+color.surface.danger.subtle:     #FEF2F2
+
+color.text.default:              {color.neutral.900}
+color.text.muted:                #6B7280
+color.text.on-brand:             #FFFFFF
+color.text.danger:               {color.red.600}
+
+color.border.subtle:             #E5E7EB
+color.border.focus:              {color.brand.blue.500}
+
+color.action.primary.bg:         {color.brand.blue.500}
+color.action.primary.bg-hover:   #0052CC
+color.action.primary.text:       #FFFFFF
+
+/* Tier 2: The exact same tokens re-mapped for Dark Theme */
+[data-theme="dark"] {
+  color.surface.canvas:          #0F1115
+  color.surface.panel:           #181B20
+  color.surface.danger.subtle:   #450A0A
+
+  color.text.default:            #F9FAFB
+  color.text.muted:              #9CA3AF
+  color.text.on-brand:           #FFFFFF
+  color.text.danger:             #F87171
+
+  color.border.subtle:           #2D333B
+  color.border.focus:            #3B82F6
+
+  color.action.primary.bg:       #2563EB
+  color.action.primary.bg-hover: #1D4ED8
+  color.action.primary.text:     #FFFFFF
+}</code></pre>
+
+    <h3>Tier 3: Component Tokens (The Guardrail Tier)</h3>
+    <p>Component tokens alias a semantic token to an isolated component property:</p>
+    <pre><code>btn.primary.bg:        {color.action.primary.bg}
+btn.primary.bg.hover:  {color.action.primary.bg-hover}
+btn.primary.text:      {color.action.primary.text}</code></pre>
+
+    <p><strong>The golden rule of component tokens:</strong> Do not create them by default. Start by building components using Tier 2 semantic tokens directly (e.g. <code>background: var(--color-action-primary-bg)</code>). Only introduce a Tier 3 component token if:</p>
+    <ol>
+      <li>A specific component has a unique internal sub-element (like the track of a slider or the notch of a tooltip) that would pollute the global semantic space if elevated to Tier 2.</li>
+      <li>Product marketing requires overriding that exact component's appearance in white-label configurations without affecting any other interactive elements.</li>
+    </ol>
+    <p>If you create component tokens for every single button, badge, input, and modal on day one, you will drown in 2,000 token mappings before you even ship your first feature.</p>
+
+    <hr>
+
+    <h2>The strict naming formula: grammar that scales</h2>
+    <p>To make autocomplete in VS Code and Figma instant, every token name must follow a consistent, predictable left-to-right grammatical order:</p>
+
+    <pre><code>[CATEGORY] ─ [CONTEXT / ELEMENT] ─ [ROLE / INTENT] ─ [STATE / MODIFIER]</code></pre>
+
+    <p>Here is how this grammar breaks down across the design system:</p>
+
+    <ul>
+      <li><strong>Category:</strong> <code>color</code>, <code>space</code>, <code>font</code>, <code>radius</code>, <code>elevation</code>, <code>motion</code>.</li>
+      <li><strong>Context / Element:</strong> <code>surface</code>, <code>text</code>, <code>border</code>, <code>icon</code>, <code>action</code>, <code>layout</code>.</li>
+      <li><strong>Role / Intent:</strong> <code>default</code>, <code>muted</code>, <code>brand</code>, <code>success</code>, <code>warning</code>, <code>danger</code>, <code>info</code>.</li>
+      <li><strong>State / Modifier:</strong> <code>hover</code>, <code>active</code>, <code>pressed</code>, <code>focus</code>, <code>disabled</code>, <code>subtle</code>.</li>
+    </ul>
+
+    <h3>Compare bad naming vs. production-grade naming:</h3>
+    <pre><code>❌ text-grey-dark            →  ✅ color.text.default
+❌ primary-btn-blue          →  ✅ color.action.primary.bg
+❌ danger-box-border         →  ✅ color.border.danger
+❌ sidebar-padding-16        →  ✅ space.layout.sidebar-gutter
+❌ card-shadow-big           →  ✅ elevation.overlay.modal
+❌ light-mode-hover-color    →  ✅ color.action.primary.bg-hover</code></pre>
+
+    <hr>
+
+    <h2>The contract between Figma and Code</h2>
+    <p>The single greatest cause of design system decay is nomenclature divergence. If the Figma Variables panel says <code>Action / Primary / Hover</code> and the React codebase uses <code>theme.colors.brandPrimaryHover</code>, your system is already fracturing. Every sync meeting between design and engineering will waste time translating between dialects.</p>
+
+    <p>In our pipeline at priWatt, we established a single source of truth:</p>
+    <ol>
+      <li>Tokens are authored and maintained in <strong>Token Studio / Figma Variables</strong> using dot-notation.</li>
+      <li>Tokens are committed directly to a shared GitHub repository as structured JSON.</li>
+      <li>A GitHub Action runs <strong>Style Dictionary</strong> on merge, compiling the JSON into:
+        <ul>
+          <li><code>variables.css</code> (CSS Custom Properties with kebab-case: <code>--color-action-primary-bg</code>)</li>
+          <li><code>tokens.ts</code> (Strict TypeScript types for autocomplete in React/Vue)</li>
+          <li><code>Tokens.swift</code> and <code>Colors.xml</code> for native mobile targets.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <p>When an engineer opens an IDE, autocomplete directly mirrors the naming in Figma:</p>
+    <pre><code>/* In CSS: perfectly predictable */
+.button-primary {
+  background-color: var(--color-action-primary-bg);
+  color: var(--color-action-primary-text);
+  border-radius: var(--radius-interactive-md);
+  padding: var(--space-4) var(--space-6);
+}
+
+.button-primary:hover {
+  background-color: var(--color-action-primary-bg-hover);
+}</code></pre>
+
+    <h2>Deprecation: how to retire a token without breaking production</h2>
+    <p>Systems evolve. Eventually, you will need to rename or merge tokens. If you delete a token from your JSON file, you will break builds across multiple squads.</p>
+    <p>The professional way to deprecate tokens is <strong>aliasing with runtime telemetry</strong>:</p>
+    <pre><code>/* Old token kept as a pointer to the new canonical token */
+:root {
+  --color-surface-panel: #FFFFFF; /* New canonical token */
+  
+  /* DEPRECATED in v2.4, to be removed in v3.0 */
+  --color-bg-white: var(--color-surface-panel);
+}</code></pre>
+    <p>In your CSS build step or ESLint plugin, flag any usage of <code>--color-bg-white</code> as a build warning with a recommended codemod: <em>"Warning: --color-bg-white is deprecated. Run `npx design-system-codemod` to migrate to --color-surface-panel."</em></p>
+
+    <h2>The litmus test</h2>
+    <p>A design token convention isn't successful because it looks elegant on a presentation slide. It is successful when a newly hired engineer can build an entire multi-step fintech checkout form, choose colors, borders, and spacing purely from IDE autocomplete, and pass visual review on the first try without a designer asking: <em>"Hey, what hex code did you use here?"</em></p>
+
+    <div class="pull-note">Companion piece: <a href="2026-05-12-architecting-a-multibrand-design-system.html" style="color:var(--orange);text-decoration:underline;">Architecting a multi-brand design system without losing your mind</a>.</div>
+  </div>
+
+  <!-- ARTICLE FOOTER -->
+  <div class="article-footer">
+    <div style="margin-bottom: 40px;">
+      <h2 class="section-label">Next Article</h2>
+      <a href="2026-05-12-architecting-a-multibrand-design-system.html" class="next-case" style="position:relative;">
+        <span class="nc-b"></span>
+        <div>
+          <div class="nc-label">Architecture · Article</div>
+          <div class="nc-title">Architecting a multi-brand design system without losing your mind</div>
+        </div>
+        <div class="nc-arrow" aria-hidden="true">↗</div>
+      </a>
+    </div>
+
+    <div class="article-nav">
+      <a href="index.html">← All entries</a>
+      <a href="../about/index.html">About the author</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 · Anton Bozhatarnyk</div>
+    <div class="footer-status"><span class="footer-status-pill"><span class="footer-status-dot"></span>Available · Poland / Remote EU</span></div>
+    <div class="footer-links">
+      <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)">Email</a>
+      <a href="https://www.linkedin.com/in/antony-bozhatarnyk-b6068441/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

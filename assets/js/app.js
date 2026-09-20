@@ -139,9 +139,20 @@
     // /blog/ and /blog/index.html both match the same nav link.
     var here = window.location.pathname.replace(/index\.html$/, '');
 
+    // Resolve site root path from nav logo (works across domain root, subpath, or file://)
+    var logo = document.querySelector('.nav-logo');
+    var rootPath = logo ? new URL(logo.getAttribute('href'), window.location.href).pathname.replace(/index\.html$/, '') : '/';
+
     each('.nav-links a, .nav-mobile-inner a', document, function (link) {
       var href = link.getAttribute('href');
       if (!href || href.indexOf('mailto:') === 0) return;
+
+      // Section anchor links (e.g. #expertise or ../index.html#expertise) are not page links.
+      // They should only be active if the current URL hash actually matches.
+      if (href.indexOf('#') !== -1) {
+        var hash = href.split('#')[1];
+        if (!hash || window.location.hash !== '#' + hash) return;
+      }
 
       var pathPart = href.split('#')[0].split('?')[0];
       if (!pathPart) return;   // same-page anchor — nothing to compare
@@ -155,7 +166,14 @@
 
       // Exact page match, or a section match so that case studies
       // (/work/priwatt) and blog posts still light up Work / Blog.
-      var isCurrent = resolved === here || (resolved !== '/' && here.indexOf(resolved) === 0);
+      // Root homepage link should only match if we are actually at root.
+      var isCurrent;
+      if (resolved === rootPath) {
+        isCurrent = (here === rootPath);
+      } else {
+        isCurrent = (resolved === here) || (here.indexOf(resolved) === 0);
+      }
+
       if (!isCurrent) return;
 
       link.classList.add('active');
