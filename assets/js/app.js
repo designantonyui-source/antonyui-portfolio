@@ -143,18 +143,8 @@
       var href = link.getAttribute('href');
       if (!href || href.indexOf('mailto:') === 0) return;
 
-      var hash = href.split('#')[1] || '';
       var pathPart = href.split('#')[0].split('?')[0];
-
-      // Case-study pages live under /work/, but the nav has no item of their
-      // own, so the home page's "Work" section link stays current there.
-      if (hash === 'work' && /\/work\//.test(here)) {
-        link.classList.add('active');
-        link.setAttribute('aria-current', 'page');
-        return;
-      }
-
-      if (!pathPart) return;   // same-page anchor with no matching page
+      if (!pathPart) return;   // same-page anchor — nothing to compare
 
       var resolved;
       try {
@@ -163,7 +153,11 @@
         return;   // malformed href — ignore
       }
 
-      if (resolved !== here) return;
+      // Exact page match, or a section match so that case studies
+      // (/work/priwatt) and blog posts still light up Work / Blog.
+      var isCurrent = resolved === here || (resolved !== '/' && here.indexOf(resolved) === 0);
+      if (!isCurrent) return;
+
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
     });
