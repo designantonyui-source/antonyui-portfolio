@@ -349,6 +349,16 @@ h1.case-title strong { font-weight: 500; }
 .outcome-desc { font-size: 14px; color: var(--muted); line-height: 1.55; }
 .outcome-note { font-size: 11px; color: var(--faint); margin-top: 8px; line-height: 1.5; }
 
+/* Testimonials */
+.quote-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+.quote-card { position: relative; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+.quote-text { font-size: 14px; line-height: 1.7; color: var(--muted); }
+.quote-text::before { content: '\201C'; display: block; font-size: 40px; line-height: 1; color: var(--orange); font-family: Georgia, serif; margin-bottom: 12px; }
+.quote-author { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
+.quote-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.quote-role { font-size: 12px; color: var(--faint); margin-top: 3px; line-height: 1.5; }
+@media (max-width: 900px) { .quote-grid { grid-template-columns: 1fr; } }
+
 /* REAL IMAGES */
 .case-img-wrap {
   position: relative; overflow: hidden;
