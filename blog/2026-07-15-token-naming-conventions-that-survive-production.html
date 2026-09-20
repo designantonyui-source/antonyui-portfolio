@@ -44,7 +44,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=2.2">
+<link rel="stylesheet" href="../assets/css/styles.css?v=2.3">
 <script src="../assets/js/app.js"></script>
 <script type="application/ld+json">
 {
@@ -154,159 +154,41 @@
     <h2>The 3-tier hierarchy that actually works</h2>
     <p>Through shipping and refactoring design systems across payment gateways (PGWay), energy commerce (priWatt), and enterprise SaaS, I have found that a strict <strong>three-tier model</strong> is the sweet spot between scalability and developer adoption.</p>
 
-    <div class="blueprint-canvas">
-      <div class="blueprint-header">
-        <div class="blueprint-window-dots">
-          <span class="b-dot b-red"></span>
-          <span class="b-dot b-yellow"></span>
-          <span class="b-dot b-green"></span>
-        </div>
-        <div class="blueprint-title">SPEC // TOKEN COMPILATION &amp; RESOLUTION PIPELINE</div>
-        <div class="blueprint-status"><span class="b-status-dot"></span> PRODUCTION ARCHITECTURE</div>
-      </div>
-
-      <div class="blueprint-body">
-        <!-- TIER 1 -->
-        <div class="blueprint-tier tier-primitives">
-          <div class="blueprint-tier-header">
-            <div class="b-tier-kicker">TIER 01</div>
-            <div class="b-tier-name">Global Primitives <span class="b-tier-sub">/ Raw Values</span></div>
-            <div class="b-tier-badge b-badge-muted">Immutable Dictionary</div>
-          </div>
-          <p class="b-tier-rule">Raw palette values and modular dimensions. Completely unaware of UI role or theme mode. <strong>Never imported directly by frontend components.</strong></p>
-          
-          <div class="b-chip-grid">
-            <div class="b-chip">
-              <span class="b-swatch" style="background:#0066FF;"></span>
-              <span class="b-token-name">color.blue.500</span>
-              <span class="b-token-val">#0066FF</span>
-            </div>
-            <div class="b-chip">
-              <span class="b-swatch" style="background:#F8FAFC; border:1px solid rgba(255,255,255,0.2);"></span>
-              <span class="b-token-name">color.neutral.50</span>
-              <span class="b-token-val">#F8FAFC</span>
-            </div>
-            <div class="b-chip">
-              <span class="b-swatch" style="background:#0F172A;"></span>
-              <span class="b-token-name">color.neutral.950</span>
-              <span class="b-token-val">#0F172A</span>
-            </div>
-            <div class="b-chip">
-              <span class="b-swatch-metric">16px</span>
-              <span class="b-token-name">space.16</span>
-              <span class="b-token-val">1.0rem</span>
-            </div>
-            <div class="b-chip">
-              <span class="b-swatch-radius" style="border-radius:4px;"></span>
-              <span class="b-token-name">radius.8</span>
-              <span class="b-token-val">8px</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- CONNECTOR 1 -->
-        <div class="blueprint-pipeline-connector">
-          <div class="b-pipe-line"></div>
-          <div class="b-pipe-pill">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2.5v7M3.5 7l2.5 2.5L8.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Aliased to Intent &amp; Mode (Style Dictionary)</span>
-          </div>
-          <div class="b-pipe-line"></div>
-        </div>
-
-        <!-- TIER 2 -->
-        <div class="blueprint-tier tier-semantic">
-          <div class="blueprint-tier-header">
-            <div class="b-tier-kicker kicker-orange">TIER 02</div>
-            <div class="b-tier-name">Semantic System <span class="b-tier-sub">/ Intent Layer</span></div>
-            <div class="b-tier-badge b-badge-orange">Engineering Contract</div>
-          </div>
-          <p class="b-tier-rule">The design contract consumed across codebases. Encapsulates functional roles and dynamically resolves depending on mode (Light vs. Dark).</p>
-
-          <div class="b-mapping-table">
-            <div class="b-table-head">
-              <span>Semantic Token (Intent)</span>
-              <span>Light Mode</span>
-              <span>Dark Mode</span>
-            </div>
-            <div class="b-table-row">
-              <span class="b-mono-token">color.surface.canvas</span>
-              <span class="b-mode-res"><span class="b-swatch-mini" style="background:#F8FAFC;border:1px solid rgba(0,0,0,0.15);"></span> neutral.50</span>
-              <span class="b-mode-res"><span class="b-swatch-mini" style="background:#0F172A;"></span> neutral.950</span>
-            </div>
-            <div class="b-table-row">
-              <span class="b-mono-token">color.surface.card</span>
-              <span class="b-mode-res"><span class="b-swatch-mini" style="background:#FFFFFF;border:1px solid rgba(0,0,0,0.15);"></span> #FFFFFF</span>
-              <span class="b-mode-res"><span class="b-swatch-mini" style="background:#1E293B;"></span> neutral.900</span>
-            </div>
-            <div class="b-table-row">
-              <span class="b-mono-token">color.action.primary.bg</span>
-              <span class="b-mode-res"><span class="b-swatch-mini" style="background:#0066FF;"></span> blue.500</span>
-              <span class="b-mode-res"><span class="b-swatch-mini" style="background:#388BFD;"></span> blue.400</span>
-            </div>
-            <div class="b-table-row">
-              <span class="b-mono-token">color.text.default</span>
-              <span class="b-mode-res"><span class="b-swatch-mini" style="background:#0F172A;"></span> neutral.950</span>
-              <span class="b-mode-res"><span class="b-swatch-mini" style="background:#F8FAFC;"></span> neutral.50</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- CONNECTOR 2 -->
-        <div class="blueprint-pipeline-connector">
-          <div class="b-pipe-line"></div>
-          <div class="b-pipe-pill">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2.5v7M3.5 7l2.5 2.5L8.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Consumed by Production Component</span>
-          </div>
-          <div class="b-pipe-line"></div>
-        </div>
-
-        <!-- TIER 3 -->
-        <div class="blueprint-tier tier-component">
-          <div class="blueprint-tier-header">
-            <div class="b-tier-kicker kicker-green">TIER 03</div>
-            <div class="b-tier-name">Component Resolution <span class="b-tier-sub">/ Production Output</span></div>
-            <div class="b-tier-badge b-badge-green">Rendered UI</div>
-          </div>
-          <p class="b-tier-rule">Scoped overrides and final component assembly. Property attributes bind directly to Tier 2 semantic variables.</p>
-
-          <div class="b-component-inspect">
-            <!-- Visual UI preview -->
-            <div class="b-inspect-ui">
-              <div class="b-mockup-card">
-                <div class="b-mockup-header">
-                  <span class="b-mockup-badge">Payment Gateway</span>
-                  <span class="b-mockup-amount">$1,420.00</span>
-                </div>
-                <button class="b-mockup-btn" type="button">
-                  Confirm &amp; Authorize <span>→</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Callouts / Specs -->
-            <div class="b-inspect-specs">
-              <div class="b-spec-item">
-                <span class="b-spec-key">bg:</span>
-                <code>var(--color.action.primary.bg)</code>
-              </div>
-              <div class="b-spec-item">
-                <span class="b-spec-key">radius:</span>
-                <code>var(--radius.8)</code>
-              </div>
-              <div class="b-spec-item">
-                <span class="b-spec-key">padding:</span>
-                <code>var(--space.16)</code>
-              </div>
-              <div class="b-spec-item">
-                <span class="b-spec-key">color:</span>
-                <code>var(--color.text.on-action)</code>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="table-wrap">
+      <table class="article-table">
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Role</th>
+            <th>Governs</th>
+            <th>Engineering Contract</th>
+            <th>Production Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>01</code></td>
+            <td><strong>Global Primitives</strong></td>
+            <td>Raw values (hex palettes, spacing increments, base radii)</td>
+            <td><span class="table-pill pill-restricted">Never consume in UI</span></td>
+            <td><code>color.blue.500: #0066FF</code></td>
+          </tr>
+          <tr>
+            <td><code>02</code></td>
+            <td><strong>Semantic System</strong></td>
+            <td>Functional intent, surface roles, Light/Dark mode resolution</td>
+            <td><span class="table-pill pill-contract">Universal contract</span></td>
+            <td><code>color.action.primary: var(--blue-500)</code></td>
+          </tr>
+          <tr>
+            <td><code>03</code></td>
+            <td><strong>Component Overrides</strong></td>
+            <td>Isolated component knobs &amp; white-label exceptions</td>
+            <td><span class="table-pill pill-exception">Exceptions only</span></td>
+            <td><code>btn.primary.bg: var(--action-primary)</code></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <h3>Tier 1: Global / Raw Primitives</h3>
