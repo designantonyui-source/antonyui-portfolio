@@ -7,8 +7,8 @@
 <link rel="icon" href="assets/favicon.png" type="image/png" sizes="256x256">
 <link rel="apple-touch-icon" href="assets/favicon.png">
 <meta name="theme-color" content="#262624">
-<title>Antony Bozhatarnyk — Senior Product Designer · Design Systems & Fintech</title>
-<meta name="description" content="Senior Product Designer specialising in design systems and complex fintech & B2B UX. 5+ years across fintech, energy, and SaaS — bridging design and engineering.">
+<title>Antony Bozhatarnyk — Senior Product Designer, Design Systems</title>
+<meta name="description" content="Senior Product Designer specialising in design systems and complex fintech & B2B UX. 5+ years across fintech, energy and SaaS.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://antonyui.com/">
 <!-- OG -->
@@ -35,6 +35,9 @@
   "jobTitle": "Senior Product Designer",
   "url": "https://antonyui.com",
   "email": "designantonyui@gmail.com",
+  "image": "https://antonyui.com/assets/images/og-cover.jpg",
+  "address": { "@type": "PostalAddress", "addressLocality": "Poznań", "addressCountry": "PL" },
+  "knowsLanguage": ["en", "uk", "pl"],
   "sameAs": ["https://www.linkedin.com/in/antony-bozhatarnyk-b6068441/"],
   "knowsAbout": ["Design Systems", "DesignOps", "Fintech UX", "UX Design", "B2B SaaS", "Token Studio", "Figma", "Framer"]
 }
@@ -44,6 +47,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 <script src="assets/js/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Antony Bozhatarnyk — Portfolio",
+  "url": "https://antonyui.com/",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Antony Bozhatarnyk",
+    "url": "https://antonyui.com"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -52,12 +69,12 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Antony Bozhatarnyk</a>
+    <a href="./" class="nav-logo"><img src="assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Antony Bozhatarnyk</a>
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#expertise">Expertise</a>
       <a href="#about">About</a>
-      <a href="blog/index.html">Blog</a>
+      <a href="blog/">Blog</a>
     </div>
     <div class="nav-right">
       <div class="theme-toggle">
@@ -75,7 +92,7 @@
       <a href="#work">Work</a>
       <a href="#expertise">Expertise</a>
       <a href="#about">About</a>
-      <a href="blog/index.html">Blog</a>
+      <a href="blog/">Blog</a>
       <a href="mailto:designantonyui@gmail.com" class="nav-mobile-cta">Let's talk →</a>
     </div>
   </div>
@@ -87,8 +104,8 @@
   <div class="site">
     <div class="badge"><span class="badge-dot"></span> Available · Poland / Remote EU</div>
     <h1>
-      <strong>Simplifying the complex</strong><br>
-      <span style="color:var(--muted);font-weight:300;">through scalable systems.</span>
+      <strong>Senior Product Designer</strong><br>
+      <span style="color:var(--muted);font-weight:300;">design systems &amp; fintech UX.</span>
     </h1>
     <p class="hero-sub"><span style="color:var(--orange);font-weight:500;">Senior Product Designer</span> specialising in <span style="color:var(--orange);font-weight:500;">design systems</span> and complex <span style="color:var(--orange);font-weight:500;">fintech & B2B UX</span>. <span style="color:var(--orange);font-weight:500;">5+ years</span> across <span style="color:var(--orange);font-weight:500;">fintech, energy, and SaaS</span> — bridging design and engineering.</p>
     <div class="hero-actions">
@@ -116,19 +133,19 @@
 <!-- WORK -->
 <div class="section" id="work">
   <div class="site">
-    <div class="section-label">Selected Work</div>
+    <h2 class="section-label">Selected Work</h2>
     <div class="grid-outer" style="position:relative;">
       <span class="grid-outer-b" style="position:absolute;inset:0;pointer-events:none;"></span>
       <div class="work-grid">
 
         <!-- PRIWATT — FEATURED -->
-        <a href="work/priwatt.html" class="work-card featured"><span class="wc-b"></span>
+        <a href="work/priwatt" class="work-card featured"><span class="wc-b"></span>
           <div class="work-card-preview">
-            <img src="assets/images/priwatt-configurator-tablet.webp" alt="priWatt PV Configurator on iPad — guided solar system builder" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
+            <img width="1920" height="1080" src="assets/images/priwatt-configurator-tablet.webp" alt="priWatt PV Configurator on iPad — guided solar system builder" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
           </div>
           <span class="work-tag">FEATURED · CASE STUDY</span>
           <span class="work-arrow" aria-hidden="true">↗</span>
-          <div class="work-title">priWatt — Design System from Brand Book to Production</div>
+          <h3 class="work-title">priWatt — Design System from Brand Book to Production</h3>
           <div class="work-desc">Turned an agency brand book into a production-ready design system — three-tier token architecture, typography scale, responsive grid, and a component library that reduced design-to-dev delivery time by 75%.</div>
           <div class="work-meta">
             <span class="work-pill">Design System</span>
@@ -146,7 +163,7 @@
             <span style="font-size:12px;letter-spacing:.06em;color:var(--faint);text-transform:uppercase;">Available soon</span>
           </div>
           <span class="work-tag">B2B SAAS · CASE STUDY</span>
-          <div class="work-title">Pharos — Freight Exchange Platform</div>
+          <h3 class="work-title">Pharos — Freight Exchange Platform</h3>
           <div class="work-desc">Redesigned a fragmented freight management tool used by carriers and shippers — unifying load discovery, capacity management, and operational workflows into a single modular platform.</div>
           <div class="work-meta">
             <span class="work-pill">Freight</span>
@@ -165,28 +182,28 @@
 <!-- EXPERTISE -->
 <div class="section" id="expertise">
   <div class="site">
-    <div class="section-label">Expertise</div>
+    <h2 class="section-label">Expertise</h2>
     <div class="grid-outer" style="position:relative;">
       <span class="grid-outer-b" style="position:absolute;inset:0;pointer-events:none;"></span>
       <div class="exp-grid">
         <div class="exp-card"><span class="ec-b"></span>
           <div class="exp-num">01</div>
-          <div class="exp-title">Scalable Design Systems</div>
+          <h3 class="exp-title">Scalable Design Systems</h3>
           <div class="exp-desc">Token architecture, component libraries, and documentation that bridge design & engineering. Built on Figma + Token Studio with multi-brand support.</div>
         </div>
         <div class="exp-card"><span class="ec-b"></span>
           <div class="exp-num">02</div>
-          <div class="exp-title">DesignOps & Process</div>
+          <h3 class="exp-title">DesignOps & Process</h3>
           <div class="exp-desc">Backlog refinement, handoff optimisation, and workflow tooling. Cut component build time by 60% across 3+ products by rebuilding the architecture from scratch.</div>
         </div>
         <div class="exp-card"><span class="ec-b"></span>
           <div class="exp-num">03</div>
-          <div class="exp-title">Fintech & Complex B2B UX</div>
+          <h3 class="exp-title">Fintech & Complex B2B UX</h3>
           <div class="exp-desc">Large-scale fintech platforms, compliance-sensitive flows, and dense back-office interfaces. Turning complex operational data into clear, usable interfaces for power users.</div>
         </div>
         <div class="exp-card"><span class="ec-b"></span>
           <div class="exp-num">04</div>
-          <div class="exp-title">Product Strategy</div>
+          <h3 class="exp-title">Product Strategy</h3>
           <div class="exp-desc">Discovery, user research, and stakeholder alignment across fintech, energy, SaaS, and logistics. Working upstream of design to shape what gets built.</div>
         </div>
       </div>
@@ -197,7 +214,7 @@
 <!-- ABOUT -->
 <div class="section" id="about" style="border-bottom:none;">
   <div class="site">
-    <div class="section-label">About</div>
+    <h2 class="section-label">About</h2>
     <div class="about-grid">
       <div class="about-text">
         <p>I'm <strong>Antony</strong>, a Senior Product Designer with <strong>5+ years</strong> shipping digital products across <strong>fintech, energy, and B2B SaaS</strong>. My focus is the infrastructure layer — design systems and DesignOps that let teams move fast without breaking consistency.</p>

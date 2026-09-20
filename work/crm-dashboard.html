@@ -7,15 +7,15 @@
 <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="256x256">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
 <meta name="theme-color" content="#262624">
-<title>Nexus CRM — Sales & Operations Dashboard · Antony Bozhatarnyk</title>
-<meta name="description" content="Redesigned a fragmented B2B CRM used by 200+ sales reps — unifying pipeline, account health, and activity data into one modular dashboard. Case study by Antony Bozhatarnyk.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://antonyui.com/work/crm-dashboard.html">
+<title>Nexus CRM — B2B Sales &amp; Operations Dashboard</title>
+<meta name="description" content="Redesigned a fragmented B2B CRM used by 200+ sales reps — unifying pipeline, account health and activity data into one modular dashboard.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://antonyui.com/work/crm-dashboard">
 <!-- OG -->
 <meta property="og:title" content="Nexus CRM — Sales & Operations Dashboard">
 <meta property="og:description" content="Redesigned a fragmented B2B CRM used by 200+ sales reps — unifying pipeline, account health, and activity data into one modular dashboard.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://antonyui.com/work/crm-dashboard.html">
+<meta property="og:url" content="https://antonyui.com/work/crm-dashboard">
 <meta property="og:image" content="https://antonyui.com/assets/images/og-nexus.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -43,9 +43,10 @@
     "name": "Antony Bozhatarnyk",
     "url": "https://antonyui.com"
   },
+  "image": "https://antonyui.com/assets/images/og-nexus.jpg",
   "datePublished": "2022-01-01",
   "dateModified": "2026-03-23",
-  "url": "https://antonyui.com/work/crm-dashboard.html"
+  "url": "https://antonyui.com/work/crm-dashboard"
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,6 +54,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/styles.css">
 <script src="../assets/js/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://antonyui.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Nexus CRM — Sales & Operations Dashboard",
+      "item": "https://antonyui.com/work/crm-dashboard"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -64,12 +85,12 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Antony Bozhatarnyk</a>
+    <a href="../" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Antony Bozhatarnyk</a>
     <div class="nav-links">
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#expertise">Expertise</a>
-      <a href="../index.html#about">About</a>
-      <a href="../blog/index.html">Blog</a>
+      <a href="../#work">Work</a>
+      <a href="../#expertise">Expertise</a>
+      <a href="../#about">About</a>
+      <a href="../blog/">Blog</a>
     </div>
     <div class="nav-right">
       <div class="theme-toggle">
@@ -84,10 +105,10 @@
   </div>
   <div class="nav-mobile" id="nav-mobile">
     <div class="nav-mobile-inner">
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#expertise">Expertise</a>
-      <a href="../index.html#about">About</a>
-      <a href="../blog/index.html">Blog</a>
+      <a href="../#work">Work</a>
+      <a href="../#expertise">Expertise</a>
+      <a href="../#about">About</a>
+      <a href="../blog/">Blog</a>
       <a href="mailto:designantonyui@gmail.com" class="nav-mobile-cta">Let's talk →</a>
     </div>
   </div>
@@ -97,7 +118,7 @@
 <div class="case-hero" id="main">
   <div class="dot-bg"></div>
   <div class="site">
-    <a href="../index.html#work" class="back-link">← Back to work</a>
+    <a href="../#work" class="back-link">← Back to work</a>
     <div class="read-time">⏱ <span id="read-time">5 min read</span></div>
     <div class="case-tag">B2B SAAS · CASE STUDY · 2023</div>
     <h1 class="case-title"><strong>Nexus CRM</strong> — Sales &<br>Operations Dashboard</h1>
@@ -139,7 +160,7 @@
 <!-- 01 CONTEXT -->
 <div class="section">
   <div class="site">
-    <div class="section-label">01 · Context</div>
+    <h2 class="section-label">01 · Context</h2>
     <p class="prose"><strong>Nexus serves mid-market B2B companies</strong> with sales teams managing complex, multi-stakeholder deals. Sales reps were context-switching between a legacy CRM, a separate analytics platform, a task manager, email, and spreadsheets — stitching together a picture of each account manually, multiple times per day.</p>
     <p class="prose" style="margin-top:16px;">The platform had grown through feature additions rather than coherent design — each module built by a different team at a different time. The result was a fragmented experience that slowed reps down and made onboarding new hires unnecessarily painful.</p>
     <p class="prose" style="margin-top:16px;">My mandate was to redesign the core dashboard surface — establishing a unified information architecture, a reusable component system, and a set of interaction patterns that would carry forward into future modules.</p>
@@ -149,29 +170,29 @@
 <!-- 02 RESEARCH -->
 <div class="section">
   <div class="site">
-    <div class="section-label">02 · Research & Discovery</div>
+    <h2 class="section-label">02 · Research & Discovery</h2>
     <p class="prose">Before touching any interface, I spent two weeks in discovery: shadowing sessions with 8 sales reps, 4 team leads, and 2 ops managers. The pattern was clear — the tool wasn't the problem, the data fragmentation was.</p>
 
     <div class="challenge-grid" style="position:relative;">
       <span class="challenge-grid-b" style="position:absolute;inset:0;pointer-events:none;"></span>
       <div class="challenge-item">
         <div class="challenge-num">FINDING 01</div>
-        <div class="challenge-title">5 tools, 1 workflow</div>
+        <h3 class="challenge-title">5 tools, 1 workflow</h3>
         <div class="challenge-desc">Reps averaged 47 tab switches per day. Pipeline data lived in the CRM, but context — emails, notes, tasks — lived everywhere else.</div>
       </div>
       <div class="challenge-item">
         <div class="challenge-num">FINDING 02</div>
-        <div class="challenge-title">No prioritisation signal</div>
+        <h3 class="challenge-title">No prioritisation signal</h3>
         <div class="challenge-desc">The dashboard showed everything equally. Reps had no way to see which accounts needed attention today without manually reviewing each record.</div>
       </div>
       <div class="challenge-item">
         <div class="challenge-num">FINDING 03</div>
-        <div class="challenge-title">Activity data was invisible</div>
+        <h3 class="challenge-title">Activity data was invisible</h3>
         <div class="challenge-desc">Email opens, call logs, and meeting history were stored but buried in sub-pages. Reps routinely missed signals that a deal had gone cold.</div>
       </div>
       <div class="challenge-item">
         <div class="challenge-num">FINDING 04</div>
-        <div class="challenge-title">3-week onboarding</div>
+        <h3 class="challenge-title">3-week onboarding</h3>
         <div class="challenge-desc">New hires needed three weeks to become independently productive. Navigation logic was inconsistent; there was no clear mental model to latch onto.</div>
       </div>
     </div>
@@ -181,7 +202,7 @@
 <!-- 03 OUTCOMES -->
 <div class="section">
   <div class="site">
-    <div class="section-label">03 · Outcomes</div>
+    <h2 class="section-label">03 · Outcomes</h2>
     <p class="prose" style="margin-bottom:32px;">Validated through usability testing with 12 participants and a 6-week beta with a pilot cohort of 40 reps.</p>
     <div class="outcomes" style="position:relative;">
       <span class="outcomes-b" style="position:absolute;inset:0;pointer-events:none;"></span>
@@ -204,14 +225,14 @@
 <!-- 04 WHAT I BUILT -->
 <div class="section">
   <div class="site">
-    <div class="section-label">04 · What I Built</div>
+    <h2 class="section-label">04 · What I Built</h2>
 
     <!-- DELIVERABLE 1 -->
     <div class="deliverable">
       <div class="deliverable-header">
         <div class="deliverable-num">01 / 04</div>
         <div class="deliverable-meta">
-          <div class="deliverable-title">Unified Dashboard with Priority Feed</div>
+          <h3 class="deliverable-title">Unified Dashboard with Priority Feed</h3>
           <div class="deliverable-desc">The core insight from research: reps didn't need more data, they needed the right data surfaced at the right moment. I designed a priority-first home view — an intelligent activity feed that surfaces accounts with recent signals (email opens, deal stage changes, overdue tasks) at the top, pushing inactive records down. Reps arrive knowing exactly where to start.</div>
         </div>
       </div>
@@ -231,7 +252,7 @@
       <div class="deliverable-header">
         <div class="deliverable-num">02 / 04</div>
         <div class="deliverable-meta">
-          <div class="deliverable-title">Account 360° View</div>
+          <h3 class="deliverable-title">Account 360° View</h3>
           <div class="deliverable-desc">The scattered-tools problem was solved by collapsing external context into the account record itself. The 360° view pulls timeline data (emails, calls, meetings, notes), deal stage, open tasks, and stakeholder map into a single scannable layout. One page replaces five tools. The information hierarchy was designed around the rep's mental model — "What's happened, what's next, who's involved."</div>
         </div>
       </div>
@@ -250,7 +271,7 @@
       <div class="deliverable-header">
         <div class="deliverable-num">03 / 04</div>
         <div class="deliverable-meta">
-          <div class="deliverable-title">Pipeline Kanban & Forecasting</div>
+          <h3 class="deliverable-title">Pipeline Kanban & Forecasting</h3>
           <div class="deliverable-desc">Team leads needed a fast way to review pipeline health across their whole team without opening individual records. I designed a compact pipeline kanban — colour-coded by deal health, with inline forecast data and drag-to-stage functionality. A sidebar panel lets managers drill into any deal without losing their pipeline view context.</div>
         </div>
       </div>
@@ -266,7 +287,7 @@
       <div class="deliverable-header">
         <div class="deliverable-num">04 / 04</div>
         <div class="deliverable-meta">
-          <div class="deliverable-title">CRM Component System</div>
+          <h3 class="deliverable-title">CRM Component System</h3>
           <div class="deliverable-desc">Every pattern designed for this dashboard was codified into a shared component library — data tables, status chips, activity cards, inline editing states, empty states, and loading skeletons. This system became the foundation for the platform's next two modules (Reporting and Settings), making future design work significantly faster and keeping the product visually consistent as it scaled.</div>
         </div>
       </div>
@@ -287,8 +308,8 @@
 <!-- NEXT CASE -->
 <div class="section" style="padding-bottom:64px; border-bottom:none;">
   <div class="site">
-    <div class="section-label">Next Case</div>
-    <a href="priwatt.html" class="next-case" style="position:relative;">
+    <h2 class="section-label">Next Case</h2>
+    <a href="priwatt" class="next-case" style="position:relative;">
       <span class="nc-b"></span>
       <div>
         <div class="nc-label">Featured · Case Study</div>

@@ -7,7 +7,7 @@
 <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="256x256">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
 <meta name="theme-color" content="#262624">
-<title>Dealing — A Daily Blog on Stress & Workload · Antony Bozhatarnyk</title>
+<title>Dealing — Notes on Design Work · Antony Bozhatarnyk</title>
 <meta name="description" content="A short daily practice on dealing with stress, workload, and difficult moments as a designer — small, honest reflections and practical techniques.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://antonyui.com/blog/">
@@ -46,6 +46,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/styles.css">
 <script src="../assets/js/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://antonyui.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://antonyui.com/blog/"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -54,12 +74,12 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Antony Bozhatarnyk</a>
+    <a href="../" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Antony Bozhatarnyk</a>
     <div class="nav-links">
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#expertise">Expertise</a>
-      <a href="../index.html#about">About</a>
-      <a href="index.html">Blog</a>
+      <a href="../#work">Work</a>
+      <a href="../#expertise">Expertise</a>
+      <a href="../#about">About</a>
+      <a href="./">Blog</a>
     </div>
     <div class="nav-right">
       <div class="theme-toggle">
@@ -74,10 +94,10 @@
   </div>
   <div class="nav-mobile" id="nav-mobile">
     <div class="nav-mobile-inner">
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#expertise">Expertise</a>
-      <a href="../index.html#about">About</a>
-      <a href="index.html">Blog</a>
+      <a href="../#work">Work</a>
+      <a href="../#expertise">Expertise</a>
+      <a href="../#about">About</a>
+      <a href="./">Blog</a>
       <a href="mailto:designantonyui@gmail.com" class="nav-mobile-cta">Let's talk →</a>
     </div>
   </div>
@@ -99,13 +119,13 @@
 <!-- POST LIST -->
 <div class="section" style="border-bottom:none;">
   <div class="site">
-    <div class="section-label">Entries</div>
+    <h2 class="section-label">Entries</h2>
     <!-- NEW POSTS GO HERE — add a <a class="post-card"> block at the TOP of .blog-list -->
     <div class="blog-list">
-      <a href="2026-09-20-dealing-with-the-blank-canvas.html" class="post-card">
+      <a href="2026-09-20-dealing-with-the-blank-canvas" class="post-card">
         <span class="post-arrow" aria-hidden="true">→</span>
         <div class="post-date"><span class="post-tag-inline">Daily note</span> · Sep 20, 2026 · 2 min read</div>
-        <div class="post-title">Dealing with the blank canvas</div>
+        <h3 class="post-title">Dealing with the blank canvas</h3>
         <div class="post-desc">Why the hardest part of a new brief isn't the work — it's the first ten minutes of nothing, and the small ritual that gets me past it.</div>
       </a>
     </div>
