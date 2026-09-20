@@ -44,7 +44,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/styles.css?v=2.2">
 <script src="../assets/js/app.js"></script>
 <script type="application/ld+json">
 {
@@ -163,65 +163,88 @@
     <h2>The core pattern: Headless Anatomy vs. Token Skin</h2>
     <p>The only sustainable way to build multi-brand systems is enforcing an unbreachable wall between <strong>Component Anatomy</strong> and <strong>Token Skin</strong>.</p>
 
-    <div class="article-diagram">
-      <div class="diagram-badge">Architecture Blueprint</div>
-      
-      <!-- Invariant Core Box -->
-      <div class="diagram-box">
-        <div class="diagram-box-title">
-          <span>Component Anatomy <strong style="color:var(--text);font-weight:500;">(Invariant Core)</strong></span>
-          <span class="diagram-tag" style="color:var(--orange);border-color:var(--orange-border);">Single Codebase</span>
+    <div class="blueprint-canvas">
+      <div class="blueprint-header">
+        <div class="blueprint-window-dots">
+          <span class="b-dot b-red"></span>
+          <span class="b-dot b-yellow"></span>
+          <span class="b-dot b-green"></span>
         </div>
-        <div class="diagram-box-desc">Mechanical behavior, accessibility attributes, keyboard handlers, and layout constraints that never vary across brands.</div>
-        <div class="diagram-tag-list">
-          <span class="diagram-tag">ARIA roles &amp; live regions</span>
-          <span class="diagram-tag">Focus-visible traps</span>
-          <span class="diagram-tag">Escape &amp; arrow navigation</span>
-          <span class="diagram-tag">44×44px touch targets</span>
-          <span class="diagram-tag">Named slot architecture</span>
-        </div>
+        <div class="blueprint-title">SPEC // MULTI-BRAND ARCHITECTURE ENGINE</div>
+        <div class="blueprint-status"><span class="b-status-dot"></span> SINGLE CORE · MULTI THEME</div>
       </div>
 
-      <!-- Connector -->
-      <div class="diagram-connector">
-        <span>↓ Injected via Token Theme Sets ↓</span>
-      </div>
-
-      <!-- Brand Variations Split -->
-      <div class="diagram-split">
-        <!-- Brand A -->
-        <div class="diagram-box" style="border-top: 2px solid #0066FF;">
-          <div class="diagram-box-title">
-            <span style="color:#0066FF;font-weight:600;">Brand A Theme</span>
-            <span class="diagram-tag">priWatt / Energy</span>
+      <div class="blueprint-body">
+        <!-- CORE ENGINE -->
+        <div class="blueprint-tier tier-invariant">
+          <div class="blueprint-tier-header">
+            <div class="b-tier-kicker kicker-orange">CORE ENGINE</div>
+            <div class="b-tier-name">Invariant Component Anatomy <span class="b-tier-sub">/ Single Codebase</span></div>
+            <div class="b-tier-badge b-badge-orange">100% Shared Logic</div>
           </div>
-          <div class="diagram-tag-list" style="margin-bottom:12px;">
-            <span class="diagram-tag">Font: Inter</span>
-            <span class="diagram-tag">Radius: 12px (Soft)</span>
-            <span class="diagram-tag">Primary: #0066FF</span>
-            <span class="diagram-tag">Density: Comfortable</span>
-          </div>
-          <div style="background:var(--bg2);padding:12px 14px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px;">
-            <span style="font-size:11px;color:var(--muted);font-family:Inter,sans-serif;">Live Token Preview:</span>
-            <span class="diagram-preview-btn" style="background:#0066FF;color:#fff;border-radius:12px;font-family:Inter,sans-serif;box-shadow:0 2px 8px rgba(0,102,255,0.25);">Get Started →</span>
+          <p class="b-tier-rule">Mechanical behavior, accessibility attributes, keyboard handlers, and layout constraints that never vary across brands.</p>
+          
+          <div class="b-chip-grid">
+            <span class="b-feature-pill">ARIA roles &amp; live regions</span>
+            <span class="b-feature-pill">Focus-visible traps</span>
+            <span class="b-feature-pill">Escape &amp; arrow navigation</span>
+            <span class="b-feature-pill">44×44px touch bounds</span>
+            <span class="b-feature-pill">Named slot tree</span>
           </div>
         </div>
 
-        <!-- Brand B -->
-        <div class="diagram-box" style="border-top: 2px solid var(--orange);">
-          <div class="diagram-box-title">
-            <span style="color:var(--orange);font-weight:600;">Brand B Theme</span>
-            <span class="diagram-tag">PGWay / Fintech</span>
+        <!-- CONNECTOR -->
+        <div class="blueprint-pipeline-connector">
+          <div class="b-pipe-line"></div>
+          <div class="b-pipe-pill">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2.5v7M3.5 7l2.5 2.5L8.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Injected with Distinct Brand Token Sets</span>
           </div>
-          <div class="diagram-tag-list" style="margin-bottom:12px;">
-            <span class="diagram-tag">Font: Geist Mono</span>
-            <span class="diagram-tag">Radius: 0px (Brutalist)</span>
-            <span class="diagram-tag">Primary: #FF6600</span>
-            <span class="diagram-tag">Density: Compact</span>
+          <div class="b-pipe-line"></div>
+        </div>
+
+        <!-- BRAND VARIATIONS SPLIT -->
+        <div class="blueprint-brands-grid">
+          <!-- BRAND A -->
+          <div class="b-brand-card b-brand-priwatt">
+            <div class="b-brand-header">
+              <div>
+                <span class="b-brand-kicker">BRAND A THEME</span>
+                <div class="b-brand-title">priWatt</div>
+              </div>
+              <span class="b-brand-badge">Energy Commerce</span>
+            </div>
+            <div class="b-brand-tokens">
+              <div class="b-brand-prop"><span>Primary:</span> <code>#0066FF (Soft Blue)</code></div>
+              <div class="b-brand-prop"><span>Radius:</span> <code>12px (Soft Pill)</code></div>
+              <div class="b-brand-prop"><span>Typography:</span> <code>Inter / Friendly</code></div>
+              <div class="b-brand-prop"><span>Density:</span> <code>Comfortable (48px)</code></div>
+            </div>
+            <div class="b-brand-preview-wrap">
+              <div class="b-preview-label">Live Output:</div>
+              <button class="b-preview-btn-priwatt" type="button">Configure Solar →</button>
+            </div>
           </div>
-          <div style="background:var(--bg2);padding:12px 14px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px;">
-            <span style="font-size:11px;color:var(--muted);font-family:var(--mono);">Live Token Preview:</span>
-            <span class="diagram-preview-btn" style="background:var(--orange);color:#000;border-radius:0px;font-family:var(--mono);text-transform:uppercase;font-size:11px;font-weight:600;letter-spacing:0.04em;">CONFIRM PAY</span>
+
+          <!-- BRAND B -->
+          <div class="b-brand-card b-brand-pgway">
+            <div class="b-brand-header">
+              <div>
+                <span class="b-brand-kicker">BRAND B THEME</span>
+                <div class="b-brand-title">PGWay</div>
+              </div>
+              <span class="b-brand-badge">B2B Fintech</span>
+            </div>
+            <div class="b-brand-tokens">
+              <div class="b-brand-prop"><span>Primary:</span> <code>#10B981 (Terminal Green)</code></div>
+              <div class="b-brand-prop"><span>Radius:</span> <code>2px (Brutalist)</code></div>
+              <div class="b-brand-prop"><span>Typography:</span> <code>Geist Mono / Dense</code></div>
+              <div class="b-brand-prop"><span>Density:</span> <code>Compact (36px)</code></div>
+            </div>
+            <div class="b-brand-preview-wrap">
+              <div class="b-preview-label">Live Output:</div>
+              <button class="b-preview-btn-pgway" type="button">AUTHORIZE SETTLEMENT</button>
+            </div>
           </div>
         </div>
       </div>
