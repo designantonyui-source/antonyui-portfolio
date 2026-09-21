@@ -1,0 +1,441 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&amp;family=Inter:wght@400;500;700&amp;display=swap');
+
+      .mono-rain {
+        font-family: 'Geist Mono', 'SF Mono', Menlo, Consolas, Monaco, monospace;
+        font-size: 15px;
+        text-anchor: middle;
+      }
+      .kicker {
+        font-family: 'Geist Mono', 'SF Mono', Menlo, Consolas, Monaco, monospace;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        fill: #FB6B23;
+      }
+      .title {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 64px;
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        fill: #ffffff;
+      }
+      .subtitle {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 1.48;
+        fill: #a0a09a;
+      }
+      .byline {
+        font-family: 'Geist Mono', 'SF Mono', Menlo, Consolas, Monaco, monospace;
+        font-size: 14px;
+        letter-spacing: 0.08em;
+      }
+      .card-text {
+        font-family: 'Geist Mono', 'SF Mono', Menlo, Consolas, Monaco, monospace;
+        font-size: 20px;
+      }
+    </style>
+
+    <!-- Dark Card Drop Shadow -->
+    <filter id="cardShadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000000" flood-opacity="0.85" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+
+    <!-- Technical Dot Grid Pattern -->
+    <pattern id="dotGrid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="1.15" fill="#ffffff" opacity="0.08" />
+    </pattern>
+  </defs>
+
+  <!-- SOLID DEEP GRAPHITE BACKGROUND -->
+  <rect width="1600" height="900" fill="#161614" />
+
+  <!-- UNIFORM DOT GRID TEXTURE -->
+  <rect width="1600" height="900" fill="url(#dotGrid)" />
+
+  <!-- VERTICAL BINARY CODE RAIN STREAMS -->
+  <g class="mono-rain">
+    <text x="35" y="399" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="35" y="425" fill="#8a8a86" opacity="0.08" font-weight="400">0</text>
+    <text x="35" y="451" fill="#8a8a86" opacity="0.12" font-weight="400">0</text>
+    <text x="35" y="477" fill="#8a8a86" opacity="0.14" font-weight="400">1</text>
+    <text x="35" y="503" fill="#8a8a86" opacity="0.08" font-weight="400">0</text>
+    <text x="35" y="529" fill="#9c9c98" opacity="0.31" font-weight="400">0</text>
+    <text x="35" y="555" fill="#ffffff" opacity="0.38" font-weight="500">0</text>
+    <text x="35" y="581" fill="#ffffff" opacity="0.71" font-weight="600">0</text>
+    <text x="35" y="607" fill="#ffffff" opacity="0.41" font-weight="500">0</text>
+    <text x="35" y="633" fill="#9c9c98" opacity="0.22" font-weight="400">0</text>
+    <text x="35" y="659" fill="#8a8a86" opacity="0.14" font-weight="400">1</text>
+    <text x="35" y="685" fill="#8a8a86" opacity="0.07" font-weight="400">0</text>
+    <text x="35" y="711" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="65" y="737" fill="#8a8a86" opacity="0.07" font-weight="400">1</text>
+    <text x="65" y="763" fill="#9c9c98" opacity="0.26" font-weight="400">0</text>
+    <text x="65" y="789" fill="#dedbd6" opacity="0.53" font-weight="500">1</text>
+    <text x="65" y="815" fill="#ffffff" opacity="0.84" font-weight="700">0</text>
+    <text x="65" y="867" fill="#8a8a86" opacity="0.11" font-weight="400">1</text>
+    <text x="105" y="87" fill="#8a8a86" opacity="0.12" font-weight="400">0</text>
+    <text x="105" y="113" fill="#8a8a86" opacity="0.15" font-weight="400">1</text>
+    <text x="105" y="139" fill="#8a8a86" opacity="0.08" font-weight="400">0</text>
+    <text x="105" y="165" fill="#8a8a86" opacity="0.08" font-weight="400">1</text>
+    <text x="105" y="191" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="105" y="217" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="105" y="243" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="105" y="269" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="105" y="295" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="105" y="321" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="105" y="347" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="105" y="373" fill="#8a8a86" opacity="0.07" font-weight="400">1</text>
+    <text x="105" y="399" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="105" y="711" fill="#8a8a86" opacity="0.17" font-weight="400">0</text>
+    <text x="145" y="789" fill="#9c9c98" opacity="0.23" font-weight="400">1</text>
+    <text x="145" y="815" fill="#dedbd6" opacity="0.55" font-weight="500">0</text>
+    <text x="145" y="841" fill="#ffffff" opacity="0.78" font-weight="600">0</text>
+    <text x="145" y="867" fill="#ffffff" opacity="0.51" font-weight="500">0</text>
+    <text x="190" y="581" fill="#8a8a86" opacity="0.12" font-weight="400">1</text>
+    <text x="190" y="607" fill="#9c9c98" opacity="0.29" font-weight="400">0</text>
+    <text x="190" y="633" fill="#ffffff" opacity="0.57" font-weight="500">0</text>
+    <text x="190" y="659" fill="#ffffff" opacity="0.75" font-weight="600">1</text>
+    <text x="190" y="685" fill="#ffffff" opacity="0.56" font-weight="500">1</text>
+    <text x="190" y="711" fill="#9c9c98" opacity="0.2" font-weight="400">0</text>
+    <text x="235" y="165" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="280" y="789" fill="#8a8a86" opacity="0.16" font-weight="400">1</text>
+    <text x="325" y="217" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="325" y="243" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="325" y="269" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="325" y="295" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="325" y="321" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="325" y="347" fill="#8a8a86" opacity="0.07" font-weight="400">1</text>
+    <text x="325" y="373" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="325" y="841" fill="#8a8a86" opacity="0.08" font-weight="400">1</text>
+    <text x="370" y="87" fill="#ffffff" opacity="0.73" font-weight="600">1</text>
+    <text x="370" y="113" fill="#ffffff" opacity="0.41" font-weight="500">1</text>
+    <text x="370" y="139" fill="#9c9c98" opacity="0.26" font-weight="400">1</text>
+    <text x="370" y="165" fill="#8a8a86" opacity="0.08" font-weight="400">0</text>
+    <text x="370" y="191" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="370" y="217" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="370" y="243" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="370" y="269" fill="#8a8a86" opacity="0.08" font-weight="400">0</text>
+    <text x="370" y="295" fill="#8a8a86" opacity="0.07" font-weight="400">1</text>
+    <text x="415" y="113" fill="#8a8a86" opacity="0.12" font-weight="400">1</text>
+    <text x="415" y="87" fill="#8a8a86" opacity="0.09" font-weight="400">0</text>
+    <text x="460" y="165" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="460" y="191" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="460" y="217" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="460" y="243" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="460" y="269" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="505" y="451" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="505" y="477" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="505" y="503" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="505" y="529" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="505" y="555" fill="#8a8a86" opacity="0.12" font-weight="400">1</text>
+    <text x="505" y="581" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="505" y="607" fill="#8a8a86" opacity="0.07" font-weight="400">1</text>
+    <text x="505" y="633" fill="#8a8a86" opacity="0.14" font-weight="400">1</text>
+    <text x="505" y="659" fill="#8a8a86" opacity="0.14" font-weight="400">0</text>
+    <text x="505" y="685" fill="#8a8a86" opacity="0.14" font-weight="400">1</text>
+    <text x="505" y="711" fill="#8a8a86" opacity="0.09" font-weight="400">0</text>
+    <text x="505" y="737" fill="#8a8a86" opacity="0.07" font-weight="400">0</text>
+    <text x="505" y="763" fill="#8a8a86" opacity="0.14" font-weight="400">1</text>
+    <text x="505" y="399" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="550" y="295" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="550" y="321" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="550" y="347" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="550" y="373" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="550" y="399" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="550" y="425" fill="#8a8a86" opacity="0.08" font-weight="400">0</text>
+    <text x="550" y="789" fill="#8a8a86" opacity="0.06" font-weight="400">0</text>
+    <text x="595" y="87" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="595" y="113" fill="#8a8a86" opacity="0.09" font-weight="400">0</text>
+    <text x="595" y="139" fill="#8a8a86" opacity="0.12" font-weight="400">0</text>
+    <text x="595" y="165" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="595" y="191" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="595" y="217" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="595" y="243" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="640" y="243" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="640" y="269" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="640" y="295" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="640" y="321" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="640" y="347" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="640" y="373" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="640" y="399" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="685" y="373" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="685" y="399" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="685" y="425" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="685" y="451" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="685" y="477" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="685" y="503" fill="#8a8a86" opacity="0.06" font-weight="400">1</text>
+    <text x="685" y="61" fill="#8a8a86" opacity="0.17" font-weight="400">1</text>
+    <text x="730" y="165" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="730" y="191" fill="#9c9c98" opacity="0.22" font-weight="400">0</text>
+    <text x="730" y="217" fill="#dedbd6" opacity="0.44" font-weight="500">0</text>
+    <text x="730" y="243" fill="#ffffff" opacity="0.82" font-weight="700">0</text>
+    <text x="730" y="269" fill="#ffffff" opacity="0.36" font-weight="500">0</text>
+    <text x="730" y="295" fill="#9c9c98" opacity="0.24" font-weight="400">1</text>
+    <text x="730" y="373" fill="#dedbd6" opacity="0.39" font-weight="500">0</text>
+    <text x="730" y="399" fill="#ffffff" opacity="0.71" font-weight="600">1</text>
+    <text x="730" y="425" fill="#ffffff" opacity="0.44" font-weight="500">1</text>
+    <text x="730" y="451" fill="#9c9c98" opacity="0.29" font-weight="400">1</text>
+    <text x="775" y="789" fill="#ffffff" opacity="0.4" font-weight="600">0</text>
+    <text x="820" y="61" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="820" y="87" fill="#9c9c98" opacity="0.24" font-weight="400">1</text>
+    <text x="820" y="113" fill="#ffffff" opacity="0.5" font-weight="500">0</text>
+    <text x="820" y="139" fill="#ffffff" opacity="0.82" font-weight="700">0</text>
+    <text x="820" y="165" fill="#dedbd6" opacity="0.43" font-weight="500">1</text>
+    <text x="820" y="191" fill="#9c9c98" opacity="0.22" font-weight="400">1</text>
+    <text x="820" y="217" fill="#8a8a86" opacity="0.12" font-weight="400">1</text>
+    <text x="820" y="243" fill="#8a8a86" opacity="0.13" font-weight="400">0</text>
+    <text x="820" y="269" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="820" y="295" fill="#8a8a86" opacity="0.09" font-weight="400">0</text>
+    <text x="820" y="321" fill="#8a8a86" opacity="0.07" font-weight="400">1</text>
+    <text x="865" y="711" fill="#ffffff" opacity="0.47" font-weight="500">1</text>
+    <text x="865" y="737" fill="#ffffff" opacity="0.71" font-weight="600">0</text>
+    <text x="865" y="763" fill="#ffffff" opacity="0.5" font-weight="500">1</text>
+    <text x="865" y="789" fill="#9c9c98" opacity="0.18" font-weight="400">0</text>
+    <text x="865" y="685" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="865" y="893" fill="#8a8a86" opacity="0.09" font-weight="400">0</text>
+    <text x="910" y="529" fill="#ffffff" opacity="0.79" font-weight="600">0</text>
+    <text x="910" y="555" fill="#ffffff" opacity="0.5" font-weight="500">1</text>
+    <text x="910" y="581" fill="#9c9c98" opacity="0.2" font-weight="400">0</text>
+    <text x="910" y="607" fill="#8a8a86" opacity="0.11" font-weight="400">0</text>
+    <text x="910" y="633" fill="#8a8a86" opacity="0.11" font-weight="400">0</text>
+    <text x="955" y="269" fill="#9c9c98" opacity="0.31" font-weight="400">0</text>
+    <text x="955" y="295" fill="#dedbd6" opacity="0.37" font-weight="500">1</text>
+    <text x="955" y="321" fill="#ffffff" opacity="0.88" font-weight="700">0</text>
+    <text x="955" y="347" fill="#dedbd6" opacity="0.49" font-weight="500">1</text>
+    <text x="955" y="373" fill="#9c9c98" opacity="0.25" font-weight="400">1</text>
+    <text x="955" y="399" fill="#8a8a86" opacity="0.07" font-weight="400">1</text>
+    <text x="955" y="425" fill="#8a8a86" opacity="0.14" font-weight="400">1</text>
+    <text x="955" y="451" fill="#8a8a86" opacity="0.14" font-weight="400">0</text>
+    <text x="955" y="477" fill="#8a8a86" opacity="0.09" font-weight="400">0</text>
+    <text x="955" y="503" fill="#8a8a86" opacity="0.09" font-weight="400">0</text>
+    <text x="955" y="529" fill="#8a8a86" opacity="0.07" font-weight="400">1</text>
+    <text x="955" y="555" fill="#8a8a86" opacity="0.11" font-weight="400">1</text>
+    <text x="955" y="581" fill="#8a8a86" opacity="0.08" font-weight="400">1</text>
+    <text x="955" y="607" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="955" y="633" fill="#8a8a86" opacity="0.14" font-weight="400">0</text>
+    <text x="1000" y="61" fill="#8a8a86" opacity="0.12" font-weight="400">1</text>
+    <text x="1000" y="87" fill="#8a8a86" opacity="0.15" font-weight="400">1</text>
+    <text x="1000" y="113" fill="#8a8a86" opacity="0.14" font-weight="400">0</text>
+    <text x="1000" y="139" fill="#8a8a86" opacity="0.07" font-weight="400">0</text>
+    <text x="1000" y="165" fill="#8a8a86" opacity="0.12" font-weight="400">1</text>
+    <text x="1000" y="191" fill="#8a8a86" opacity="0.11" font-weight="400">0</text>
+    <text x="1000" y="217" fill="#8a8a86" opacity="0.14" font-weight="400">0</text>
+    <text x="1000" y="243" fill="#8a8a86" opacity="0.12" font-weight="400">0</text>
+    <text x="1000" y="269" fill="#8a8a86" opacity="0.12" font-weight="400">1</text>
+    <text x="1000" y="295" fill="#8a8a86" opacity="0.13" font-weight="400">1</text>
+    <text x="1000" y="321" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="1000" y="347" fill="#9c9c98" opacity="0.29" font-weight="400">0</text>
+    <text x="1000" y="373" fill="#ffffff" opacity="0.48" font-weight="500">1</text>
+    <text x="1000" y="399" fill="#ffffff" opacity="0.88" font-weight="700">1</text>
+    <text x="1000" y="763" fill="#8a8a86" opacity="0.13" font-weight="400">1</text>
+    <text x="1000" y="789" fill="#9c9c98" opacity="0.24" font-weight="400">0</text>
+    <text x="1000" y="815" fill="#ffffff" opacity="0.35" font-weight="500">1</text>
+    <text x="1000" y="841" fill="#ffffff" opacity="0.83" font-weight="700">1</text>
+    <text x="1000" y="711" fill="#8a8a86" opacity="0.15" font-weight="400">0</text>
+    <text x="1045" y="113" fill="#dedbd6" opacity="0.41" font-weight="500">1</text>
+    <text x="1045" y="139" fill="#ffffff" opacity="0.78" font-weight="600">1</text>
+    <text x="1045" y="165" fill="#ffffff" opacity="0.37" font-weight="500">1</text>
+    <text x="1045" y="191" fill="#9c9c98" opacity="0.25" font-weight="400">0</text>
+    <text x="1045" y="217" fill="#8a8a86" opacity="0.06" font-weight="400">1</text>
+    <text x="1045" y="243" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="1045" y="269" fill="#8a8a86" opacity="0.13" font-weight="400">1</text>
+    <text x="1045" y="295" fill="#8a8a86" opacity="0.13" font-weight="400">1</text>
+    <text x="1045" y="373" fill="#8a8a86" opacity="0.16" font-weight="400">0</text>
+    <text x="1090" y="191" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="1090" y="217" fill="#9c9c98" opacity="0.2" font-weight="400">1</text>
+    <text x="1090" y="243" fill="#dedbd6" opacity="0.44" font-weight="500">0</text>
+    <text x="1090" y="269" fill="#ffffff" opacity="0.85" font-weight="700">1</text>
+    <text x="1090" y="659" fill="#8a8a86" opacity="0.18" font-weight="400">0</text>
+    <text x="1135" y="217" fill="#8a8a86" opacity="0.14" font-weight="400">1</text>
+    <text x="1135" y="243" fill="#8a8a86" opacity="0.12" font-weight="400">1</text>
+    <text x="1135" y="269" fill="#8a8a86" opacity="0.14" font-weight="400">1</text>
+    <text x="1135" y="295" fill="#8a8a86" opacity="0.13" font-weight="400">1</text>
+    <text x="1135" y="321" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="1135" y="347" fill="#8a8a86" opacity="0.08" font-weight="400">0</text>
+    <text x="1135" y="373" fill="#8a8a86" opacity="0.12" font-weight="400">0</text>
+    <text x="1135" y="399" fill="#8a8a86" opacity="0.06" font-weight="400">0</text>
+    <text x="1135" y="425" fill="#8a8a86" opacity="0.12" font-weight="400">0</text>
+    <text x="1135" y="451" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="1135" y="477" fill="#8a8a86" opacity="0.13" font-weight="400">0</text>
+    <text x="1135" y="503" fill="#9c9c98" opacity="0.32" font-weight="400">0</text>
+    <text x="1135" y="529" fill="#dedbd6" opacity="0.43" font-weight="500">1</text>
+    <text x="1135" y="555" fill="#ffffff" opacity="0.76" font-weight="600">0</text>
+    <text x="1135" y="581" fill="#ffffff" opacity="0.61" font-weight="600">1</text>
+    <text x="1180" y="191" fill="#8a8a86" opacity="0.07" font-weight="400">1</text>
+    <text x="1180" y="217" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="1180" y="243" fill="#8a8a86" opacity="0.11" font-weight="400">1</text>
+    <text x="1180" y="269" fill="#8a8a86" opacity="0.06" font-weight="400">0</text>
+    <text x="1180" y="295" fill="#9c9c98" opacity="0.27" font-weight="400">0</text>
+    <text x="1180" y="321" fill="#ffffff" opacity="0.37" font-weight="500">0</text>
+    <text x="1180" y="347" fill="#ffffff" opacity="0.71" font-weight="600">1</text>
+    <text x="1180" y="373" fill="#dedbd6" opacity="0.43" font-weight="500">1</text>
+    <text x="1180" y="399" fill="#9c9c98" opacity="0.19" font-weight="400">0</text>
+    <text x="1180" y="425" fill="#8a8a86" opacity="0.12" font-weight="400">1</text>
+    <text x="1180" y="451" fill="#8a8a86" opacity="0.15" font-weight="400">1</text>
+    <text x="1180" y="477" fill="#8a8a86" opacity="0.13" font-weight="400">0</text>
+    <text x="1180" y="503" fill="#8a8a86" opacity="0.13" font-weight="400">1</text>
+    <text x="1180" y="529" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="1180" y="555" fill="#8a8a86" opacity="0.14" font-weight="400">0</text>
+    <text x="1225" y="451" fill="#8a8a86" opacity="0.12" font-weight="400">0</text>
+    <text x="1225" y="477" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="1225" y="503" fill="#8a8a86" opacity="0.1" font-weight="400">1</text>
+    <text x="1225" y="529" fill="#8a8a86" opacity="0.12" font-weight="400">0</text>
+    <text x="1225" y="555" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="1225" y="581" fill="#8a8a86" opacity="0.15" font-weight="400">1</text>
+    <text x="1225" y="607" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="1225" y="633" fill="#8a8a86" opacity="0.15" font-weight="400">0</text>
+    <text x="1225" y="659" fill="#8a8a86" opacity="0.14" font-weight="400">1</text>
+    <text x="1225" y="685" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="1225" y="711" fill="#9c9c98" opacity="0.22" font-weight="400">0</text>
+    <text x="1225" y="737" fill="#ffffff" opacity="0.54" font-weight="500">0</text>
+    <text x="1225" y="763" fill="#ffffff" opacity="0.8" font-weight="600">0</text>
+    <text x="1225" y="789" fill="#dedbd6" opacity="0.43" font-weight="500">1</text>
+    <text x="1270" y="451" fill="#8a8a86" opacity="0.12" font-weight="400">1</text>
+    <text x="1270" y="477" fill="#8a8a86" opacity="0.08" font-weight="400">1</text>
+    <text x="1270" y="503" fill="#8a8a86" opacity="0.15" font-weight="400">0</text>
+    <text x="1270" y="529" fill="#8a8a86" opacity="0.13" font-weight="400">0</text>
+    <text x="1270" y="555" fill="#8a8a86" opacity="0.09" font-weight="400">0</text>
+    <text x="1270" y="581" fill="#8a8a86" opacity="0.14" font-weight="400">0</text>
+    <text x="1270" y="607" fill="#8a8a86" opacity="0.13" font-weight="400">1</text>
+    <text x="1270" y="633" fill="#8a8a86" opacity="0.08" font-weight="400">0</text>
+    <text x="1270" y="659" fill="#9c9c98" opacity="0.24" font-weight="400">1</text>
+    <text x="1270" y="685" fill="#ffffff" opacity="0.49" font-weight="500">1</text>
+    <text x="1270" y="711" fill="#ffffff" opacity="0.77" font-weight="600">1</text>
+    <text x="1270" y="139" fill="#8a8a86" opacity="0.08" font-weight="400">0</text>
+    <text x="1315" y="373" fill="#ffffff" opacity="0.44" font-weight="500">0</text>
+    <text x="1315" y="399" fill="#ffffff" opacity="0.81" font-weight="700">1</text>
+    <text x="1315" y="425" fill="#ffffff" opacity="0.48" font-weight="500">0</text>
+    <text x="1315" y="451" fill="#9c9c98" opacity="0.29" font-weight="400">0</text>
+    <text x="1315" y="477" fill="#8a8a86" opacity="0.07" font-weight="400">1</text>
+    <text x="1405" y="581" fill="#8a8a86" opacity="0.06" font-weight="400">0</text>
+    <text x="1405" y="607" fill="#8a8a86" opacity="0.14" font-weight="400">0</text>
+    <text x="1405" y="633" fill="#9c9c98" opacity="0.3" font-weight="400">1</text>
+    <text x="1405" y="659" fill="#ffffff" opacity="0.56" font-weight="500">1</text>
+    <text x="1405" y="685" fill="#ffffff" opacity="0.89" font-weight="700">1</text>
+    <text x="1405" y="711" fill="#ffffff" opacity="0.36" font-weight="500">0</text>
+    <text x="1405" y="737" fill="#9c9c98" opacity="0.25" font-weight="400">0</text>
+    <text x="1405" y="763" fill="#8a8a86" opacity="0.15" font-weight="400">0</text>
+    <text x="1405" y="789" fill="#8a8a86" opacity="0.07" font-weight="400">0</text>
+    <text x="1405" y="113" fill="#8a8a86" opacity="0.14" font-weight="400">1</text>
+    <text x="1450" y="347" fill="#8a8a86" opacity="0.09" font-weight="400">0</text>
+    <text x="1450" y="373" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="1450" y="399" fill="#9c9c98" opacity="0.24" font-weight="400">0</text>
+    <text x="1450" y="425" fill="#ffffff" opacity="0.5" font-weight="500">0</text>
+    <text x="1450" y="451" fill="#ffffff" opacity="0.73" font-weight="600">0</text>
+    <text x="1450" y="477" fill="#dedbd6" opacity="0.43" font-weight="500">0</text>
+    <text x="1450" y="503" fill="#9c9c98" opacity="0.26" font-weight="400">0</text>
+    <text x="1450" y="529" fill="#8a8a86" opacity="0.14" font-weight="400">0</text>
+    <text x="1450" y="555" fill="#8a8a86" opacity="0.12" font-weight="400">0</text>
+    <text x="1450" y="165" fill="#8a8a86" opacity="0.08" font-weight="400">1</text>
+    <text x="1495" y="191" fill="#8a8a86" opacity="0.06" font-weight="400">1</text>
+    <text x="1495" y="217" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="1495" y="243" fill="#8a8a86" opacity="0.13" font-weight="400">0</text>
+    <text x="1495" y="269" fill="#9c9c98" opacity="0.21" font-weight="400">0</text>
+    <text x="1495" y="295" fill="#ffffff" opacity="0.57" font-weight="500">0</text>
+    <text x="1495" y="321" fill="#ffffff" opacity="0.75" font-weight="600">0</text>
+    <text x="1495" y="347" fill="#ffffff" opacity="0.45" font-weight="500">0</text>
+    <text x="1495" y="373" fill="#9c9c98" opacity="0.3" font-weight="400">0</text>
+    <text x="1495" y="399" fill="#8a8a86" opacity="0.09" font-weight="400">1</text>
+    <text x="1495" y="425" fill="#8a8a86" opacity="0.07" font-weight="400">1</text>
+    <text x="1495" y="451" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="1495" y="477" fill="#8a8a86" opacity="0.08" font-weight="400">0</text>
+    <text x="1495" y="503" fill="#8a8a86" opacity="0.1" font-weight="400">0</text>
+    <text x="1495" y="529" fill="#8a8a86" opacity="0.08" font-weight="400">1</text>
+    <text x="1495" y="555" fill="#8a8a86" opacity="0.15" font-weight="400">0</text>
+    <text x="1535" y="217" fill="#8a8a86" opacity="0.13" font-weight="400">1</text>
+    <text x="1535" y="243" fill="#9c9c98" opacity="0.26" font-weight="400">0</text>
+    <text x="1535" y="269" fill="#ffffff" opacity="0.53" font-weight="500">1</text>
+    <text x="1535" y="295" fill="#ffffff" opacity="0.78" font-weight="600">0</text>
+    <text x="1535" y="321" fill="#dedbd6" opacity="0.58" font-weight="500">1</text>
+    <text x="1535" y="347" fill="#9c9c98" opacity="0.26" font-weight="400">1</text>
+    <text x="1535" y="867" fill="#ffffff" opacity="0.63" font-weight="600">1</text>
+    <text x="1570" y="243" fill="#8a8a86" opacity="0.08" font-weight="400">1</text>
+    <text x="1570" y="269" fill="#8a8a86" opacity="0.08" font-weight="400">0</text>
+    <text x="1570" y="295" fill="#8a8a86" opacity="0.08" font-weight="400">0</text>
+    <text x="1570" y="321" fill="#9c9c98" opacity="0.31" font-weight="400">1</text>
+    <text x="1570" y="347" fill="#dedbd6" opacity="0.54" font-weight="500">1</text>
+    <text x="1570" y="373" fill="#ffffff" opacity="0.84" font-weight="700">1</text>
+    <text x="1570" y="399" fill="#dedbd6" opacity="0.54" font-weight="500">0</text>
+    <text x="1570" y="425" fill="#9c9c98" opacity="0.19" font-weight="400">1</text>
+  </g>
+
+  <!-- LEFT EDITORIAL SECTION -->
+  <!-- Kicker -->
+  <text x="95" y="142" class="kicker">DESIGN SYSTEMS — FIGMA VARIABLES</text>
+
+  <!-- Orange Accent Bar -->
+  <rect x="95" y="158" width="46" height="3.5" rx="1.75" fill="#FB6B23" />
+
+  <!-- Main Hero Title -->
+  <text class="title">
+      <tspan x="95" y="265">Structuring</tspan>
+      <tspan x="95" y="341">Figma variables</tspan>
+      <tspan x="95" y="417">for production</tspan>
+  </text>
+
+  <!-- Subtitle / Abstract Lede -->
+  <text class="subtitle">
+      <tspan x="95" y="483">Collections, scoping, and private publishing</tspan>
+      <tspan x="95" y="517">that bridge cleanly from Figma to code.</tspan>
+  </text>
+
+  <!-- Author Byline -->
+  <g class="byline" transform="translate(95, 810)">
+    <circle cx="6" cy="-4" r="5.5" fill="#FB6B23" />
+    <text x="26" y="0" fill="#ffffff" font-weight="700">ANTON BOZHATARNYK</text>
+    <text x="214" y="0" fill="#666662" font-weight="400">·</text>
+    <text x="238" y="0" fill="#a5a5a0" font-weight="500">NOTES ON DESIGN &amp; SYSTEMS</text>
+  </g>
+
+  <!-- RIGHT TOKEN INSPECTOR CARD -->
+  <g transform="translate(920, 215)" filter="url(#cardShadow)">
+    <!-- Card Surface -->
+    <rect width="580" height="440" rx="12" fill="#1e1e1c" stroke="rgba(255, 255, 255, 0.14)" stroke-width="1.5" />
+
+    <!-- Dividers -->
+    <line x1="16" y1="88" x2="564" y2="88" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <line x1="16" y1="176" x2="564" y2="176" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <line x1="16" y1="264" x2="564" y2="264" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <line x1="16" y1="352" x2="564" y2="352" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+
+    <!-- Row 1: Brand Orange -->
+    <g class="card-text" transform="translate(0, 44)">
+      <circle cx="44" cy="0" r="10" fill="#FB6B23" />
+      <text x="76" y="6" fill="#dedbd6" font-weight="500">color/brand/orange</text>
+      <text x="540" y="6" fill="#FB6B23" font-weight="700" text-anchor="end">#FB6B23</text>
+    </g>
+
+    <!-- Row 2: Bg Base -->
+    <g class="card-text" transform="translate(0, 132)">
+      <circle cx="44" cy="0" r="10" fill="#71716e" />
+      <text x="76" y="6" fill="#dedbd6" font-weight="500">color/bg/base</text>
+      <text x="540" y="6" fill="#ffffff" font-weight="600" text-anchor="end">#262624</text>
+    </g>
+
+    <!-- Row 3: Text Primary -->
+    <g class="card-text" transform="translate(0, 220)">
+      <circle cx="44" cy="0" r="10" fill="#F0EDE8" />
+      <text x="76" y="6" fill="#dedbd6" font-weight="500">color/text/primary</text>
+      <text x="540" y="6" fill="#ffffff" font-weight="600" text-anchor="end">#F0EDE8</text>
+    </g>
+
+    <!-- Row 4: Space Medium -->
+    <g class="card-text" transform="translate(0, 308)">
+      <rect x="34" y="-10" width="20" height="20" rx="4" fill="none" stroke="#dedbd6" stroke-width="1.8" />
+      <text x="76" y="6" fill="#dedbd6" font-weight="500">space/md</text>
+      <text x="540" y="6" fill="#ffffff" font-weight="600" text-anchor="end">16</text>
+    </g>
+
+    <!-- Row 5: Radius Card -->
+    <g class="card-text" transform="translate(0, 396)">
+      <rect x="34" y="-10" width="20" height="20" rx="4" fill="none" stroke="#dedbd6" stroke-width="1.8" />
+      <text x="76" y="6" fill="#dedbd6" font-weight="500">radius/card</text>
+      <text x="540" y="6" fill="#ffffff" font-weight="600" text-anchor="end">7</text>
+    </g>
+  </g>
+</svg>
