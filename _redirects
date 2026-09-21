@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects
+# Nexus CRM case study removed from the site — 301 its old URL to /work/ so the
+# indexed URL doesn't hard-404 for Google or for anyone holding a direct link.
+/work/crm-dashboard       /work/  301
+/work/crm-dashboard/      /work/  301
+/work/crm-dashboard.html  /work/  301

@@ -6,21 +6,42 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon.png" type="image/png" sizes="256x256">
 <link rel="apple-touch-icon" href="assets/favicon.png">
+<meta name="theme-color" content="#0f0f0e">
 <title>Anton Bozhatarnyk — Senior Product Designer · CV</title>
+<meta name="description" content="CV of Anton Bozhatarnyk — Senior Product Designer with 5+ years across fintech, energy and B2B SaaS, specialising in design systems and DesignOps.">
 <meta name="author" content="Anton Bozhatarnyk">
-<meta name="robots" content="noindex">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://antonyui.com/cv.html">
+<!-- Open Graph -->
+<meta property="og:title" content="Anton Bozhatarnyk — Senior Product Designer · CV">
+<meta property="og:description" content="CV of Anton Bozhatarnyk — Senior Product Designer with 5+ years across fintech, energy and B2B SaaS, specialising in design systems and DesignOps.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://antonyui.com/cv.html">
+<meta property="og:image" content="https://antonyui.com/assets/images/og-cover.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Anton Bozhatarnyk — Senior Product Designer · CV">
+<meta property="og:site_name" content="Anton Bozhatarnyk">
+<meta property="og:locale" content="en_US">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anton Bozhatarnyk — Senior Product Designer · CV">
+<meta name="twitter:description" content="CV of Anton Bozhatarnyk — Senior Product Designer with 5+ years across fintech, energy and B2B SaaS, specialising in design systems and DesignOps.">
+<meta name="twitter:image" content="https://antonyui.com/assets/images/og-cover.jpg">
+<meta name="twitter:image:alt" content="Anton Bozhatarnyk — Senior Product Designer · CV">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --ink: #1a1814; --muted: rgba(26,24,20,0.66); --faint: rgba(26,24,20,0.5);
-    --line: rgba(0,0,0,0.12); --orange: #b44b14;
+    --ink: #050505; --muted: rgba(5,5,5,0.62); --faint: rgba(5,5,5,0.56);
+    --line: rgba(5,5,5,0.12); --orange: #d1410a;
     --mono: 'Geist Mono', monospace;
   }
   @page { size: A4; margin: 0; }
-  body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'Inter', system-ui, sans-serif; font-optical-sizing: auto; color: var(--ink); background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .page { width: 210mm; padding: 11mm 13mm 10mm; }
   .head { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 4mm; border-bottom: 2px solid var(--ink); }
   .name { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; }
@@ -46,6 +67,21 @@
   .list-plain { margin-left: 0; }
   .list-plain li { font-size: 9.5px; color: var(--muted); line-height: 1.6; list-style: none; }
   .list-plain li strong { color: var(--ink); font-weight: 500; }
+
+  /* Screen-only fallback. The sheet is a fixed 210mm A4 page (≈794px), so below
+     that width everything past the right edge — including the contact block — was
+     pushed off-screen behind a horizontal scroll.
+     Scoped to `screen` so print is untouched: @media screen cannot match the print
+     media type, so the A4 geometry above still governs the PDF and the print dialog. */
+  @media screen and (max-width: 820px) {
+    .page { width: 100%; padding: 28px 20px 32px; }
+    .head { flex-direction: column; gap: 14px; }
+    .contact { text-align: left; }
+    .cols { grid-template-columns: 1fr; gap: 0; }
+  }
+  @media screen and (max-width: 560px) {
+    .job { grid-template-columns: 1fr; gap: 2px; }
+  }
 </style>
 </head>
 <body>

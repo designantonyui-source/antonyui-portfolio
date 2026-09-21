@@ -6,27 +6,30 @@
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="256x256">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
-<meta name="theme-color" content="#262624">
-<title>priWatt — Design System from Brand Book to Production · Anton Bozhatarnyk</title>
+<meta name="theme-color" content="#0f0f0e">
+<title>priWatt — Design System from Brand Book to Production</title>
 <meta name="description" content="How I built a production-ready design system from an agency brand book — three-tier token architecture, type scale, grid and component library.">
 <meta name="author" content="Anton Bozhatarnyk">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://antonyui.com/work/priwatt">
-<!-- OG -->
+<!-- Open Graph -->
 <meta property="og:title" content="priWatt — Design System from Brand Book to Production">
-<meta property="og:description" content="How I built a production-ready design system from an agency brand book — three-tier token architecture, typography scale, responsive grid, and component library.">
+<meta property="og:description" content="How I built a production-ready design system from an agency brand book — three-tier token architecture, type scale, grid and component library.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://antonyui.com/work/priwatt">
 <meta property="og:image" content="https://antonyui.com/assets/images/og-priwatt.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="priWatt design system case study — token architecture and component library">
 <meta property="og:site_name" content="Anton Bozhatarnyk">
 <meta property="og:locale" content="en_US">
-<!-- Twitter -->
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="priWatt — Design System from Brand Book to Production">
-<meta name="twitter:description" content="How I built a production-ready design system from an agency brand book — 75% faster design-to-dev delivery.">
+<meta name="twitter:description" content="How I built a production-ready design system from an agency brand book — three-tier token architecture, type scale, grid and component library.">
 <meta name="twitter:image" content="https://antonyui.com/assets/images/og-priwatt.jpg">
+<meta name="twitter:image:alt" content="priWatt design system case study — token architecture and component library">
 <!-- JSON-LD -->
 <script type="application/ld+json">
 {
@@ -37,12 +40,12 @@
   "author": {
     "@type": "Person",
     "name": "Anton Bozhatarnyk",
-    "url": "https://antonyui.com/"
+    "url": "https://antonyui.com"
   },
   "publisher": {
     "@type": "Person",
     "name": "Anton Bozhatarnyk",
-    "url": "https://antonyui.com/"
+    "url": "https://antonyui.com"
   },
   "image": "https://antonyui.com/assets/images/og-priwatt.jpg",
   "datePublished": "2024-05-01",
@@ -50,37 +53,11 @@
   "url": "https://antonyui.com/work/priwatt"
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://antonyui.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Work",
-      "item": "https://antonyui.com/work/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "priWatt — Design System from Brand Book to Production",
-      "item": "https://antonyui.com/work/priwatt"
-    }
-  ]
-}
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=2.7">
-<script src="../assets/js/app.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css?v=4.7">
+<script src="../assets/js/app.js?v=4.3"></script>
 <style>
 /* ── DS variable aliases ─────────────────────────────────────── */
 :root {
@@ -216,6 +193,26 @@
   .spacing-scale-wrap { padding: 16px 12px 12px; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://antonyui.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "priWatt — Design System from Brand Book to Production",
+      "item": "https://antonyui.com/work/priwatt"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -227,7 +224,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Anton Bozhatarnyk</a>
+    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.webp" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Anton Bozhatarnyk</a>
     <div class="nav-links">
       <a href="index.html">Work</a>
       <a href="../index.html#expertise">Expertise</a>
@@ -285,7 +282,7 @@
         <div class="meta-label">Role</div>
         <div class="meta-val">Design Systems Lead</div>
       </div>
-      <div class="meta-item meta-item--full">
+      <div class="meta-item meta-item--wide">
         <div class="meta-label">Scope</div>
         <div class="meta-val pills">
           <span class="meta-pill">UX/UI</span>
@@ -383,24 +380,18 @@
       <span class="outcomes-b" style="position:absolute;inset:0;pointer-events:none;"></span>
       <div class="outcome-item">
         <div class="outcome-val">75%</div>
-        <div class="outcome-text">
-          <div class="outcome-desc">Reduction in design-to-dev delivery time after the design system went live</div>
-          <div class="outcome-note">Measured on design→dev handoffs before vs. after the token system was adopted</div>
-        </div>
+        <div class="outcome-desc">Reduction in design-to-dev delivery time after the design system went live</div>
+        <div class="outcome-note">Measured on design→dev handoffs before vs. after the token system was adopted</div>
       </div>
       <div class="outcome-item">
         <div class="outcome-val">25%</div>
-        <div class="outcome-text">
-          <div class="outcome-desc">Fewer dev revision cycles — less back-and-forth after structured token handoff</div>
-          <div class="outcome-note">Counted as revision rounds per handoff, before vs. after structured handoff</div>
-        </div>
+        <div class="outcome-desc">Fewer dev revision cycles — less back-and-forth after structured token handoff</div>
+        <div class="outcome-note">Counted as revision rounds per handoff, before vs. after structured handoff</div>
       </div>
       <div class="outcome-item">
         <div class="outcome-val">100%</div>
-        <div class="outcome-text">
-          <div class="outcome-desc">Visual consistency across all pages — zero ad-hoc components shipped after system launch</div>
-          <div class="outcome-note">Verified by a component-usage audit of shipped pages after launch</div>
-        </div>
+        <div class="outcome-desc">Visual consistency across all pages — zero ad-hoc components shipped after system launch</div>
+        <div class="outcome-note">Verified by a component-usage audit of shipped pages after launch</div>
       </div>
     </div>
   </div>
@@ -870,7 +861,7 @@
       <div class="case-img-wrap" style="aspect-ratio:16/9; margin-bottom:12px;">
         <img width="2880" height="1560" loading="lazy" decoding="async"
           class="case-img"
-          src="../assets/images/tv-2025.png"
+          src="../assets/images/tv-2025.webp"
           alt="priWatt design system — UI components including configurator, alerts, forms, calendar, and navigation"
           style="aspect-ratio:16/9;"
         >
@@ -905,7 +896,7 @@
         <div class="case-img-wrap" style="aspect-ratio:16/9;">
           <img width="1920" height="1080" loading="lazy" decoding="async"
             class="case-img"
-            src="../assets/images/priwatt-configurator-savings-results-desktop.jpg"
+            src="../assets/images/priwatt-configurator-savings-results-desktop.webp"
             alt="priWatt PV Configurator — savings results screen showing 124,10 €/Jahr cost saving, 547 kWh annual yield, 874 kWh self-supply and 3.5 Tonnen CO2 savings, with priRoof Duo product recommendations"
             style="aspect-ratio:16/9;"
           >
@@ -915,14 +906,14 @@
         <div class="case-img-wrap">
           <img width="1080" height="1080" loading="lazy" decoding="async"
             class="case-img"
-            src="../assets/images/priwatt-configurator-step01-mounting-mobile.png"
+            src="../assets/images/priwatt-configurator-step01-mounting-mobile.webp"
             alt="priWatt PV Configurator step 01 on mobile — mounting location selection"
           >
         </div>
         <div class="case-img-wrap">
           <img width="1080" height="1080" loading="lazy" decoding="async"
             class="case-img"
-            src="../assets/images/priwatt-configurator-solarbank-storage-modal-mobile.png"
+            src="../assets/images/priwatt-configurator-solarbank-storage-modal-mobile.webp"
             alt="priWatt PV Configurator — Solarbank 2 AC storage capacity selection modal on mobile"
           >
         </div>

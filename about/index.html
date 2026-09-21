@@ -6,27 +6,30 @@
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="256x256">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
-<meta name="theme-color" content="#262624">
+<meta name="theme-color" content="#0f0f0e">
 <title>About — Anton Bozhatarnyk, Senior Product Designer</title>
 <meta name="description" content="Senior Product Designer based in Poland — 5+ years in design systems, DesignOps and fintech UX. Experience, skills, tools and availability.">
 <meta name="author" content="Anton Bozhatarnyk">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://antonyui.com/about/">
-<!-- OG -->
+<!-- Open Graph -->
 <meta property="og:title" content="About — Anton Bozhatarnyk, Senior Product Designer">
-<meta property="og:description" content="Senior Product Designer based in Poland — 5+ years in design systems, DesignOps and fintech UX.">
+<meta property="og:description" content="Senior Product Designer based in Poland — 5+ years in design systems, DesignOps and fintech UX. Experience, skills, tools and availability.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://antonyui.com/about/">
 <meta property="og:image" content="https://antonyui.com/assets/images/og-cover.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Anton Bozhatarnyk, Senior Product Designer based in Poland">
 <meta property="og:site_name" content="Anton Bozhatarnyk">
 <meta property="og:locale" content="en_US">
-<!-- Twitter -->
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About — Anton Bozhatarnyk, Senior Product Designer">
-<meta name="twitter:description" content="Senior Product Designer based in Poland — design systems, DesignOps and fintech UX.">
+<meta name="twitter:description" content="Senior Product Designer based in Poland — 5+ years in design systems, DesignOps and fintech UX. Experience, skills, tools and availability.">
 <meta name="twitter:image" content="https://antonyui.com/assets/images/og-cover.jpg">
+<meta name="twitter:image:alt" content="Anton Bozhatarnyk, Senior Product Designer based in Poland">
 <!-- JSON-LD -->
 <script type="application/ld+json">
 {
@@ -35,15 +38,16 @@
   "url": "https://antonyui.com/about/",
   "mainEntity": {
     "@type": "Person",
+    "@id": "https://antonyui.com/#person",
     "name": "Anton Bozhatarnyk",
     "jobTitle": "Senior Product Designer",
-    "url": "https://antonyui.com/",
-    "image": "https://antonyui.com/assets/images/anton-bozhatarnyk.jpeg",
+    "url": "https://antonyui.com",
+    "image": "https://antonyui.com/assets/images/avatar.webp",
     "email": "designantonyui@gmail.com",
     "address": { "@type": "PostalAddress", "addressCountry": "PL" },
     "knowsLanguage": ["en", "uk", "ru", "pl"],
     "sameAs": ["https://www.linkedin.com/in/antony-bozhatarnyk-b6068441/"],
-    "knowsAbout": ["Design Systems", "DesignOps", "Fintech UX", "Design Token Architecture", "UX Design", "B2B SaaS", "Token Studio", "Figma", "Framer"]
+    "knowsAbout": ["Design Systems", "DesignOps", "Fintech UX", "Design Token Architecture", "B2B SaaS", "Token Studio", "Figma", "Framer"]
   }
 }
 </script>
@@ -59,9 +63,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=2.7">
-<script src="../assets/js/app.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css?v=4.7">
+<script src="../assets/js/app.js?v=4.3"></script>
 </head>
 <body>
 
@@ -70,7 +74,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.jpeg" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Anton Bozhatarnyk</a>
+    <a href="../index.html" class="nav-logo"><img src="../assets/images/avatar.webp" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Anton Bozhatarnyk</a>
     <div class="nav-links">
       <a href="../work/index.html">Work</a>
       <a href="../index.html#expertise">Expertise</a>
@@ -103,8 +107,8 @@
 <main class="page-hero" id="main" tabindex="-1">
   <div class="dot-bg"></div>
   <div class="site">
-    <div class="about-hero-grid">
-      <div class="about-hero-content">
+    <div class="about-hero">
+      <div>
         <div class="section-label">About</div>
         <h1>
           <strong>Anton Bozhatarnyk</strong><br>
@@ -112,11 +116,39 @@
         </h1>
         <p class="hero-sub">Product designer specialising in the infrastructure layer — design systems and DesignOps — and in turning complex, compliance-sensitive fintech domains into clear, usable interfaces.</p>
       </div>
-      <div class="about-hero-photo">
-        <div class="case-img-wrap" style="aspect-ratio: 1/1;">
-          <span class="img-bl"></span>
-          <img src="../assets/images/anton-bozhatarnyk.jpeg" alt="Anton Bozhatarnyk — Senior Product Designer" width="1984" height="1980" class="case-img" style="aspect-ratio: 1/1; object-fit: cover;" loading="eager" fetchpriority="high" decoding="async">
+
+      <!-- PORTRAIT -->
+      <div class="portrait-frame">
+        <picture>
+          <source srcset="../assets/images/antony-portrait.webp" type="image/webp">
+          <img src="../assets/images/antony-portrait.jpg" width="1100" height="1098" alt="Portrait of Anton Bozhatarnyk" fetchpriority="high" decoding="async">
+        </picture>
+        <span class="pf-b" style="position:absolute;inset:0;pointer-events:none;"></span>
+        <div class="portrait-meta">
+          <span>Poland · CET</span>
+          <span class="pm-live">● Available</span>
         </div>
+      </div>
+    </div>
+
+    <!-- AT A GLANCE -->
+    <div class="meta-strip" style="position:relative;margin-top:44px;">
+      <span class="meta-strip-b" style="position:absolute;inset:0;pointer-events:none;"></span>
+      <div class="meta-item">
+        <div class="meta-label">Currently</div>
+        <div class="meta-val">Independent — open to senior roles</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Based in</div>
+        <div class="meta-val">Poland (CET) · Remote EU</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Experience</div>
+        <div class="meta-val">5+ years · fintech, energy, SaaS</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Availability</div>
+        <div class="meta-val" style="color:var(--orange);">Available now</div>
       </div>
     </div>
   </div>
@@ -126,9 +158,45 @@
 <div class="section">
   <div class="site">
     <h2 class="section-label">Profile</h2>
-    <p class="prose">I'm <strong>Anton</strong>, a Senior Product Designer with <strong>5+ years</strong> shipping digital products across <strong>fintech, energy, and B2B SaaS</strong>. My focus is the infrastructure layer — design systems and DesignOps that let teams move fast without breaking consistency.</p>
-    <p class="prose">Most recently I was Product Designer at <strong>PGWay</strong>, a global payment gateway (150+ payment methods), where I owned product design and the design system on a large, compliance-sensitive platform. Before that, three years at <strong>TWNTY Ventures</strong> (Germany) on clients including priWatt, Mission Zero, and Tilray — and earlier, dashboard and CMS products with Natanek Iberia in Barcelona.</p>
-    <p class="prose">I care about the parts of design that don't demo well: token architecture, naming, documentation, and the handoff contract between design and engineering. That's where consistency is either won or lost.</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm <strong>Anton</strong>, a Senior Product Designer with <strong>5+ years</strong> shipping digital products across <strong>fintech, energy, and B2B SaaS</strong>. My focus is the infrastructure layer — design systems and DesignOps that let teams move fast without breaking consistency.</p>
+        <p>Most recently I was Product Designer at <strong>PGWay</strong>, a global payment gateway (150+ payment methods), where I owned product design and the design system on a large, compliance-sensitive platform. Before that, three years at <strong>TWNTY Ventures</strong> (Germany) on clients including priWatt, Mission Zero, and Tilray — and earlier, dashboard and CMS products with Natanek Iberia in Barcelona.</p>
+        <p>I care about the parts of design that don't demo well: token architecture, naming, documentation, and the handoff contract between design and engineering. That's where consistency is either won or lost.</p>
+      </div>
+      <div class="aside-outer" style="position:relative;">
+        <span class="aside-outer-b" style="position:absolute;inset:0;pointer-events:none;"></span>
+        <div class="aside-card"><div class="aside-label">Focus</div><div class="aside-val">Design systems · DesignOps · Token architecture</div></div>
+        <div class="aside-card"><div class="aside-label">Domains</div><div class="aside-val">Fintech · Energy · B2B SaaS · Logistics</div></div>
+        <div class="aside-card"><div class="aside-label">Most recent</div><div class="aside-val">PGWay — global payment gateway, 150+ payment methods</div></div>
+        <div class="aside-card"><div class="aside-label">Languages</div><div class="aside-val">English · Ukrainian · Russian · Polish</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRINCIPLES -->
+<div class="section">
+  <div class="site">
+    <h2 class="section-label">How I work</h2>
+    <div class="principles">
+      <div class="principle"><span class="pr-b"></span>
+        <div class="principle-head"><span class="principle-letter">A.</span><h3 class="principle-title">Token architecture</h3></div>
+        <div class="principle-desc">Three-tier tokens in Token Studio — primitives, semantics, components. One source of truth, and no hardcoded values inside a component.</div>
+      </div>
+      <div class="principle"><span class="pr-b"></span>
+        <div class="principle-head"><span class="principle-letter">B.</span><h3 class="principle-title">Naming that survives production</h3></div>
+        <div class="principle-desc">Conventions built to hold up after handover, not just inside the Figma file. If a name needs a comment to be understood, it's the wrong name.</div>
+      </div>
+      <div class="principle"><span class="pr-b"></span>
+        <div class="principle-head"><span class="principle-letter">C.</span><h3 class="principle-title">Documentation as a deliverable</h3></div>
+        <div class="principle-desc">Guidelines, usage rules and decision logs shipped alongside the components — so the system outlives the project it was built for.</div>
+      </div>
+      <div class="principle"><span class="pr-b"></span>
+        <div class="principle-head"><span class="principle-letter">D.</span><h3 class="principle-title">The handoff contract</h3></div>
+        <div class="principle-desc">An explicit agreement between design and engineering: what ships as a component, what stays a token, and what never gets rebuilt twice.</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -178,6 +246,36 @@
           <ul class="tl-points">
             <li>Product and interface design for international clients — wireframing, prototyping, and design delivery in Figma.</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="section">
+  <div class="site">
+    <h2 class="section-label">What people say</h2>
+    <div class="quote-grid">
+      <div class="quote-card"><span class="qc-b"></span>
+        <div class="quote-text">"He doesn't just design screens — he builds systems. Literally. … He can lead small teams, guide junior designers, and organize workflows in a way that keeps everyone aligned and productive — without losing his own focus on design excellence."</div>
+        <div class="quote-author">
+          <div class="quote-name">Alyona Gorbach</div>
+          <div class="quote-role">IT Project Manager · Web Applications &amp; Integrations — managed Anton directly</div>
+        </div>
+      </div>
+      <div class="quote-card"><span class="qc-b"></span>
+        <div class="quote-text">"I was impressed by how quickly he was able to onboard, understand the product, and become an independent contributor — especially considering that fintech wasn't his primary background. … A reliable, collaborative, and motivated designer who would be a valuable addition to any product team."</div>
+        <div class="quote-author">
+          <div class="quote-name">Kateryna Tkachenko</div>
+          <div class="quote-role">Senior Product Designer · Fintech (B2B/B2C) — managed Anton directly</div>
+        </div>
+      </div>
+      <div class="quote-card"><span class="qc-b"></span>
+        <div class="quote-text">"His ability to structure and prepare designs thoughtfully has significantly supported developers, saving time and creating smoother workflows for both the team and the business."</div>
+        <div class="quote-author">
+          <div class="quote-name">Oleksii Tymchenko</div>
+          <div class="quote-role">Management &amp; Marketing — worked on the same team</div>
         </div>
       </div>
     </div>
