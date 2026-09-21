@@ -1,0 +1,328 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#0e3d28" />
+      <stop offset="60%" stop-color="#082619" />
+      <stop offset="100%" stop-color="#04140d" />
+    </radialGradient>
+
+    <!-- Card Drop Shadow -->
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.65" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+
+    <!-- Halftone / Dither Pattern Cyan -->
+    <pattern id="dotPatternCyan" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.8" fill="#38bdf8" opacity="0.45" />
+    </pattern>
+
+    <!-- Halftone / Dither Pattern Pink -->
+    <pattern id="dotPatternPink" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.8" fill="#f472b6" opacity="0.45" />
+    </pattern>
+
+    <!-- Halftone / Dither Pattern Mint -->
+    <pattern id="dotPatternMint" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.8" fill="#4ade80" opacity="0.45" />
+    </pattern>
+
+    <!-- Halftone / Dither Pattern Amber -->
+    <pattern id="dotPatternAmber" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.8" fill="#fbbf24" opacity="0.45" />
+    </pattern>
+
+    <!-- Halftone / Dither Pattern Coral -->
+    <pattern id="dotPatternCoral" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.8" fill="#fb7185" opacity="0.45" />
+    </pattern>
+
+    <style>
+      .ascii-text { font-family: 'Geist Mono', 'Courier New', monospace; font-size: 11px; fill: #10b981; opacity: 0.22; letter-spacing: 2px; }
+      .brand-title { font-family: 'Inter', -apple-system, sans-serif; font-weight: 700; font-size: 88px; fill: #ffffff; letter-spacing: -0.04em; line-height: 0.95; }
+      .mono-meta { font-family: 'Geist Mono', 'Courier New', monospace; font-size: 15px; fill: #a7f3d0; letter-spacing: 0.08em; }
+      .card-white { fill: #fcfbf9; stroke: rgba(255,255,255,0.8); stroke-width: 1; }
+      .diagram-title { font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+      .diagram-code { font-family: 'Geist Mono', monospace; font-size: 9px; }
+    </style>
+  </defs>
+
+  <!-- BACKGROUND RECT -->
+  <rect width="1600" height="900" fill="url(#bgGrad)" />
+
+  <!-- ASCII MATRIX CODE OVERLAY -->
+  <g class="ascii-text">
+    <text x="40" y="50">0x7F4A  sys.color.surface.canvas  #121212  [OK]  01000100 01000101  primitive.token.core.palette</text>
+    <text x="40" y="80">0x7F4B  --radius-sm: 4px; --radius-md: 8px; --radius-lg: 16px; token-flow // 2026.07.15</text>
+    <text x="40" y="110">0x7F4C  JSON.stringify(tokens, null, 2)  export.variables.figma.sync  tier-01:primitive</text>
+    <text x="40" y="140">0x7F4D  color.brand.primary: { value: "{color.emerald.500}", type: "color" }  --semantic-tier</text>
+    <text x="40" y="170">0x7F4E  button.primary.bg.default  --&gt;  sys.color.action.primary  --&gt;  primitive.orange.500</text>
+    <text x="40" y="200">0x7F4F  type.scale.modular.ratio: 1.250 (Major Third)  display.hero.font-weight: 700</text>
+    <text x="40" y="230">0x7F50  outline.focus-visible: 2px solid var(--focus-ring);  offset: 2px;  WCAG_AAA_PASS</text>
+    <text x="40" y="260">0x7F51  01110011 01111001 01110011 00101110 01110100 01101111 01101011 01100101 01101110</text>
+    <text x="40" y="290">0x7F52  density.compact: 32px;  density.default: 40px;  density.spacious: 48px;  grid: 8pt</text>
+    <text x="40" y="320">0x7F53  spacing.1: 4px;  spacing.2: 8px;  spacing.3: 12px;  spacing.4: 16px;  spacing.6: 24px</text>
+    <text x="40" y="350">0x7F54  z-index.modal: 1000;  z-index.tooltip: 1200;  z-index.toast: 1400;  z-index.scrim: 900</text>
+    <text x="40" y="380">0x7F55  theme.dark.surface.container: #1E201E;  theme.light.surface.container: #F4F4F0;</text>
+    <text x="40" y="410">0x7F56  git commit -m "feat(tokens): export semantic color tier for iOS &amp; Web" [main 8b29f0]</text>
+    <text x="40" y="440">0x7F57  token-studio.sync.github.action: true;  output: build/tokens.css, build/tokens.json</text>
+    <text x="40" y="470">0x7F58  Typography.H1: { fontSize: 44, lineHeight: 1.15, letterSpacing: -0.03em }</text>
+    <text x="40" y="500">0x7F59  border.default: 1px solid var(--border);  border.strong: 1px solid var(--border2);</text>
+    <text x="40" y="530">0x7F5A  motion.easing.standard: cubic-bezier(0.2, 0.0, 0, 1.0);  duration: 250ms</text>
+    <text x="40" y="560">0x7F5B  color-contrast(var(--text-on-accent) vs var(--accent)) &gt;= 4.5:1  PASS_AA</text>
+    <text x="40" y="590">0x7F5C  01010100 01001111 01001011 01000101 01001110 01010011 00100000 01010011 01011001</text>
+    <text x="40" y="620">0x7F5D  component.badge.success: { bg: "{color.mint.50}", text: "{color.mint.800}" }</text>
+    <text x="40" y="650">0x7F5E  system.architecture: three-tier (Primitive -&gt; Semantic -&gt; Component)</text>
+    <text x="40" y="680">0x7F5F  tokens-v2.5.json: 428 tokens compiled without deprecation warnings (0.14s)</text>
+    <text x="40" y="710">0x7F60  alias-resolver: resolved 142 references across 4 theme modes</text>
+    <text x="40" y="740">0x7F61  01100011 01101111 01101110 01110011 01101001 01110011 01110100 01100101 01101110</text>
+    <text x="40" y="770">0x7F62  figma.variables.bind(component.layer, "color/background/primary") --&gt; SUCCESS</text>
+    <text x="40" y="800">0x7F63  DesignOps pipeline: lint -&gt; test -&gt; build -&gt; publish @antonyui/tokens@2.5.0</text>
+    <text x="40" y="830">0x7F64  01010000 01010010 01001111 01000100 01010101 01000011 01010100 01001001 01001111</text>
+    <text x="40" y="860">0x7F65  EOF // End of Token Specification Map</text>
+  </g>
+
+  <!-- TOP BRAND HEADER -->
+  <g transform="translate(800, 48)" text-anchor="middle">
+    <rect x="-85" y="-16" width="170" height="32" rx="4" fill="#04140d" stroke="#10b981" stroke-width="1" opacity="0.85" />
+    <text x="0" y="5" font-family="'Geist Mono', monospace" font-size="12" fill="#34d399" font-weight="600" letter-spacing="3">✦ ANTONYUI</text>
+  </g>
+
+  <!-- ===============================================================
+       POLAROID CARD COLLAGE
+       =============================================================== -->
+
+  <!-- CARD 1: TOP (Cyan / Sky Blue) - 3-TIER TOKEN TAXONOMY -->
+  <g transform="translate(680, 80) rotate(-4)" filter="url(#cardShadow)">
+    <!-- White Polaroid Frame -->
+    <rect width="270" height="315" rx="2" class="card-white" />
+    <!-- Image Content -->
+    <g transform="translate(14, 14)">
+      <rect width="242" height="242" fill="#0c4a6e" />
+      <rect width="242" height="242" fill="url(#dotPatternCyan)" />
+
+      <!-- Diagram: Token Tiers -->
+      <text x="20" y="32" class="diagram-title" fill="#7dd3fc">01 · THREE-TIER GRAMMAR</text>
+
+      <!-- Tier 1 -->
+      <rect x="20" y="48" width="202" height="46" rx="4" fill="#075985" stroke="#38bdf8" stroke-width="1" />
+      <text x="32" y="68" class="diagram-code" fill="#e0f2fe" font-weight="600">TIER 1 · PRIMITIVE</text>
+      <text x="32" y="84" class="diagram-code" fill="#7dd3fc">color.blue.500 = #0284C7</text>
+
+      <!-- Arrow -->
+      <line x1="121" y1="94" x2="121" y2="108" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="2 2" />
+
+      <!-- Tier 2 -->
+      <rect x="20" y="110" width="202" height="46" rx="4" fill="#0369a1" stroke="#38bdf8" stroke-width="1" />
+      <text x="32" y="130" class="diagram-code" fill="#e0f2fe" font-weight="600">TIER 2 · SEMANTIC</text>
+      <text x="32" y="146" class="diagram-code" fill="#7dd3fc">sys.color.action.primary</text>
+
+      <!-- Arrow -->
+      <line x1="121" y1="156" x2="121" y2="170" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="2 2" />
+
+      <!-- Tier 3 -->
+      <rect x="20" y="172" width="202" height="46" rx="4" fill="#0284c7" stroke="#bae6fd" stroke-width="1" />
+      <text x="32" y="192" class="diagram-code" fill="#ffffff" font-weight="600">TIER 3 · COMPONENT</text>
+      <text x="32" y="208" class="diagram-code" fill="#e0f2fe">btn.primary.bg.default</text>
+    </g>
+    <text x="24" y="292" font-family="'Geist Mono', monospace" font-size="11" fill="#475569" font-weight="500">FIG. 01 — TAXONOMY TIERS</text>
+  </g>
+
+  <!-- CARD 2: MID-LEFT (Coral / Terracotta) - COLOR MATRIX & CONTRAST -->
+  <g transform="translate(460, 220) rotate(-9)" filter="url(#cardShadow)">
+    <rect width="270" height="315" rx="2" class="card-white" />
+    <g transform="translate(14, 14)">
+      <rect width="242" height="242" fill="#881337" />
+      <rect width="242" height="242" fill="url(#dotPatternCoral)" />
+
+      <text x="20" y="32" class="diagram-title" fill="#fda4af">02 · COLOR MATRIX // AA</text>
+
+      <!-- Swatch Grid -->
+      <g transform="translate(20, 50)">
+        <!-- Swatch 1 -->
+        <rect x="0" y="0" width="46" height="46" rx="3" fill="#fb7185" />
+        <rect x="52" y="0" width="46" height="46" rx="3" fill="#f43f5e" />
+        <rect x="104" y="0" width="46" height="46" rx="3" fill="#e11d48" />
+        <rect x="156" y="0" width="46" height="46" rx="3" fill="#be123c" />
+
+        <!-- Swatch 2 -->
+        <rect x="0" y="52" width="46" height="46" rx="3" fill="#fda4af" />
+        <rect x="52" y="52" width="46" height="46" rx="3" fill="#fb7185" />
+        <rect x="104" y="52" width="46" height="46" rx="3" fill="#f43f5e" />
+        <rect x="156" y="52" width="46" height="46" rx="3" fill="#9f1239" />
+
+        <!-- Swatch 3 -->
+        <rect x="0" y="104" width="46" height="46" rx="3" fill="#fecdd3" />
+        <rect x="52" y="104" width="46" height="46" rx="3" fill="#fda4af" />
+        <rect x="104" y="104" width="46" height="46" rx="3" fill="#e11d48" />
+        <rect x="156" y="104" width="46" height="46" rx="3" fill="#4c0519" />
+      </g>
+
+      <rect x="20" y="210" width="202" height="20" fill="#4c0519" rx="2" />
+      <text x="30" y="224" class="diagram-code" fill="#fecdd3">CONTRAST RATIO: 7.2:1 (PASS)</text>
+    </g>
+    <text x="24" y="292" font-family="'Geist Mono', monospace" font-size="11" fill="#475569" font-weight="500">FIG. 02 — PALETTE SCALE</text>
+  </g>
+
+  <!-- CARD 3: CENTER (Orchid / Rose Pink) - CIRCULAR TOKEN RADAR DIAL -->
+  <g transform="translate(730, 230) rotate(5)" filter="url(#cardShadow)">
+    <rect width="280" height="325" rx="2" class="card-white" />
+    <g transform="translate(14, 14)">
+      <rect width="252" height="252" fill="#701a75" />
+      <rect width="252" height="252" fill="url(#dotPatternPink)" />
+
+      <text x="20" y="32" class="diagram-title" fill="#f0abfc">03 · TOKEN RADAR DIAL</text>
+
+      <!-- Circular Radar Diagram -->
+      <g transform="translate(126, 142)">
+        <!-- Concentric rings -->
+        <circle r="88" fill="none" stroke="#f472b6" stroke-width="1" stroke-dasharray="3 3" opacity="0.5" />
+        <circle r="64" fill="none" stroke="#f472b6" stroke-width="1.5" opacity="0.75" />
+        <circle r="40" fill="none" stroke="#f0abfc" stroke-width="1" stroke-dasharray="2 2" />
+        <circle r="16" fill="#fae8ff" />
+
+        <!-- Crosshair axes -->
+        <line x1="-92" y1="0" x2="92" y2="0" stroke="#f472b6" stroke-width="1" opacity="0.6" />
+        <line x1="0" y1="-92" x2="0" y2="92" stroke="#f472b6" stroke-width="1" opacity="0.6" />
+        <line x1="-65" y1="-65" x2="65" y2="65" stroke="#f472b6" stroke-width="0.75" opacity="0.4" />
+        <line x1="-65" y1="65" x2="65" y2="-65" stroke="#f472b6" stroke-width="0.75" opacity="0.4" />
+
+        <!-- Token nodes around the dial -->
+        <circle cx="0" cy="-64" r="5" fill="#fbcfe8" />
+        <text x="8" y="-60" class="diagram-code" fill="#fdf4ff">COLOR</text>
+
+        <circle cx="64" cy="0" r="5" fill="#fbcfe8" />
+        <text x="24" y="16" class="diagram-code" fill="#fdf4ff">TYPO</text>
+
+        <circle cx="0" cy="64" r="5" fill="#fbcfe8" />
+        <text x="8" y="70" class="diagram-code" fill="#fdf4ff">SPACE</text>
+
+        <circle cx="-64" cy="0" r="5" fill="#fbcfe8" />
+        <text x="-62" y="16" class="diagram-code" fill="#fdf4ff">ELEV</text>
+
+        <!-- Dynamic variable polygon -->
+        <polygon points="0,-52 48,12 8,56 -42,-18" fill="#e879f9" fill-opacity="0.35" stroke="#f5d0fe" stroke-width="2" />
+      </g>
+    </g>
+    <text x="24" y="302" font-family="'Geist Mono', monospace" font-size="11" fill="#475569" font-weight="500">FIG. 03 — TOKEN RESOLVER</text>
+  </g>
+
+  <!-- CARD 4: BOTTOM-LEFT (Slate / Blue) - COMPONENT ANATOMY -->
+  <g transform="translate(370, 420) rotate(3)" filter="url(#cardShadow)">
+    <rect width="270" height="315" rx="2" class="card-white" />
+    <g transform="translate(14, 14)">
+      <rect width="242" height="242" fill="#1e293b" />
+      <rect width="242" height="242" fill="url(#dotPatternCyan)" />
+
+      <text x="20" y="32" class="diagram-title" fill="#94a3b8">04 · COMPONENT ANATOMY</text>
+
+      <!-- Component Wireframe Mockup with Token Specs -->
+      <g transform="translate(20, 56)">
+        <!-- Outer Card Box -->
+        <rect x="0" y="0" width="202" height="110" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+
+        <!-- Caliper markers -->
+        <line x1="0" y1="12" x2="202" y2="12" stroke="#64748b" stroke-width="1" stroke-dasharray="2 2" />
+        <text x="10" y="24" class="diagram-code" fill="#38bdf8">padding: var(--space-4);</text>
+
+        <!-- Button preview -->
+        <rect x="14" y="38" width="100" height="32" rx="4" fill="#2563eb" />
+        <text x="34" y="58" class="diagram-code" fill="#ffffff" font-weight="600">Button</text>
+
+        <!-- Badge preview -->
+        <rect x="124" y="42" width="64" height="24" rx="12" fill="#0284c7" />
+        <text x="136" y="58" class="diagram-code" fill="#e0f2fe">Tag</text>
+
+        <!-- Specs lines -->
+        <line x1="14" y1="84" x2="188" y2="84" stroke="#475569" stroke-width="1" />
+        <text x="14" y="100" class="diagram-code" fill="#94a3b8">radius: var(--radius-md);</text>
+      </g>
+
+      <rect x="20" y="180" width="202" height="48" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1" />
+      <text x="30" y="200" class="diagram-code" fill="#38bdf8">dev: &lt;Button variant="primary"&gt;</text>
+      <text x="30" y="216" class="diagram-code" fill="#64748b">zero hardcoded hex values</text>
+    </g>
+    <text x="24" y="292" font-family="'Geist Mono', monospace" font-size="11" fill="#475569" font-weight="500">FIG. 04 — SPEC ENFORCEMENT</text>
+  </g>
+
+  <!-- CARD 5: BOTTOM-CENTER (Mint / Emerald) - TYPOGRAPHY SPECIMEN -->
+  <g transform="translate(620, 440) rotate(-3)" filter="url(#cardShadow)">
+    <rect width="270" height="315" rx="2" class="card-white" />
+    <g transform="translate(14, 14)">
+      <rect width="242" height="242" fill="#064e3b" />
+      <rect width="242" height="242" fill="url(#dotPatternMint)" />
+
+      <text x="20" y="32" class="diagram-title" fill="#6ee7b7">05 · MODULAR TYPE SCALE</text>
+
+      <!-- Type Specimen Lines -->
+      <g transform="translate(20, 52)">
+        <text x="0" y="26" font-family="'Inter', sans-serif" font-weight="700" font-size="30" fill="#ecfdf5">Aa</text>
+        <text x="48" y="22" class="diagram-code" fill="#a7f3d0">display-lg · 44px</text>
+        <line x1="0" y1="34" x2="202" y2="34" stroke="#10b981" stroke-width="1" stroke-dasharray="2 2" />
+
+        <text x="0" y="64" font-family="'Inter', sans-serif" font-weight="600" font-size="22" fill="#d1fae5">Inter Tight</text>
+        <text x="120" y="62" class="diagram-code" fill="#6ee7b7">title-md · 24px</text>
+        <line x1="0" y1="74" x2="202" y2="74" stroke="#10b981" stroke-width="1" stroke-dasharray="2 2" />
+
+        <text x="0" y="100" font-family="'Geist Mono', monospace" font-size="14" fill="#a7f3d0">Geist Mono 14/20</text>
+        <line x1="0" y1="108" x2="202" y2="108" stroke="#10b981" stroke-width="1" stroke-dasharray="2 2" />
+
+        <!-- Ratio Chart -->
+        <rect x="0" y="122" width="202" height="42" rx="3" fill="#022c22" stroke="#10b981" stroke-width="1" />
+        <text x="10" y="140" class="diagram-code" fill="#34d399">SCALE RATIO: 1.250 (Major 3rd)</text>
+        <text x="10" y="154" class="diagram-code" fill="#059669">12 · 14 · 16 · 20 · 24 · 32 · 44</text>
+      </g>
+    </g>
+    <text x="24" y="292" font-family="'Geist Mono', monospace" font-size="11" fill="#475569" font-weight="500">FIG. 05 — TYPE SYSTEM</text>
+  </g>
+
+  <!-- CARD 6: BOTTOM-RIGHT (Gold / Amber) - JSON TOKEN TREE -->
+  <g transform="translate(870, 420) rotate(8)" filter="url(#cardShadow)">
+    <rect width="270" height="315" rx="2" class="card-white" />
+    <g transform="translate(14, 14)">
+      <rect width="242" height="242" fill="#78350f" />
+      <rect width="242" height="242" fill="url(#dotPatternAmber)" />
+
+      <text x="20" y="32" class="diagram-title" fill="#fde68a">06 · JSON SCHEMA TREE</text>
+
+      <!-- Code Window -->
+      <g transform="translate(16, 48)">
+        <rect width="210" height="175" rx="4" fill="#451a03" stroke="#d97706" stroke-width="1" />
+        <circle cx="12" cy="12" r="3" fill="#ef4444" />
+        <circle cx="22" cy="12" r="3" fill="#f59e0b" />
+        <circle cx="32" cy="12" r="3" fill="#10b981" />
+        <line x1="0" y1="22" x2="210" y2="22" stroke="#78350f" stroke-width="1" />
+
+        <text x="12" y="40" class="diagram-code" fill="#fbbf24">{"sys": {</text>
+        <text x="22" y="56" class="diagram-code" fill="#fde68a">  "color": {</text>
+        <text x="32" y="72" class="diagram-code" fill="#fed7aa">    "surface": {</text>
+        <text x="42" y="88" class="diagram-code" fill="#38bdf8">      "primary": {</text>
+        <text x="52" y="104" class="diagram-code" fill="#86efac">        "$value": "#161614",</text>
+        <text x="52" y="120" class="diagram-code" fill="#fca5a5">        "$type": "color"</text>
+        <text x="42" y="136" class="diagram-code" fill="#38bdf8">      }</text>
+        <text x="32" y="152" class="diagram-code" fill="#fed7aa">    }</text>
+        <text x="22" y="166" class="diagram-code" fill="#fde68a">  }</text>
+        <text x="12" y="172" class="diagram-code" fill="#fbbf24">}}</text>
+      </g>
+    </g>
+    <text x="24" y="292" font-family="'Geist Mono', monospace" font-size="11" fill="#475569" font-weight="500">FIG. 06 — DTCG SYNTAX</text>
+  </g>
+
+  <!-- ===============================================================
+       BOTTOM EDITORIAL TYPOGRAPHY
+       =============================================================== -->
+  <!-- Left Title -->
+  <g transform="translate(80, 770)">
+    <text class="brand-title" x="0" y="0">Design</text>
+    <text class="brand-title" x="0" y="80">Tokens</text>
+  </g>
+
+  <!-- Right Metadata -->
+  <g transform="translate(1520, 810)" text-anchor="end">
+    <text class="mono-meta" x="0" y="0" font-weight="600">SYSTEM ARCHITECTURE // PRODUCTION READY</text>
+    <text class="mono-meta" x="0" y="26" fill="#34d399" font-size="13">3-TIER GRAMMAR · FIGMA VARIABLES · JSON SCHEMA</text>
+    <text class="mono-meta" x="0" y="48" fill="#6ee7b7" font-size="11" opacity="0.7">ANTON BOZHATARNYK · ANTONYUI.COM</text>
+  </g>
+
+</svg>
