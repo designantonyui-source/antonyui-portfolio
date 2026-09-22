@@ -45,8 +45,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=4.7">
-<script src="../assets/js/app.js?v=4.3"></script>
+<link rel="stylesheet" href="../assets/css/styles.css?v=4.8">
+<script src="../assets/js/lenis.min.js?v=1.3.26"></script>
+<script src="../assets/js/app.js?v=4.4"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -236,12 +237,42 @@ radius.surface.overlay:     {radius.24}</code></pre>
 }</code></pre>
 
     <h3>Battleground 4: The 2D matrix of Brand × Color Mode</h3>
-    <p>If you support 3 brands, and each brand supports Light and Dark mode, you are managing <strong>six distinct themes</strong>. If you try to maintain six separate Figma files, you will fail.</p>
-    <p>In Figma Variables, create a two-collection architecture:</p>
+    <p>Three brands × Light/Dark = <strong>six themes</strong>. Six Figma files is how you fail. Use two variable collections:</p>
     <ul>
-      <li><strong>Collection 1: Primitives:</strong> All raw brand colors (Brand A Blues, Brand B Oranges, Neutral grays).</li>
-      <li><strong>Collection 2: Semantic System:</strong> Set up modes as a 2D matrix (Brand A Light, Brand A Dark, Brand B Light, Brand B Dark).</li>
+      <li><strong>Collection 1: Primitives:</strong> Raw brand colors (Brand A Blues, Brand B Oranges, Neutral grays).</li>
+      <li><strong>Collection 2: Semantic System:</strong> Modes as a 2D matrix (Brand A Light, Brand A Dark, Brand B Light, Brand B Dark).</li>
     </ul>
+
+    <figure class="article-figure">
+      <svg width="600" height="230" viewBox="0 0 600 230" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;background:var(--card-bg);border:1px solid var(--card-border);border-radius:6px;">
+        <!-- column headers -->
+        <rect x="140" y="32" width="210" height="40" fill="currentColor" fill-opacity="0.04"/>
+        <rect x="350" y="32" width="210" height="40" fill="currentColor" fill-opacity="0.04"/>
+        <text x="245" y="56" text-anchor="middle" fill="currentColor" opacity="0.8" font-family="Geist Mono, monospace" font-size="10.5" font-weight="500">mode = light</text>
+        <text x="455" y="56" text-anchor="middle" fill="currentColor" opacity="0.8" font-family="Geist Mono, monospace" font-size="10.5" font-weight="500">mode = dark</text>
+        <!-- row headers -->
+        <text x="120" y="106" text-anchor="end" fill="currentColor" opacity="0.8" font-family="Geist Mono, monospace" font-size="10.5" font-weight="500">brand-a</text>
+        <text x="120" y="156" text-anchor="end" fill="currentColor" opacity="0.8" font-family="Geist Mono, monospace" font-size="10.5" font-weight="500">brand-b</text>
+        <text x="120" y="206" text-anchor="end" fill="currentColor" opacity="0.8" font-family="Geist Mono, monospace" font-size="10.5" font-weight="500">brand-c</text>
+        <!-- grid lines -->
+        <rect x="140" y="82" width="210" height="40" fill="none" stroke="currentColor" stroke-opacity="0.3"/>
+        <rect x="350" y="82" width="210" height="40" fill="none" stroke="currentColor" stroke-opacity="0.3"/>
+        <rect x="140" y="132" width="210" height="40" fill="none" stroke="currentColor" stroke-opacity="0.3"/>
+        <rect x="350" y="132" width="210" height="40" fill="none" stroke="currentColor" stroke-opacity="0.3"/>
+        <rect x="140" y="182" width="210" height="40" fill="none" stroke="currentColor" stroke-opacity="0.3"/>
+        <rect x="350" y="182" width="210" height="40" fill="none" stroke="currentColor" stroke-opacity="0.3"/>
+        <!-- cells fill -->
+        <rect x="140" y="82" width="210" height="40" fill="#fc4f00" fill-opacity="0.10"/>
+        <rect x="350" y="132" width="210" height="40" fill="#fc4f00" fill-opacity="0.10"/>
+        <text x="245" y="106" text-anchor="middle" fill="currentColor" opacity="0.5" font-family="Geist Mono, monospace" font-size="9.5">theme-brand-a</text>
+        <text x="455" y="106" text-anchor="middle" fill="currentColor" opacity="0.5" font-family="Geist Mono, monospace" font-size="9.5">theme-brand-a · dark</text>
+        <text x="245" y="156" text-anchor="middle" fill="currentColor" opacity="0.5" font-family="Geist Mono, monospace" font-size="9.5">theme-brand-b</text>
+        <text x="455" y="156" text-anchor="middle" fill="#fc4f00" font-family="Geist Mono, monospace" font-size="9.5">theme-brand-b · dark</text>
+        <text x="245" y="206" text-anchor="middle" fill="currentColor" opacity="0.5" font-family="Geist Mono, monospace" font-size="9.5">theme-brand-c</text>
+        <text x="455" y="206" text-anchor="middle" fill="currentColor" opacity="0.5" font-family="Geist Mono, monospace" font-size="9.5">theme-brand-c · dark</text>
+      </svg>
+      <figcaption>Fig. 2 — Three brands × two modes = six themes. One semantic collection with a 2D mode matrix, scoped in CSS by container class + data attribute.</figcaption>
+    </figure>
     <p>In CSS, themes are scoped via container classes or data attributes:</p>
     <pre><code>&lt;!-- Brand A in Dark Mode --&gt;
 &lt;body class="theme-brand-a" data-mode="dark"&gt;
@@ -283,6 +314,18 @@ radius.surface.overlay:     {radius.24}</code></pre>
 
   <!-- ARTICLE FOOTER -->
   <div class="article-footer">
+    <!-- CTA -->
+    <div class="article-cta">
+      <div class="cta-label">Working on a design system?</div>
+      <div class="cta-title">Let's talk about yours.</div>
+      <p class="cta-text">I take on senior product design and design-system engagements — token architecture, component libraries, and design-to-dev handoff.</p>
+      <div class="cta-actions">
+        <a href="mailto:designantonyui@gmail.com?subject=Design%20system%20engagement%20(via%20antonyui.com)" class="cta-btn">Let's talk →</a>
+        <a href="../work/index.html" class="cta-link">See my work</a>
+        <a href="https://antonyui.com/feed.xml" class="cta-link">RSS</a>
+      </div>
+    </div>
+
     <div style="margin-bottom: 40px;">
       <h2 class="section-label">Next Article</h2>
       <a href="2026-04-18-structuring-figma-variables-for-production.html" class="next-case" style="position:relative;">
@@ -310,6 +353,7 @@ radius.surface.overlay:     {radius.24}</code></pre>
     <div class="footer-links">
       <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)">Email</a>
       <a href="https://www.linkedin.com/in/antony-bozhatarnyk-b6068441/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../feed.xml">RSS</a>
     </div>
   </div>
 </footer>

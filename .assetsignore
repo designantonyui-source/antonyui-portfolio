@@ -1,0 +1,14 @@
+# .assetsignore — excluded from the deploy upload (gitignore-style).
+# The assets directory is the repo root, so without this every dot-dir,
+# internal doc and config file would go out with the site.
+docs/**
+.git/**
+.claude/**
+.wrangler/**
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+wrangler.jsonc
+.assetsignore

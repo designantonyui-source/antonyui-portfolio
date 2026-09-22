@@ -2,6 +2,8 @@
   "name": "antonyui-portfolio",
   "compatibility_date": "2026-04-10",
   "assets": {
+    // The directory is the repo root — .assetsignore keeps dot-dirs,
+    // internal docs and config files out of the deploy.
     "directory": "."
   }
 }
