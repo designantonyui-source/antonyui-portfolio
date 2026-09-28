@@ -5,13 +5,21 @@
     <link>https://antonyui.com/blog/</link>
     <description>Practical essays on design tokens, multi-brand architecture, and handoff contracts, alongside honest reflections on craft and process.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Sep 2026 12:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2026 12:00:00 +0200</lastBuildDate>
     <atom:link href="https://antonyui.com/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://antonyui.com/assets/images/og-cover.jpg</url>
       <title>Notes on Design &amp; Systems · Anton Bozhatarnyk</title>
       <link>https://antonyui.com/blog/</link>
     </image>
+
+    <item>
+      <title>Why your checkout doesn't need twenty payment methods</title>
+      <link>https://antonyui.com/blog/2026-09-28-why-your-checkout-doesnt-need-twenty-payment-methods</link>
+      <guid isPermaLink="true">https://antonyui.com/blog/2026-09-28-why-your-checkout-doesnt-need-twenty-payment-methods</guid>
+      <pubDate>Mon, 28 Sep 2026 09:00:00 +0200</pubDate>
+      <description>What iGaming cashiers get right, what retail should borrow — and why the smartest checkout shows less, not more.</description>
+    </item>
 
     <item>
       <title>The token naming conventions that actually survive production</title>
@@ -26,7 +34,7 @@
       <link>https://antonyui.com/blog/2026-06-03-stop-building-80-variant-components-in-figma</link>
       <guid isPermaLink="true">https://antonyui.com/blog/2026-06-03-stop-building-80-variant-components-in-figma</guid>
       <pubDate>Wed, 03 Jun 2026 09:00:00 +0200</pubDate>
-      <description>Why monolithic components with 80+ permutations slow down Figma files, and how to use slot architecture and boolean properties instead.</description>
+      <description>Why exponential variant matrices bloat your library and silently kill text overrides — and the slot composition pattern that keeps Figma components fast and flexible.</description>
     </item>
 
     <item>
@@ -34,7 +42,7 @@
       <link>https://antonyui.com/blog/2026-05-12-architecting-a-multibrand-design-system</link>
       <guid isPermaLink="true">https://antonyui.com/blog/2026-05-12-architecting-a-multibrand-design-system</guid>
       <pubDate>Tue, 12 May 2026 09:00:00 +0200</pubDate>
-      <description>How to structure shared components and themes across multiple products without maintaining separate libraries or building 50-variant Frankenstein components.</description>
+      <description>One design system, many brands, zero forks — how to separate headless anatomy from token skins so every brand ships from the same components.</description>
     </item>
 
     <item>
@@ -42,7 +50,7 @@
       <link>https://antonyui.com/blog/2026-04-18-structuring-figma-variables-for-production</link>
       <guid isPermaLink="true">https://antonyui.com/blog/2026-04-18-structuring-figma-variables-for-production</guid>
       <pubDate>Sat, 18 Apr 2026 09:00:00 +0200</pubDate>
-      <description>A battle-tested blueprint for organizing Figma variables, modes, and collections so design tokens map 1:1 to code.</description>
+      <description>Collections, modes, scoping, and the sync pipeline — the four decisions that turn Figma variables from a demo feature into production infrastructure.</description>
     </item>
   </channel>
 </rss>

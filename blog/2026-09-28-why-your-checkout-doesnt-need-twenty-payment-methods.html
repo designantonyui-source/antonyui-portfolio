@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<meta name="theme-color" content="#0f0f0e">
+<title>Why your checkout doesn't need twenty payment methods · Anton Bozhatarnyk</title>
+<meta name="description" content="What iGaming cashiers get right, what retail should borrow — and why the smartest checkout shows less, not more. A payments designer on method selection, localization, and orchestration.">
+<meta name="author" content="Anton Bozhatarnyk">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://antonyui.com/blog/2026-09-28-why-your-checkout-doesnt-need-twenty-payment-methods">
+<!-- OG -->
+<meta property="og:title" content="Why your checkout doesn't need twenty payment methods">
+<meta property="og:description" content="What iGaming cashiers get right, what retail should borrow — and why the smartest checkout shows less, not more.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://antonyui.com/blog/2026-09-28-why-your-checkout-doesnt-need-twenty-payment-methods">
+<meta property="og:image" content="https://antonyui.com/assets/images/blog/checkout-hero.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:site_name" content="Anton Bozhatarnyk">
+<meta property="og:locale" content="en_US">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why your checkout doesn't need twenty payment methods">
+<meta name="twitter:description" content="What iGaming cashiers get right, what retail should borrow — and why the smartest checkout shows less, not more.">
+<meta name="twitter:image" content="https://antonyui.com/assets/images/blog/checkout-hero.png">
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why your checkout doesn't need twenty payment methods",
+  "description": "What iGaming cashiers get right, what retail should borrow — and why the smartest checkout shows less, not more.",
+  "author": { "@type": "Person", "name": "Anton Bozhatarnyk", "url": "https://antonyui.com/" },
+  "publisher": { "@type": "Person", "name": "Anton Bozhatarnyk", "url": "https://antonyui.com/" },
+  "image": "https://antonyui.com/assets/images/blog/checkout-hero.png",
+  "datePublished": "2026-09-28",
+  "dateModified": "2026-09-28",
+  "url": "https://antonyui.com/blog/2026-09-28-why-your-checkout-doesnt-need-twenty-payment-methods"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css?v=4.9">
+<script src="../assets/js/lenis.min.js?v=1.3.26"></script>
+<script src="../assets/js/app.js?v=4.4"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://antonyui.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://antonyui.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Why your checkout doesn't need twenty payment methods",
+      "item": "https://antonyui.com/blog/2026-09-28-why-your-checkout-doesnt-need-twenty-payment-methods"
+    }
+  ]
+}
+</script>
+<style>
+/* figures — article-body has no figure styles in styles.css yet */
+.article-body figure { margin: 32px 0; }
+.article-body figure img { width: 100%; display: block; border: 1px solid var(--border); border-radius: 0; }
+.article-body figcaption { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--faint); margin-top: 10px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="../assets/images/avatar.webp" class="nav-avatar" alt="" width="28" height="28" decoding="async"> Anton Bozhatarnyk</a>
+    <div class="nav-links">
+      <a href="/work/">Work</a>
+      <a href="/#expertise">Expertise</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div class="nav-right">
+      <div class="theme-toggle">
+        <button type="button" class="theme-btn active" id="btn-dark" onclick="setTheme('dark')" aria-label="Dark mode" aria-pressed="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9.17A5.5 5.5 0 0 1 4.83 2 5.5 5.5 0 1 0 12 9.17z" fill="currentColor"/></svg></button>
+        <button type="button" class="theme-btn" id="btn-light" onclick="setTheme('light')" aria-label="Light mode" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="2.5" fill="currentColor"/><line x1="7" y1="1" x2="7" y2="2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11.5" x2="7" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="2.5" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.5" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="10" x2="11.07" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.07" y1="2.93" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="10" x2="2.93" y2="11.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div>
+      <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)" class="nav-cta">Let's talk →</a>
+      <button type="button" class="nav-menu-btn" id="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <div class="nav-mobile-inner">
+      <a href="/work/">Work</a>
+      <a href="/#expertise">Expertise</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)" class="nav-mobile-cta">Let's talk →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header" id="main">
+  <div class="site">
+    <div class="article-kicker">
+      <span class="article-tag">Payments</span>
+      <span class="article-date">Sep 28, 2026 · <span id="read-time">9 min read</span></span>
+    </div>
+    <h1>Why your checkout doesn't need twenty payment methods</h1>
+    <p class="article-lede">What iGaming cashiers get right, what retail should borrow — and why the smartest checkout shows less, not more.</p>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="site">
+  <div class="article-body">
+    <p>Open the deposit page of any iGaming platform and you'll find a wall of payment options: cards, e-wallets, bank transfers, vouchers, sometimes a dozen cryptocurrencies. Open a well-designed retail checkout and you'll see three or four. It's tempting to read the iGaming cashier as "more advanced" — more coverage, more choice, more freedom for the user.</p>
+    <p>It isn't. That long list exists for reasons that have nothing to do with good UX, and copying it into a regular e-commerce checkout would be a mistake. Here's why — and what a well-designed checkout should do instead.</p>
+
+    <figure>
+      <img src="../assets/images/blog/checkout-hero.png" alt="A wall of twenty payment method icons on the left, an arrow, and a clean checkout with three relevant methods on the right">
+      <figcaption>Twenty methods on screen vs. the right three — the whole argument in one picture.</figcaption>
+    </figure>
+
+    <h2>The iGaming cashier is a survival mechanism, not a UX benchmark</h2>
+    <p>iGaming operators don't offer twenty payment methods because players love choice. They do it because a huge share of their would-be deposits fail.</p>
+    <p>Cards issued for gambling transactions are declined constantly: many banks apply a gambling block to <code>MCC 7995</code> by default, and an issuer tightening its risk model can tank authorization rates in a specific country overnight. Industry payment teams treat "sudden auth-rate drop by country or BIN" as a recurring operational incident — the standard fix is cascading to a different acquirer or adding an alternative rail like pay-by-bank or an e-wallet (<a href="https://payneteasy.com/blog/casino-payment-methods-complete-guide" target="_blank" rel="noopener">Payneteasy</a>). E-wallets like Skrill and Neteller exist in the stack precisely because they bypass card blocks entirely (<a href="https://ems-ltd.global/payment-methods-for-igaming-platforms/" target="_blank" rel="noopener">EMS</a>).</p>
+    <p>Add the context: a player wants to deposit <em>right now</em>, mid-session, and any failed payment is lost revenue. Add geo fragmentation and a segment of users who want privacy, and you get the typical operator stack — one bank rail, two e-wallets, a voucher option for unbanked players, a crypto PSP, and a card acquirer (<a href="https://fluidpayments.io/articles/top-10-igaming-payment-gateways-2025/" target="_blank" rel="noopener">Fluid Payments</a>).</p>
+    <p>That's not generosity. That's insurance against decline rates, urgency, and anonymity demand. A retailer selling headphones doesn't have these problems — so it doesn't need these solutions.</p>
+
+    <figure>
+      <img src="../assets/images/blog/checkout-igaming.png" alt="A declined card cascading into fallback payment methods: e-wallet, voucher, crypto, pay by bank">
+      <figcaption>The iGaming deposit stack is insurance against declines — not a UX benchmark.</figcaption>
+    </figure>
+
+    <hr>
+
+    <h2>In retail, more options on screen means fewer completed purchases</h2>
+    <p>Baymard Institute, which has benchmarked checkout usability across large-scale studies for years, puts the average cart abandonment rate at roughly <strong>70%</strong> — and its payment UX research is blunt about option overload: a long row of payment logos "creates visual noise and forces users to scan everything before making a choice." Their recommendation is to group methods logically, show the most common methods for your market prominently, and hide the rest behind a "more payment options" link (<a href="https://baymard.com/learn/payment-ux" target="_blank" rel="noopener">Baymard Institute</a>).</p>
+    <p>The same research found that <strong>21%</strong> of e-commerce sites have problems with how they present payment options — problems that directly cause abandonments when users don't see a method they trust or can't find one at all.</p>
+    <blockquote>
+      <p>Users abandon when their method is missing — and when the list is overwhelming. The design problem is not "how many methods," but how fast a given user sees theirs.</p>
+    </blockquote>
+
+    <h2>Localization beats quantity, every time</h2>
+    <p>What "their method" means changes completely by market:</p>
+    <p><strong>Poland.</strong> BLIK is preferred by <strong>68%</strong> of online shoppers (<a href="https://www.trade.gov/country-commercial-guides/poland-ecommerce" target="_blank" rel="noopener">Gemius, via trade.gov</a>). In Q1 2025 Poles made <strong>325M</strong> online payments with BLIK versus <strong>77.8M</strong> with cards — over four times the card volume (<a href="https://tvpworld.com/88453225/polands-blik-mobile-payments-hit-49-billion-in-2025-surpassing-cards" target="_blank" rel="noopener">TVP World</a>). A Polish checkout that leads with a card form is optimizing for the minority.</p>
+    <p><strong>Netherlands.</strong> iDEAL accounts for over <strong>70%</strong> of e-commerce transactions — 1.5 billion payments in 2025 alone (<a href="https://www.betaalvereniging.nl/en/knowledge-base/online-payments/ideal-wero/" target="_blank" rel="noopener">Dutch Payments Association</a>, <a href="https://www.airwallex.com/en-eu/blog/understanding-ideal-payment" target="_blank" rel="noopener">Airwallex</a>). In a country where the word for debt also means "guilt," direct bank transfers beat credit.</p>
+    <p><strong>Germany.</strong> Cards handle only <strong>~11%</strong> of online purchases — the lowest share of any major Western economy. PayPal leads at <strong>~28%</strong>, invoice payment (Rechnungskauf) holds <strong>~27%</strong>, SEPA direct debit <strong>~17%</strong> (<a href="https://hyperswitch.io/blog/popular-payment-methods-in-germany" target="_blank" rel="noopener">HDE/Worldpay data via Hyperswitch</a>). Some studies put it starkly: up to <strong>82%</strong> of German shoppers abandon a purchase if their preferred method is unavailable (<a href="https://cross-border-magazine.com/e-commerce-payment-germany-2025/" target="_blank" rel="noopener">Cross-Border Magazine</a>).</p>
+    <p>Three countries, three completely different "obvious defaults." Twenty methods shown to everyone serves no one; four methods matched to the market serve almost everyone.</p>
+
+    <figure>
+      <img src="../assets/images/blog/checkout-localization.png" alt="Three market cards: Poland with BLIK, Netherlands with iDEAL, Germany with PayPal and invoice">
+      <figcaption>Three neighboring markets — three different "obvious defaults."</figcaption>
+    </figure>
+
+    <hr>
+
+    <h2>The economics of the cart decides the mix</h2>
+    <p>Payment method relevance isn't only geographic — it scales with the price on the screen.</p>
+    <p>For low baskets, speed wins: express wallets (Apple Pay, Google Pay, PayPal) in one tap, card as fallback. Amazon trained two decades of shoppers to expect checkout to take seconds.</p>
+    <p>For high-ticket goods — electronics, furniture, travel — the calculus flips. Trust matters more than speed, and financing becomes a payment method in its own right. Affirm's average order value sits around <strong>$255–300</strong>, roughly 2.5× Klarna's, precisely because it positions for $500+ purchases like electronics and appliances (<a href="https://justpricing.com/klarna-vs-affirm" target="_blank" rel="noopener">Just Pricing</a>). Across providers, BNPL consistently lifts average order value — conservative independent estimates start around <strong>+17%</strong>, with vendor claims running 20–40% and up (<a href="https://www.digitalapplied.com/blog/buy-now-pay-later-statistics-2026-data-points" target="_blank" rel="noopener">Digital Applied</a>, <a href="https://www.chargeflow.io/blog/buy-now-pay-later-statistics" target="_blank" rel="noopener">Chargeflow</a>). An electronics checkout without an installment option isn't minimal — it's leaking revenue on exactly the carts that matter most.</p>
+    <p>So the "right" list isn't static even within one store: it depends on what's in the cart and how much it costs.</p>
+
+    <figure>
+      <img src="../assets/images/blog/checkout-economics.png" alt="Low ticket cart resolved by one-tap express wallets versus high ticket cart resolved by installments">
+      <figcaption>Low ticket → speed. High ticket → trust and financing.</figcaption>
+    </figure>
+
+    <h2>The list on screen should be computed, not written</h2>
+    <p>This is where modern PSP architecture comes in — and where checkout design stops being a UI exercise and becomes a systems problem.</p>
+    <p>Stripe's dynamic payment methods use AI models trained on more than <strong>100</strong> real-time signals — country, currency, amount, device, method uptime, popularity among similar customers — to decide per session which methods appear and in what order, with rules and A/B tests on top (<a href="https://docs.stripe.com/payments/payment-methods/dynamic-payment-methods" target="_blank" rel="noopener">Stripe docs</a>). Adyen's dynamic payment method ordering does the same, optimizing the order for conversion or cost per shopper, drawing on trillions of dollars of transaction data (<a href="https://docs.adyen.com/online-payments/checkout-settings" target="_blank" rel="noopener">Adyen docs</a>, <a href="https://www.adyen.com/knowledge-hub/personalize" target="_blank" rel="noopener">Adyen Personalize</a>).</p>
+    <p>Two customers can open the same checkout an hour apart and see different payment options — and neither is seeing a bug. The list is computed per transaction, not hardcoded.</p>
+    <p>I've worked on the other side of this: designing payment gateway back offices where merchants configure provider credentials, routing rules, blocking rules, and limits. The insight that shaped how I think about checkout design is this:</p>
+    <blockquote>
+      <p>The method list a shopper sees is the output of an orchestration layer, not a static design artifact. Good checkout UI doesn't present a list — it presents a decision the system has already made.</p>
+    </blockquote>
+
+    <figure>
+      <img src="../assets/images/blog/checkout-orchestration.png" alt="Signals like geo, device, amount and risk flowing into an orchestration layer that outputs three payment methods">
+      <figcaption>Signals in, decision out: the checkout shows 3 of 24 available methods.</figcaption>
+    </figure>
+
+    <hr>
+
+    <h2>So where does crypto fit?</h2>
+    <p>Mostly, it doesn't — for now, in mainstream retail. Crypto in iGaming solves specific problems: banking restrictions, cross-border speed, privacy-seeking users. In regular e-commerce those problems barely exist, while crypto's costs are real: price volatility between checkout and settlement, refund complexity, and thin consumer demand outside crypto-native niches like digital goods. It's a legitimate option for specific audiences, not a default row in every checkout.</p>
+    <p>The test is the same as for any method: does a meaningful share of <em>your</em> users, in <em>your</em> market, at <em>your</em> price point, actually want to pay this way? If yes — show it. If not — supporting it quietly behind "more options" costs nothing, but displaying it costs attention.</p>
+
+    <h2>A designer's checklist</h2>
+    <p>If you're designing or auditing a checkout, the method-selection logic should answer five questions:</p>
+    <ol>
+      <li><strong>Geo:</strong> What are the top 2–3 methods in this user's market? (BLIK in Poland, iDEAL in the Netherlands, PayPal + invoice in Germany.) Are they first?</li>
+      <li><strong>Device:</strong> On mobile, are express wallets (Apple Pay / Google Pay) above the fold?</li>
+      <li><strong>Ticket size:</strong> Above a threshold, is an installment/BNPL option visible?</li>
+      <li><strong>Density:</strong> Is the visible list short (3–5), with everything else behind a "more payment options" disclosure?</li>
+      <li><strong>Fallbacks:</strong> If a payment fails, does the checkout offer a relevant alternative instead of a dead end?</li>
+    </ol>
+
+    <h2>The bottom line</h2>
+    <p>The iGaming cashier with twenty payment methods isn't a vision of where checkout design is heading — it's an artifact of an industry where payments fail constantly and every lost deposit is lost revenue. Retail's constraints are different: attention is scarce, trust is local, and the best checkout is the one where each user instantly sees <em>their</em> way to pay.</p>
+    <p><strong>Breadth of payment methods is a capability. Depth of relevance is the experience.</strong> Build the first in your orchestration layer — and design the second on the screen.</p>
+
+    <hr>
+
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://baymard.com/learn/payment-ux" target="_blank" rel="noopener">Baymard Institute — Payment UX research</a></li>
+      <li><a href="https://payneteasy.com/blog/casino-payment-methods-complete-guide" target="_blank" rel="noopener">Payneteasy — Casino payment methods: complete guide</a></li>
+      <li><a href="https://ems-ltd.global/payment-methods-for-igaming-platforms/" target="_blank" rel="noopener">EMS — Payment methods for iGaming platforms</a></li>
+      <li><a href="https://fluidpayments.io/articles/top-10-igaming-payment-gateways-2025/" target="_blank" rel="noopener">Fluid Payments — Top iGaming payment gateways</a></li>
+      <li><a href="https://www.trade.gov/country-commercial-guides/poland-ecommerce" target="_blank" rel="noopener">trade.gov — Poland eCommerce (Gemius data)</a></li>
+      <li><a href="https://tvpworld.com/88453225/polands-blik-mobile-payments-hit-49-billion-in-2025-surpassing-cards" target="_blank" rel="noopener">TVP World — BLIK mobile payments surpass cards</a></li>
+      <li><a href="https://www.betaalvereniging.nl/en/knowledge-base/online-payments/ideal-wero/" target="_blank" rel="noopener">Dutch Payments Association — iDEAL / Wero</a></li>
+      <li><a href="https://hyperswitch.io/blog/popular-payment-methods-in-germany" target="_blank" rel="noopener">Hyperswitch — Popular payment methods in Germany</a></li>
+      <li><a href="https://cross-border-magazine.com/e-commerce-payment-germany-2025/" target="_blank" rel="noopener">Cross-Border Magazine — E-commerce payments in Germany</a></li>
+      <li><a href="https://docs.stripe.com/payments/payment-methods/dynamic-payment-methods" target="_blank" rel="noopener">Stripe — Dynamic payment methods</a></li>
+      <li><a href="https://docs.adyen.com/online-payments/checkout-settings" target="_blank" rel="noopener">Adyen — Checkout settings &amp; dynamic ordering</a></li>
+      <li><a href="https://justpricing.com/klarna-vs-affirm" target="_blank" rel="noopener">Just Pricing — Klarna vs Affirm</a></li>
+    </ol>
+  </div>
+
+  <!-- ARTICLE FOOTER -->
+  <div class="article-footer">
+    <!-- CTA -->
+    <div class="article-cta">
+      <div class="cta-label">Working on payments or checkout UX?</div>
+      <div class="cta-title">Let's talk about yours.</div>
+      <p class="cta-text">I take on senior product design engagements — payment flows, cashier systems, and the design systems behind them.</p>
+      <div class="cta-actions">
+        <a href="mailto:designantonyui@gmail.com?subject=Payments%20design%20engagement%20(via%20antonyui.com)" class="cta-btn">Let's talk →</a>
+        <a href="/work/" class="cta-link">See my work</a>
+        <a href="https://antonyui.com/feed.xml" class="cta-link">RSS</a>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 40px;">
+      <h2 class="section-label">Next Article</h2>
+      <a href="2026-07-15-token-naming-conventions-that-survive-production.html" class="next-case" style="position:relative;">
+        <span class="nc-b"></span>
+        <div>
+          <div class="nc-label">Design Systems · Article</div>
+          <div class="nc-title">The token naming conventions that actually survive production</div>
+        </div>
+        <div class="nc-arrow" aria-hidden="true">↗</div>
+      </a>
+    </div>
+
+    <div class="article-nav">
+      <a href="/blog/">← All entries</a>
+      <a href="/about/">About the author</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 · Anton Bozhatarnyk</div>
+    <div class="footer-status"><span class="footer-status-pill"><span class="footer-status-dot"></span>Available · Poland / Remote EU</span></div>
+    <div class="footer-links">
+      <a href="mailto:designantonyui@gmail.com?subject=Senior%20Product%20Designer%20role%20%E2%80%94%20%5Bcompany%5D%20(via%20antonyui.com)">Email</a>
+      <a href="https://www.linkedin.com/in/antony-bozhatarnyk-b6068441/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../feed.xml">RSS</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

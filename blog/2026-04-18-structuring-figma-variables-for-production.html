@@ -8,37 +8,37 @@
 <link rel="apple-touch-icon" href="../assets/favicon.png">
 <meta name="theme-color" content="#0f0f0e">
 <title>Structuring Figma variables for production · Anton Bozhatarnyk</title>
-<meta name="description" content="How to organize collections, configure token scoping, and set up private publishing conventions that prevent mistakes in Figma and bridge cleanly to code.">
+<meta name="description" content="Collections, modes, scoping, and the sync pipeline — the four decisions that turn Figma variables from a demo feature into production infrastructure.">
 <meta name="author" content="Anton Bozhatarnyk">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://antonyui.com/blog/2026-04-18-structuring-figma-variables-for-production">
 <!-- OG -->
 <meta property="og:title" content="Structuring Figma variables for production">
-<meta property="og:description" content="How to organize collections, configure token scoping, and set up private publishing conventions that prevent mistakes in Figma and bridge cleanly to code.">
+<meta property="og:description" content="Collections, modes, scoping, and the sync pipeline — the four decisions that turn Figma variables from a demo feature into production infrastructure.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://antonyui.com/blog/2026-04-18-structuring-figma-variables-for-production">
-<meta property="og:image" content="https://antonyui.com/assets/images/figma-variables-hero.jpg">
-<meta property="og:image:width" content="1024">
-<meta property="og:image:height" content="537">
+<meta property="og:image" content="https://antonyui.com/assets/images/blog/variables-hero.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
 <meta property="og:site_name" content="Anton Bozhatarnyk">
 <meta property="og:locale" content="en_US">
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Structuring Figma variables for production">
-<meta name="twitter:description" content="How to organize collections, configure token scoping, and set up private publishing conventions that prevent mistakes in Figma and bridge cleanly to code.">
-<meta name="twitter:image" content="https://antonyui.com/assets/images/figma-variables-hero.jpg">
+<meta name="twitter:description" content="Collections, modes, scoping, and the sync pipeline — the four decisions that turn Figma variables from a demo feature into production infrastructure.">
+<meta name="twitter:image" content="https://antonyui.com/assets/images/blog/variables-hero.png">
 <!-- JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Structuring Figma variables for production",
-  "description": "How to organize collections, configure token scoping, and set up private publishing conventions that prevent mistakes in Figma and bridge cleanly to code.",
+  "description": "Collections, modes, scoping, and the sync pipeline — the four decisions that turn Figma variables from a demo feature into production infrastructure.",
   "author": { "@type": "Person", "name": "Anton Bozhatarnyk", "url": "https://antonyui.com/" },
   "publisher": { "@type": "Person", "name": "Anton Bozhatarnyk", "url": "https://antonyui.com/" },
-  "image": "https://antonyui.com/assets/images/figma-variables-hero.jpg",
+  "image": "https://antonyui.com/assets/images/blog/variables-hero.png",
   "datePublished": "2026-04-18",
-  "dateModified": "2026-04-18",
+  "dateModified": "2026-09-29",
   "url": "https://antonyui.com/blog/2026-04-18-structuring-figma-variables-for-production"
 }
 </script>
@@ -53,27 +53,18 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://antonyui.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog",
-      "item": "https://antonyui.com/blog/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Structuring Figma variables for production",
-      "item": "https://antonyui.com/blog/2026-04-18-structuring-figma-variables-for-production"
-    }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://antonyui.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://antonyui.com/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Structuring Figma variables for production", "item": "https://antonyui.com/blog/2026-04-18-structuring-figma-variables-for-production" }
   ]
 }
 </script>
+<style>
+/* figures — article-body has no figure styles in styles.css yet */
+.article-body figure { margin: 32px 0; }
+.article-body figure img { width: 100%; display: block; border: 1px solid var(--border); border-radius: 0; }
+.article-body figcaption { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--faint); margin-top: 10px; line-height: 1.6; }
+</style>
 </head>
 <body>
 
@@ -116,78 +107,85 @@
   <div class="site">
     <div class="article-kicker">
       <span class="article-tag">Design Tokens</span>
-      <span class="article-date">Apr 18, 2026 · <span id="read-time">4 min read</span></span>
+      <span class="article-date">Apr 18, 2026 · <span id="read-time">6 min read</span></span>
     </div>
     <h1>Structuring Figma variables for production</h1>
-    <p class="article-lede">How to organize collections, configure token scoping, and set up private publishing conventions that prevent mistakes in Figma and bridge cleanly to code.</p>
+    <p class="article-lede">Collections, modes, scoping, and the sync pipeline — the four decisions that turn Figma variables from a demo feature into production infrastructure.</p>
   </div>
 </div>
 
 <!-- ARTICLE BODY -->
 <div class="site">
   <div class="article-body">
-    <p>Figma Variables are the most powerful capability added to design systems since Autolayout. But without architectural discipline, teams quickly recreate the exact same chaos they had with legacy color styles: a single cluttered collection with 900 variables, broken mode switching, and designers picking accent oranges for text fills.</p>
+    <p>Every Figma variables rollout I've audited started the same way: one giant collection called "Colors," four hundred variables, Light and Dark modes bolted on later, and a design team that has quietly gone back to eyedroppering hex codes because finding the right variable takes longer than typing it. The feature isn't the problem. Figma variables become production infrastructure only when you make four architectural decisions up front — and most teams make none of them.</p>
 
-    <p>To run a design system that twenty designers can use without guardrails constantly failing, you need to structure your Figma Variables like software engineers structure data: isolated collections, strict type scoping, and hidden private layers.</p>
-
-    <h2>1. The 3-Collection architecture</h2>
-    <p>Never place raw palette colors and functional semantic tokens inside the same Figma collection. Figma resolves modes at the collection level, so bundling them forces raw hexes into mode switching where they don't belong.</p>
-
-    <p>Instead, establish three distinct collections in your library file:</p>
-
+    <h2>1. The 3-collection architecture</h2>
+    <p>Don't put everything in one collection. Split variables by their job in the system, and the mode logic becomes almost free:</p>
     <ul>
-      <li><strong>Collection 1: Primitives (Single Mode):</strong> Contains immutable raw hex values and spacing numbers (e.g. <code>blue/500: #0066FF</code>, <code>space/16: 16</code>). Has only one default mode. These are purely dictionary words.</li>
-      <li><strong>Collection 2: Semantic (Multi-Mode):</strong> Contains functional role tokens (e.g. <code>surface/canvas</code>, <code>text/default</code>, <code>action/primary/bg</code>). Has modes configured for <code>Light</code> and <code>Dark</code> (or <code>Brand A</code>, <code>Brand B</code>). Every variable here is an <strong>alias</strong> pointing back to Collection 1.</li>
-      <li><strong>Collection 3: Component (Overrides):</strong> Reserved for specific sub-elements with unique exceptions (e.g. <code>slider/track/fill</code>). Keeps component-specific quirks from polluting the universal semantic namespace.</li>
+      <li><strong>Primitives</strong> — single mode, raw values. <code>blue/500: #0066FF</code>, <code>neutral/900: #212529</code>. This collection doesn't know dark mode exists. It's a dictionary, not a theme.</li>
+      <li><strong>Semantic</strong> — multi-mode, aliases only. <code>surface/canvas</code>, <code>text/default</code>, <code>action/primary</code> exist here as Light and Dark columns, each cell pointing at a primitive. <strong>All mode switching lives in this collection and nowhere else.</strong></li>
+      <li><strong>Component</strong> — sparse overrides for genuinely unique sub-elements: <code>slider/track/fill</code>, <code>tooltip/notch</code>. Aliases into Semantic. If this collection grows past a few dozen entries, you're recreating the megacomponent problem in token form.</li>
     </ul>
+    <p>Because modes resolve at the collection level, a frame set to "Dark" re-points every semantic alias automatically — while primitives stay untouched. That's the entire trick: <em>change the pointer, never the component.</em></p>
 
-    <p>When an engineer toggles a screen from Light to Dark, Figma only flips the modes in Collection 2. Primitives remain undisturbed, eliminating circular dependency bugs.</p>
+    <figure>
+      <img src="../assets/images/blog/variables-hero.png" alt="Three stacked collections: primitives with raw hexes, a semantic collection with light and dark mode columns, and a component override collection">
+      <figcaption>Modes flip in collection two. Primitives stay untouched; components never see a raw hex.</figcaption>
+    </figure>
 
-    <h2>2. Variable Scoping: the invisible guardrails</h2>
-    <p>The fastest way a design system degrades is when designers accidentally apply tokens to the wrong CSS properties — using a background surface token on body text, or a border-width token on corner radius.</p>
-
-    <p>Figma provides <strong>Variable Scoping</strong> to prevent this at the tool level. In your variable edit modal, explicitly limit each variable to its intended properties:</p>
-
+    <h2>2. Scope every variable — ruthlessly</h2>
+    <p>Figma's variable scoping is the most skipped and most valuable setting in the whole feature. Scoping declares where a variable is allowed to appear:</p>
     <ul>
-      <li><strong>Surface &amp; Background tokens:</strong> Scope to <em>Frame fill</em> and <em>Shape fill</em> only. Turn off <em>Stroke</em> and <em>Text fill</em>.</li>
-      <li><strong>Text tokens:</strong> Scope exclusively to <em>Text fill</em>. When a designer opens the text color picker, they will only see text-appropriate tokens.</li>
-      <li><strong>Border tokens:</strong> Scope strictly to <em>Stroke</em>.</li>
-      <li><strong>Radius tokens:</strong> Scope to <em>Corner radius</em>. Turn off width, height, and gap.</li>
+      <li><code>surface/*</code> → Frame and Shape fills only</li>
+      <li><code>text/*</code> → Text fills only</li>
+      <li><code>border/*</code> → Strokes only</li>
+      <li><code>radius/*</code> → Corner radius fields only</li>
     </ul>
+    <p>The payoff is a picker that can't lie to you. A designer coloring a heading sees only the <code>text/*</code> family — no surface colors, no brand ramps, no primitives. In the libraries I've rebuilt this way, picker noise drops by roughly 75%, and the "wrong token" class of design-review comments mostly disappears. Scoping is linting, built into the tool.</p>
 
-    <p>Scoping reduces the visual noise in your team's color and number pickers by 75%. Designers can't make mistakes because invalid tokens literally do not appear in the menu.</p>
+    <figure>
+      <img src="../assets/images/blog/variables-scoping.png" alt="A scoping settings panel limiting text tokens to text fills, and a color picker showing only the text token family">
+      <figcaption>Invalid tokens never appear in the picker. The tool enforces what the documentation used to beg for.</figcaption>
+    </figure>
 
-    <h2>3. The private token convention</h2>
-    <p>Designers building application screens should never interact with raw primitives like <code>blue/500</code> or <code>gray/100</code>. If they use raw primitives, dark mode breaks because those tokens have no mode awareness.</p>
+    <h2>3. Keep primitives private</h2>
+    <p>Consumers of your library should never see <code>blue/500</code>. The moment a designer applies a primitive directly to a frame, dark mode breaks on that frame — permanently, and silently. The convention that prevents it: prefix internal collections with an underscore — <code>_primitives/blue/500</code> — and hide them from publishing.</p>
+    <p>What ships to consumers is the Semantic layer only: a small, intentional API of tokens with names that describe intent. Primitives become what they should be — private implementation details the system team can retune (a new blue ramp, a perceptual contrast pass) without anyone's file noticing.</p>
 
-    <p>To prevent raw primitives from appearing in consumer files, use Figma's private publishing convention:</p>
+    <blockquote>
+      <p>A design system's public API is its semantic tokens. Everything else is a private implementation detail — treat it that way, or pay for it later.</p>
+    </blockquote>
 
-    <ol>
-      <li>Prefix internal collections or variable groups with an underscore (<code>_primitives/blue/500</code>) or dot (<code>.primitives/blue/500</code>).</li>
-      <li>Or uncheck the <strong>"Hide from publishing"</strong> toggle in the variable collection settings.</li>
-    </ol>
+    <h2>4. The Figma-to-code contract</h2>
+    <p>Variables that live only inside Figma are documentation, not infrastructure. The contract with engineering is a pipeline, and every stage is automatable:</p>
+    <pre><code>Figma Variables
+   │  (REST API / Token Studio export)
+   ▼
+design-tokens.tokens.json        ← W3C format, committed to git
+   │  (Style Dictionary build)
+   ▼
+dist/tokens.css · tokens.ts · tokens.swift
+   │  (CI: contrast tests, then PR into the app repos)
+   ▼
+production</code></pre>
+    <p>The mechanics: a GitHub Action pulls variables via the Figma REST API (or a Token Studio sync), writes them as W3C-format <code>design-tokens.tokens.json</code>, and runs Style Dictionary to compile platform outputs — CSS custom properties for web, TypeScript constants for the app, Swift for iOS. Contrast tests run in the same action, so a token pair that fails WCAG blocks the sync PR before it reaches the engineering repo. One command, one source of truth, zero hand-transcribed hex codes.</p>
 
-    <p>When you publish your library, your semantic variables (`action/primary/bg`) remain fully accessible to product designers, while the underlying primitive aliases stay private inside the library file. The abstraction holds.</p>
+    <figure>
+      <img src="../assets/images/blog/variables-pipeline.png" alt="A pipeline from Figma Variables through a W3C tokens JSON file and Style Dictionary into CSS, TypeScript, and Swift outputs, with a CI contrast check gate">
+      <figcaption>The pipeline is the contract: designers publish, machines translate, CI guards the door.</figcaption>
+    </figure>
 
-    <h2>4. The Figma-to-Code contract</h2>
-    <p>Figma Variables should never be a manual island. Because Figma exposes variables through its REST API, your variables collection can function as the true design token source of truth:</p>
-
-    <pre><code>Figma Variables (Collection 1 & 2)
-       ↓ (Figma REST API / Token Studio)
-design-tokens.tokens.json (W3C standard format)
-       ↓ (Style Dictionary Build Engine)
-dist/tokens.css  |  dist/tokens.ts  |  dist/tokens.swift</code></pre>
-
-    <p>When a design systems designer adjusts a token alias in Figma, a GitHub Action triggers the API export, runs automated contrast verification tests, and commits the updated CSS variables directly into the engineering repository. No spreadsheets, no Slack messages, and zero manual hex translation.</p>
+    <h2>The order matters</h2>
+    <p>These decisions compound. Collections define where modes live; scoping makes the semantic layer self-enforcing; private primitives protect it from bypass; the pipeline makes it real in code. Skip one, and the others degrade — an unscoped semantic layer leaks, an exported primitive sprawl can't be versioned, a beautiful collection structure that never reaches the codebase is a style guide with extra steps. Get all four right, and "Figma variables" stops being a feature demo and becomes what it should be: the single source of truth for every color, space, and radius your product ships.</p>
   </div>
 
   <!-- ARTICLE FOOTER -->
   <div class="article-footer">
     <!-- CTA -->
     <div class="article-cta">
-      <div class="cta-label">Working on a design system?</div>
-      <div class="cta-title">Let's talk about yours.</div>
-      <p class="cta-text">I take on senior product design and design-system engagements — token architecture, component libraries, and design-to-dev handoff.</p>
+      <div class="cta-label">Wiring Figma variables into your codebase?</div>
+      <div class="cta-title">Let's build the pipeline.</div>
+      <p class="cta-text">I take on senior product design and design-system engagements — token architecture, Figma-to-code pipelines, and design-to-dev handoff.</p>
       <div class="cta-actions">
         <a href="mailto:designantonyui@gmail.com?subject=Design%20system%20engagement%20(via%20antonyui.com)" class="cta-btn">Let's talk →</a>
         <a href="/work/" class="cta-link">See my work</a>
@@ -197,11 +195,11 @@ dist/tokens.css  |  dist/tokens.ts  |  dist/tokens.swift</code></pre>
 
     <div style="margin-bottom: 40px;">
       <h2 class="section-label">Next Article</h2>
-      <a href="2026-07-15-token-naming-conventions-that-survive-production.html" class="next-case" style="position:relative;">
+      <a href="2026-09-28-why-your-checkout-doesnt-need-twenty-payment-methods.html" class="next-case" style="position:relative;">
         <span class="nc-b"></span>
         <div>
-          <div class="nc-label">Design Systems · Article</div>
-          <div class="nc-title">The token naming conventions that actually survive production</div>
+          <div class="nc-label">Payments · Article</div>
+          <div class="nc-title">Why your checkout doesn't need twenty payment methods</div>
         </div>
         <div class="nc-arrow" aria-hidden="true">↗</div>
       </a>
